@@ -1,0 +1,36 @@
+model:
+  name: "xlm-roberta-large"  # or xlm-roberta-base for faster experiments
+  max_length: 512           # maximum sequence length
+  hidden_dropout_prob: 0.1
+  attention_dropout_prob: 0.1
+
+training:
+  batch_size: 8
+  learning_rate: 2e-5
+  num_epochs: 10
+  warmup_steps: 500
+  weight_decay: 0.01
+  gradient_accumulation_steps: 2
+  max_grad_norm: 1.0
+  seed: 42
+
+data:
+  train_ratio: 0.8          # 80% for training
+  validation_ratio: 0.2     # 20% for validation
+  supported_languages: ["BG", "EN", "HI", "PT"]
+  label_categories:
+    narratives: ["URW", "CC", "Other"]  # Ukrainian-Russia War, Climate Change
+    # Add specific subnarratives as needed
+
+optimizer:
+  type: "AdamW"
+  beta1: 0.9
+  beta2: 0.999
+  epsilon: 1e-8
+
+logging:
+  wandb_project: "semeval2025-narrative"
+  save_steps: 1000          # Save model every N steps
+  eval_steps: 500          # Evaluate every N steps
+  logging_steps: 100       # Log metrics every N steps
+  output_dir: "results/models"
