@@ -1,0 +1,639 @@
+<html lang="en-US" dir="ltr" platform="macosx" style="--font-family: sans-serif; --font-weight: normal;"><head>
+    <title id="reader-title">SemEval2025 shared task on "Multilingual Characterization and Extraction of Narratives from Online News"</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src chrome:; img-src data: *; media-src *; object-src 'none'">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width; user-scalable=0">
+    <link rel="stylesheet" href="chrome://global/skin/design-system/tokens-brand.css">
+    <link rel="stylesheet" href="chrome://global/skin/aboutReader.css" type="text/css">
+    <link rel="localization" href="toolkit/about/aboutReader.ftl">
+    <link rel="localization" href="toolkit/branding/brandings.ftl">
+    <script type="module" src="chrome://global/content/reader/moz-slider.mjs"></script>
+    <script type="module" src="chrome://global/content/reader/color-input.mjs"></script>
+    <script type="module" src="chrome://global/content/elements/named-deck.js"></script>
+    <link rel="stylesheet" href="chrome://global/skin/narrate-improved.css"><link rel="shortcut icon" href="https://propaganda.math.unipd.it/favicon.ico"></head>
+
+<body class="dark loaded" style="--content-width: 30em; --font-size: 20px;">
+<div class="top-anchor"></div>
+
+<div id="toolbar" class="toolbar-container scrolled">
+    <div class="toolbar reader-toolbar">
+        <div class="reader-controls" articledir="ltr">
+            <button class="close-button toolbar-button" aria-labelledby="toolbar-close" data-telemetry-id="reader-close">
+                <span class="hover-label" id="toolbar-close" data-l10n-id="about-reader-toolbar-close">Close Reader View</span>
+            </button>
+            <ul class="dropdown improved-style-dropdown" id="improved-text-menu">
+                <li>
+                    <button class="dropdown-toggle toolbar-button improved-style-button" aria-labelledby="toolbar-text-layout-controls" data-telemetry-id="reader-text-layout-controls">
+                        <span class="hover-label" id="toolbar-text-layout-controls" data-l10n-id="about-reader-toolbar-text-layout-controls">Text and layout</span>
+                    </button>
+                </li>
+                <li class="dropdown-popup" id="text-layout-controls" tabindex="-1">
+                    <h2 data-l10n-id="about-reader-text-header" id="about-reader-text-header">Text</h2>
+                    <div id="text-size-controls">
+                        <span data-l10n-id="about-reader-text-size-label" id="about-reader-text-size-label">Text size</span>
+                        <div class="text-size-buttons buttonrow">
+                            <button class="text-size-minus-button" data-l10n-id="about-reader-toolbar-minus" data-telemetry-id="text-size-minus-button" title="Decrease font size"></button>
+                            <button class="text-size-plus-button" data-l10n-id="about-reader-toolbar-plus" data-telemetry-id="text-size-plus-button" title="Increase font size"></button>
+                        </div>
+                    </div>
+                    <div id="font-controls">
+                        <div id="font-type-dropdown" class="dropdown-selector">
+                            <label for="font-type-selector" data-l10n-id="about-reader-font-type-selector-label">Font</label>
+                            <select name="font-type-selector" id="font-type-selector" data-telemetry-id="font-type-selector"><option data-l10n-id="about-reader-font-type-sans-serif" value="sans-serif" selected="true">Sans-serif</option><option data-l10n-id="about-reader-font-type-serif" value="serif">Serif</option><option data-l10n-id="about-reader-font-type-monospace" value="monospace">Monospace</option></select>
+                        </div>
+                        <div id="font-weight-dropdown" class="dropdown-selector">
+                            <label for="font-weight-selector" data-l10n-id="about-reader-font-weight-selector-label">Font weight</label>
+                            <select name="font-weight-selector" id="font-weight-selector" data-telemetry-id="font-weight-selector"><option data-l10n-id="about-reader-font-weight-regular" value="regular" selected="true">Regular</option><option data-l10n-id="about-reader-font-weight-light" value="light">Light</option><option data-l10n-id="about-reader-font-weight-bold" value="bold">Bold</option></select>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2 data-l10n-id="about-reader-layout-header" id="about-reader-layout-header">Layout</h2>
+                    <div id="content-width-slider" class="slider-container"><moz-slider min="1" max="9" value="3" ticks="9" tick-labels="[]" data-l10n-id="about-reader-content-width-label" data-l10n-attrs="label" slider-icon="chrome://global/skin/reader/content-width-20.svg" data-telemetry-id="content-width-slider" label="Content width"></moz-slider></div>
+                    <div id="line-spacing-slider" class="slider-container"><moz-slider min="1" max="9" value="4" ticks="9" tick-labels="[]" data-l10n-id="about-reader-line-spacing-label" data-l10n-attrs="label" slider-icon="chrome://global/skin/reader/line-spacing-20.svg" data-telemetry-id="line-spacing-slider" label="Line spacing"></moz-slider></div>
+                    <hr>
+                    <details id="about-reader-advanced-layout">
+                        <summary class="accordion-header">
+                            <h2 data-l10n-id="about-reader-advanced-layout-header" id="about-reader-advanced-layout-header">Advanced</h2>
+                            <span class="chevron-icon"></span>
+                        </summary>
+                        <div id="character-spacing-slider" class="slider-container"><moz-slider min="1" max="9" value="0" ticks="9" tick-labels="[&quot;Standard&quot;, &quot;Wide&quot;]" data-l10n-id="about-reader-character-spacing-label" data-l10n-attrs="label" slider-icon="chrome://global/skin/reader/character-spacing-20.svg" data-telemetry-id="character-spacing-slider" label="Character spacing"></moz-slider></div>
+                        <div id="word-spacing-slider" class="slider-container"><moz-slider min="1" max="9" value="0" ticks="9" tick-labels="[&quot;Standard&quot;, &quot;Wide&quot;]" data-l10n-id="about-reader-word-spacing-label" data-l10n-attrs="label" slider-icon="chrome://global/skin/reader/word-spacing-20.svg" data-telemetry-id="word-spacing-slider" label="Word spacing"></moz-slider></div>
+                        <label for="text-alignment-buttons" data-l10n-id="about-reader-text-alignment-label">Text alignment</label>
+                        <div class="text-alignment-buttons radiorow" id="text-alignment-buttons"><input id="radio-itemleft-align-button" type="radio" class="radio-button" name="text-alignment" data-telemetry-id="left-align-button" checked="true"><label for="radio-itemleft-align-button" class="left-align-button" data-l10n-id="about-reader-text-alignment-left" checked="true" title="Align text left"></label><input id="radio-itemcenter-align-button" type="radio" class="radio-button" name="text-alignment" data-telemetry-id="center-align-button"><label for="radio-itemcenter-align-button" class="center-align-button" data-l10n-id="about-reader-text-alignment-center" title="Align text center"></label><input id="radio-itemright-align-button" type="radio" class="radio-button" name="text-alignment" data-telemetry-id="right-align-button"><label for="radio-itemright-align-button" class="right-align-button" data-l10n-id="about-reader-text-alignment-right" title="Align text right"></label></div>
+                        <button class="text-layout-reset-button reset-button" data-l10n-id="about-reader-reset-button">Reset defaults</button>
+                    </details>
+                </li>
+            </ul>
+            <ul class="dropdown style-dropdown" id="regular-text-menu" hidden="">
+                <li>
+                    <button class="dropdown-toggle toolbar-button style-button" aria-labelledby="toolbar-type-controls" data-telemetry-id="reader-type-controls">
+                        <span class="hover-label" id="toolbar-type-controls" data-l10n-id="about-reader-toolbar-type-controls">Type controls</span>
+                    </button>
+                </li>
+                <li class="dropdown-popup">
+                    <div class="font-type-buttons radiorow"></div>
+                    <div class="font-size-buttons buttonrow">
+                        <button class="minus-button" data-l10n-id="about-reader-toolbar-minus" title="Decrease font size"></button>
+                        <span class="font-size-value"></span>
+                        <button class="plus-button" data-l10n-id="about-reader-toolbar-plus" title="Increase font size"></button>
+                    </div>
+                    <div class="content-width-buttons buttonrow">
+                        <button class="content-width-minus-button" data-l10n-id="about-reader-toolbar-contentwidthminus" title="Decrease Content Width"></button>
+                        <span class="content-width-value"></span>
+                        <button class="content-width-plus-button" data-l10n-id="about-reader-toolbar-contentwidthplus" title="Increase Content Width"></button>
+                    </div>
+                    <div class="line-height-buttons buttonrow">
+                        <button class="line-height-minus-button" data-l10n-id="about-reader-toolbar-lineheightminus" title="Decrease Line Height"></button>
+                        <span class="line-height-value"></span>
+                        <button class="line-height-plus-button" data-l10n-id="about-reader-toolbar-lineheightplus" title="Increase Line Height"></button>
+                    </div>
+                    <div class="color-scheme-buttons radiorow" id="regular-color-scheme" hidden=""></div>
+                </li>
+            </ul>
+            <ul class="dropdown colors-dropdown" id="custom-colors-color-scheme">
+                <li>
+                    <button class="dropdown-toggle toolbar-button colors-button" aria-labelledby="toolbar-color-controls" data-telemetry-id="reader-color-controls">
+                        <span class="hover-label" id="toolbar-color-controls" data-l10n-id="about-reader-toolbar-theme-controls">Theme</span>
+                    </button>
+                </li>
+                <li class="dropdown-popup" id="color-controls">
+                    <h2 data-l10n-id="about-reader-colors-menu-header" id="about-reader-colors-menu-header">Theme</h2>
+                    <button-group aria-labelledby="about-reader-colors-menu-header" role="tablist">
+                        <button is="named-deck-button" deck="tabs-deck" name="fxtheme" data-l10n-id="about-reader-fxtheme-tab" data-telemetry-id="colors-menu-default-tab" id="tabs-deck-button-fxtheme" role="tab" aria-selected="true" tabindex="0" selected="">Default</button>
+                        <button is="named-deck-button" deck="tabs-deck" name="customtheme" data-l10n-id="about-reader-customtheme-tab" data-telemetry-id="colors-menu-custom-tab" id="tabs-deck-button-customtheme" role="tab" aria-selected="false" tabindex="-1">Custom</button>
+                    </button-group>
+                    <named-deck id="tabs-deck" is-tabbed="" selected-view="fxtheme">
+                        <div name="fxtheme" class="colors-menu-color-scheme-buttons radiorow" aria-labelledby="tabs-deck-button-fxtheme" role="tabpanel" slot="selected"><input id="radio-itemauto-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="auto-button" checked="true"><label for="radio-itemauto-button" class="auto-button" data-l10n-id="about-reader-color-auto-theme" checked="true" title="Auto theme">Auto</label><input id="radio-itemlight-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="light-button"><label for="radio-itemlight-button" class="light-button" data-l10n-id="about-reader-color-light-theme" title="Light theme">Light</label><input id="radio-itemdark-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="dark-button"><label for="radio-itemdark-button" class="dark-button" data-l10n-id="about-reader-color-dark-theme" title="Dark theme">Dark</label><input id="radio-itemsepia-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="sepia-button"><label for="radio-itemsepia-button" class="sepia-button" data-l10n-id="about-reader-color-sepia-theme" title="Sepia theme">Sepia</label><input id="radio-itemcontrast-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="contrast-button"><label for="radio-itemcontrast-button" class="contrast-button" data-l10n-id="about-reader-color-contrast-theme" title="Contrast theme">Contrast</label><input id="radio-itemgray-button" type="radio" class="radio-button" name="color-scheme" data-telemetry-id="gray-button"><label for="radio-itemgray-button" class="gray-button" data-l10n-id="about-reader-color-gray-theme" title="Gray theme">Gray</label></div>
+                        <div name="customtheme" aria-labelledby="tabs-deck-button-customtheme" role="tabpanel" slot="">
+                            <ul class="custom-colors-selection"><li><color-input prop-name="foreground" data-l10n-id="about-reader-custom-colors-foreground" data-telemetry-id="custom-color-picker-foreground" color="#14151A" title="Edit color">Text</color-input></li><li><color-input prop-name="background" data-l10n-id="about-reader-custom-colors-background" data-telemetry-id="custom-color-picker-background" color="#FFFFFF" title="Edit color">Background</color-input></li><li><color-input prop-name="unvisited-links" data-l10n-id="about-reader-custom-colors-unvisited-links" data-telemetry-id="custom-color-picker-unvisited-links" color="#0060DF" title="Edit color">Unvisited links</color-input></li><li><color-input prop-name="visited-links" data-l10n-id="about-reader-custom-colors-visited-links" data-telemetry-id="custom-color-picker-visited-links" color="#321C64" title="Edit color">Visited links</color-input></li><li><color-input prop-name="selection-highlight" data-l10n-id="about-reader-custom-colors-selection-highlight" data-telemetry-id="custom-color-picker-selection-highlight" color="#FFFFCC" title="Edit color">Highlighter for read aloud</color-input></li></ul>
+                            <button class="custom-colors-reset-button reset-button" data-l10n-id="about-reader-reset-button">Reset defaults</button>
+                        </div>
+                    </named-deck>
+                </li>
+            </ul>
+            <ul class="dropdown narrate-dropdown"><li><button class="dropdown-toggle toolbar-button narrate-toggle" data-telemetry-id="reader-listen" aria-label="Read aloud (N)"><span class="hover-label">Read aloud (N)</span></button></li><li class="dropdown-popup"><h2 id="narrate-header">Read aloud</h2><div class="narrate-row narrate-control"><button class="narrate-skip-previous" disabled="" aria-keyshortcuts="ArrowLeft" title="Back (←)"></button><button class="narrate-start-stop" aria-keyshortcuts="N" title="Start (N)"></button><button class="narrate-skip-next" disabled="" aria-keyshortcuts="ArrowRight" title="Forward (→)"></button></div><div class="narrate-row narrate-rate"><span class="narrate-rate-icon slow" title="Slow down narration"></span><input class="narrate-rate-input" value="0" step="5" max="100" min="-100" type="range" aria-label="Choose a narration speed from -100 to 100, where 0 is the default speed." title="Speed"><span class="narrate-rate-icon fast" title="Speed up narration"></span></div><hr><h2 id="voice-header">Voice</h2><div class="narrate-row narrate-voices"><div class="voiceselect voice-select"><button class="select-toggle" aria-controls="voice-options" aria-expanded="false" role="combobox" aria-labelledby="voice-header">
+                <span class="label"></span> <span class="current-voice">Default</span>
+            </button>
+                <div class="options" id="voice-options" role="listbox" style="max-height: 982px;"><button data-value="automatic" class="option selected" tabindex="-1" role="option" aria-selected="true">Default</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Albert" class="option" tabindex="-1" role="option">Albert (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.BadNews" class="option" tabindex="-1" role="option">Bad News (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Bahh" class="option" tabindex="-1" role="option">Bahh (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Bells" class="option" tabindex="-1" role="option">Bells (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Boing" class="option" tabindex="-1" role="option">Boing (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Bubbles" class="option" tabindex="-1" role="option">Bubbles (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Cellos" class="option" tabindex="-1" role="option">Cellos (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-GB.Daniel" class="option" tabindex="-1" role="option">Daniel (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Eddy" class="option" tabindex="-1" role="option">Eddy (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Eddy" class="option" tabindex="-1" role="option">Eddy (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Flo" class="option" tabindex="-1" role="option">Flo (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Flo" class="option" tabindex="-1" role="option">Flo (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Fred" class="option" tabindex="-1" role="option">Fred (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.GoodNews" class="option" tabindex="-1" role="option">Good News (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Grandma" class="option" tabindex="-1" role="option">Grandma (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Grandma" class="option" tabindex="-1" role="option">Grandma (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Grandpa" class="option" tabindex="-1" role="option">Grandpa (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Grandpa" class="option" tabindex="-1" role="option">Grandpa (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Hysterical" class="option" tabindex="-1" role="option">Jester (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Junior" class="option" tabindex="-1" role="option">Junior (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-AU.Karen" class="option" tabindex="-1" role="option">Karen (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Kathy" class="option" tabindex="-1" role="option">Kathy (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-IE.Moira" class="option" tabindex="-1" role="option">Moira (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Organ" class="option" tabindex="-1" role="option">Organ (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Ralph" class="option" tabindex="-1" role="option">Ralph (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Reed" class="option" tabindex="-1" role="option">Reed (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Reed" class="option" tabindex="-1" role="option">Reed (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-IN.Rishi" class="option" tabindex="-1" role="option">Rishi (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Rocko" class="option" tabindex="-1" role="option">Rocko (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Rocko" class="option" tabindex="-1" role="option">Rocko (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-US.Samantha" class="option" tabindex="-1" role="option">Samantha (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Sandy" class="option" tabindex="-1" role="option">Sandy (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Sandy" class="option" tabindex="-1" role="option">Sandy (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-GB.Shelley" class="option" tabindex="-1" role="option">Shelley (English (UK)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.eloquence.en-US.Shelley" class="option" tabindex="-1" role="option">Shelley (English (US)) (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Princess" class="option" tabindex="-1" role="option">Superstar (English)</button><button data-value="urn:moz-tts:osx:com.apple.voice.compact.en-ZA.Tessa" class="option" tabindex="-1" role="option">Tessa (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Trinoids" class="option" tabindex="-1" role="option">Trinoids (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Whisper" class="option" tabindex="-1" role="option">Whisper (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Deranged" class="option" tabindex="-1" role="option">Wobble (English)</button><button data-value="urn:moz-tts:osx:com.apple.speech.synthesis.voice.Zarvox" class="option" tabindex="-1" role="option">Zarvox (English)</button></div></div></div></li></ul><button data-buttonid="pocket-button" data-telemetry-id="reader-save-to-pocket" class="toolbar-button pocket-button" aria-labelledby="label-pocket-button" style="background-image: url(&quot;chrome://global/skin/icons/pocket.svg&quot;);"><span class="hover-label" id="label-pocket-button" data-l10n-id="about-reader-toolbar-savetopocket">Save to Pocket</span></button></div>
+    </div>
+</div>
+
+<div class="container" style="--line-height: 1.6em; --letter-spacing: -0.03em; --word-spacing: -0.05em; --text-alignment: start; --block-img-margin-right: unset; --block-img-margin-left: unset;" lang="en" dir="ltr">
+    <div class="header reader-header reader-show-element">
+        <a class="domain reader-domain" href="https://propaganda.math.unipd.it/semeval2025task10/">propaganda.math.unipd.it</a>
+        <div class="domain-border"></div>
+        <h1 class="reader-title">SemEval2025 shared task on "Multilingual Characterization and Extraction of Narratives from Online News"</h1>
+        <div class="credits reader-credits"></div>
+        <div class="meta-data">
+            <div class="reader-estimated-time" data-l10n-args="{&quot;range&quot;:&quot;22–28&quot;,&quot;rangePlural&quot;:&quot;other&quot;}" data-l10n-id="about-reader-estimated-read-time" dir="ltr">22–28 minutes</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+        <div class="moz-reader-content reader-show-element"><div id="readability-page-1" class="page"><div>
+            <div>
+
+                <p>
+                    The internet has opened vast possibilities to easily create direct communication channels between information producers and consumers, potentially leaving the latter exposed to deceptive content and attempts at manipulation. Huge audiences can be affected online, and major crisis events are continuously subjected to the spread of harmful disinformation and propaganda.
+                </p>
+                <p>
+                    In order to foster research and development of novel analytical functionalities to support end-users in analysing the news ecosystem and characterizing manipulation attempts, we launch in the frame of
+                    <a href="https://semeval.github.io/SemEval2025/">SemEval 2025</a> campaign a Task on <b>Multilingual Characterization and Extraction of Narratives from Online News</b>.
+
+                </p>
+                <p>
+                    In particular, the task focuses on the automatic identification of narratives, their classification and identifying the roles of the relevant entities involved.
+                    These specific analytical dimensions are of paramount importance for facilitating the work of analysts studying target-specific disinformation phenomena.
+
+                </p>
+                <p>
+                    We offer three subtasks on news articles: <b>Entity Framing</b>, <b>Narrative Classification</b> and <b>Narrative Extraction</b>, in <i>five</i> languages: <b>Bulgarian</b>, <b>English</b>, <b>Hindi</b>, <b>(European) Portuguese</b>, and <b>Russian</b>.
+                    The participants may take part in any number of subtask-language pairs (even just one), and may train their systems using the data for all languages (in a multilingual setup).
+
+                </p>
+                <p>
+                    The task builts on top of the prior tasks on media analysis that focused on persuasion techniques, framing dimensions and news genre
+                    organized as part of <a href="https://propaganda.math.unipd.it/semeval2023task3/">SemEval 2023</a>, <a href="https://propaganda.qcri.org/semeval2020-task11/">SemEval 2020</a>, and <a href="https://checkthat.gitlab.io/clef2024/task3/">CheckThat! 2024 Lab</a> campaigns, and the task on detecting entity roles in memes organized as part of
+                    the <a href="https://checkthat.gitlab.io/clef2024/task4/">CheckThat! 2024 Lab</a>
+                    .
+                </p>
+            </div>
+
+            <div>
+
+                <h2> Technical Description </h2>
+                <p>
+                    The task covers news articles from two domains, namely, <b>Ukraine-Russia War</b> and <b>Climate Change</b>, and is subdivided into three subtasks
+                </p>
+                <h4>Subtask 1: Entity Framing</h4>
+                <p>
+                    <b>Definition</b>: given a news article and a list of mentions of named entities (NEs) in the article, assign for each such mention one or more roles using a <a href="https://propaganda.math.unipd.it/semeval2025task10/ENTITY-ROLE-TAXONOMY.pdf">predefined taxonomy of fine-grained roles</a> covering three main type of roles: <i>protagonists</i>, <i>antagonists</i>, and <i>innocent</i>.
+                    This is a multi-label multi-class text-span classification task.
+
+                </p>
+                <h4>Subtask 2: Narrative Classification</h4>
+                <p>
+                    <b>Definition</b>: given a news article and a <a href="https://propaganda.math.unipd.it/semeval2025task10/NARRATIVE-TAXONOMIES.pdf">two-level taxonomy of narrative labels</a> (where each narrative is subdivided into subnarratives) from a particular domain,
+                    assign to the article all the appropriate subnarrative labels. This is a multi-label multi-class document classification task.
+
+                </p>
+                <h4>Subtask 3: Narrative Extraction</h4>
+                <p>
+                    <b>Definition</b>: given a news article and a <i>dominant narrative</i> of the text of this article, generate a free-text explanation (up to max. of 80 words)
+                    supporting the choice of this dominant narrative. The to-be-generated explanation should be grounded in the text fragments
+                    that provide evidence of the claims of the dominant narrative. This is a text-to-text generation task.
+                </p>
+
+
+                <h4>Example</h4>
+                <p>Below is an example of a news article focusing on climate change topics. The key entities and main claim-related text fragments are marked and underlined respectivelly.</p>
+                <p><span size="3"><i>
+		<b>Met Office Should Put 2.5°C ‘Uncertainties’ Warning on All Future Temperature Claims</b>
+<u>It is “abundantly clear” that the <mark>Met Office</mark> cannot scientifically claim to know the cur-
+rent average temperature of the U.K. to a hundredth of a degree centigrade, given that
+it is using data that has a margin of error of up to 2.5°C</u>, notes the climate journalist
+<mark>Paul Homewood</mark>. His comments follow recent disclosures in the <mark>Daily Sceptic</mark> that <u>nearly
+eight out of ten of the Met’s 380 measuring stations come with official ‘uncertainties’ of
+between 2-5°C. In addition, given the poor siting of the stations now and possibly in the
+past, the <mark>Met Office</mark> has no means of knowing whether it is comparing like with like when
+it publishes temperature trends going back to 1884.</u>
+</i></span></p><p><i>
+                There are five classes of measuring stations identified by the World Meteorological Office
+                (WMO). Classes 4 and 5 come with uncertainties of 2°C and 5°C respectively and account
+                for an astonishing 77% of the <mark>Met Office</mark> station total. Class 3 has an uncertainty rating
+                of 1°C and accounts for another 8.4% of the total. The Class ratings identify potential
+                corruptions in recordings caused by both human and natural involvement. </i></p><i><u><mark>Homewood</mark>
+                calculates that the average uncertainty across the entire database is 2.5°C.</u> In the graph
+                below, he then calculates the range of annual U.K. temperatures going back to 2010
+                incorporating the margins of error.
+                <p>
+                    The blue blocks show the annual temperature announced by the <mark>Met Office</mark>, while the red
+                    bars take account of the WMO uncertainties. </p><u>It is highly unlikely that the red bars show
+                    the more accurate temperature, and there is much evidence to suggest temperatures are
+                    nearer the blue trend. But the point of the exercise is to note that the <mark>Met Office</mark>, in the
+                    interests of scientific exactitude, should disclose what could be large measurement inac-
+                    curacies. This is particularly important when it is making highly politicised statements
+                    using rising temperatures to promote the Net Zero fantasy.</u> As <mark>Homewood</mark> observes,
+                the <mark>Met Office</mark> “cannot say with any degree of scientific certainty that the last two years
+                were the warmest on record, nor quantify how much, if any, the climate has warmed since
+                1884”.
+                <p>
+                    The U.K. figures are of course an important component of the <mark>Met Office</mark>’s global temper-
+                    ature dataset known as HadCRUT. As we noted recently, there is ongoing concern about
+                    the accuracy of HadCRUT with large retrospective adjustments of warming in recent
+                    times and cooling further back in the record. In fact, this concern has been ongoing for
+                    some time. The late <mark>Christopher Booker</mark> was a great champion of climate scepticism and
+                    in February 2015 he suggested that </p><u>the “fiddling” with temperature data “is the biggest
+                    science scandal ever”</u>. Writing in the Telegraph, he noted: “When future generations
+                look back on the global warming scare of the past 30 years, nothing will shock them
+                more than the extent to which <u>official temperatures records – on which the entire panic
+                    rested – were systematically ‘adjusted’ to show the Earth as having warmed more than
+                    the actual data justified.</u>”
+            </i><p></p>
+                <p>The corresponding system response (in a simplified form here) for all three subtasks, i.e., entity roles, narrative classification and extraction,
+                    are provided below.</p>
+                <p><span size="3">
+<b>Entity Roles</b><br>
+ Met Office: Antagonist-[Deceiver]<br>
+ Paul Homewood: Protagonist-[Guardian]<br>
+ Daily Sceptic: Protagonist-[Guardian]<br>
+ Christopher Booker: Protagonist-[Guardian,Virtuous]</span></p><p>
+                <b>Narrative Classification: </b>Questioning the measurements and science (narrative) - Methodologies/metrics used are unreliable/fault (subnarrative) </p><p>
+                <b>Narrative Extraction: </b>Paul Homewood claims that the Met Office is misleading the public about current UK temperatures
+                by not disclosing a margin of error of up to 2.5º C. The Daily Sceptic reports that most of the Met
+                Office’s 380 stations provide inaccurate measurements. Additionally, Christopher Booker argues that
+                official reports have been repeatedly falsified to indicate climate warming. Thus, the Met Office
+                cannot conclude with scientific certainty that the climate is becoming warm</p><p></p><p><span size="3">
+<br>
+	  </span></p><h3> Data Description </h3>
+                <p>
+                    We will provide a training set to build your systems locally.
+                    We will further provide a development set (without annotations) and an online submission website to score your systems. A public leaderboard will show the progress on the task of the researchers involved in the task.
+                </p>
+                <p>
+                    The data is unique in its kind, it is multilingual, focuses on two highly-debated global topics, and covers various complementary dimensions relevant for the analysis of manipulative attempts in online news media.
+                    We use fine-grained entity role and narrative taxonomies.
+
+                </p><h4> Input Articles </h4>
+                <p>
+                    The input for all tasks will be news and web articles in plain text format in UTF-8.
+                    After registrations, participants will be able to download from their team page the corpus.
+                    Specifically, articles are provided in the folders  train-articles-subtask-x.
+                    Further, we will provide a set of dev-articles-subtask-x for which annotations are not provided.
+                </p>
+                <p>
+                    Each article appears in one .txt file.
+                    The title (if it exists) is on the first row, followed by an empty row. The content of the article starts from the third row.
+                </p>
+                <p>
+                    Articles in five languages (<b>Bulgarian</b>, <b>English</b>, <b>Hindi</b>, <b>(European) Portuguese</b>, and <b>Russian</b>) are collected from 2022 to mid 2024, they revolve around two topics,
+                    namely, Ukraine-Russia war and Climate Change. Our media/article selection covers mainly alternative news and web portals, large fraction of which were identified by fact-checkers
+                    and media credibility experts as potentially spreading mis-/disinformation. For the collection of the articles we exploit various
+                    news aggregation engines, like for instance <a href="https://emm.newsbrief.eu/">Europe Media Monitor (EMM)</a>, a large-scale multi-lingual near real-time news aggregation and analysis engine, whereas fraction of the articles were collected and filtered manually.
+                    Articles whenever possible were retrieved with the <a href="https://trafilatura.readthedocs.io/en/latest/">Trafilatura</a> library or other similar web-scraping tools, and otherwise were retrieved manually.
+
+                </p>
+
+                <h4> Gold Labels and Submission Format </h4>
+                <h5> Subtask 1 - Entity Framing </h5>
+                <p>
+                    The format of a tab-separated line of the gold label and the submission files for subtask 1 is:
+                </p><hr>
+                <pre> article_id     entity_mention     start_offset     end_offset     main_role(*)     fine-grained_roles(*)
+		</pre>
+                <hr>
+
+                <p>
+                    where <em>article_id</em> is the file name of the input article file, <em>entity_mention</em> is the string representing the entity mention, <em>start_offset</em> (<em>end_offset</em>) provides the start/end position of the mention, <em>main_role</em> is a string representing the main entity role, and <em>fine-grained_roles</em> is a tab-separated list of strings representing the fine-grained role(s).
+                    This is an example of a section of the gold file for three articles:
+                </p>
+                <hr>
+                <pre>
+                               EN_10001.txt   Martin Luther King Jr.  10   32    Protagonist    Martyr
+                               EN_10002.txt   Mahatma Gandhi          12   27    Protagonist    Martyr      Rebel
+                               EN_10003.txt   ISIS                    4    8     Antagonist     Terrorist   Deceiver
+						</pre>
+                <hr>
+                Partial view of a gold label file for Subtask 1
+
+
+                <p>
+                    <b>IMPORTANT:</b> For creating the submission file a list of all entity mentions and the corresponding offets for all the
+                    articles will be provided. There is no need to do any Named-Entity recognition on participant side.
+                </p>
+
+                <p>
+                    (*) The leaderboard will evaluate predictions for both <em>main_role</em> and <em>fine_grained_roles</em>, however,
+                    the official evaluation metric is for the <em>fine_grained_roles</em>.
+                </p>
+                <p>
+                    Note that <em>main_role</em> should take only one of three values from the 1st level of the taxonomy, while <em>fine_grained_roles</em>
+                    should take one or more values from the 2nd level of the taxonomy.
+                </p>
+                <p>
+                    If you chose not to train a model to predict <em>main_role</em>, you still need to provide a proper value under <em>main_role</em>
+                    to pass the format checker code in the scorer.
+                </p>
+
+
+
+
+
+                <h5> Subtask 2 - Narrative Characterization</h5>
+                <p>
+                    The format of a tab-separated line of the gold label and the submission files for subtask 2 is:
+                </p><hr>
+                <pre> article_id     narrative_1;...;narrative_N     subnarrative_1;...;subnarrative_N
+	    </pre>
+                <hr>
+
+                <p>
+                    where <em>article_id</em> is the file name of the input article file, <em>narrative_x</em> is a label (of the provided hierarchy) representing a narrative present in the article, and <em>subnarrative_x</em> is one of the labels (of the hierarchy) representing a subnarrative (corresponding to <em>subnarrative_x</em>) present in the article.
+                    In case neither specific narrative nor subnarrative label can be assigned the “<i>Other</i>” pseudo-label is used. In case the article
+                    is labeled with a specific narrative label but no specific subnarrative can be assigned, the convention “[Narrative] : Other” will be used
+                    to represent a label that although belongs to a narrative does not fit any of the sub-narratives.
+                    This is an example of a section of the gold file for three articles:
+                </p>
+                <hr>
+                <pre>                              EN_10001.txt     URW: Blaming Others                           URW: Ukraine is the aggressor
+                              EN_10002.txt     URW: Blaming Others;URW: Praise of Russia     URW: Blaming Others: Other;URW: Praising Russia’s military might
+                              EN_10003.txt     Other                               Other
+		</pre>
+                <hr>
+                Partial view of a gold label file for Subtask 2.
+
+
+                <p>
+                    <b>IMPORTANT:</b> For creating the submission file two lists one with the <em>narratives</em> and one with the <em>sub-narratives</em> need to be provided.
+                    No consistency requirement is enforced (e.g. <em>sub-narrative</em> X:Y need not have <em>narrative</em> X) as they are evaluated independently.
+
+                </p>
+                <p>
+                    (*) The leaderboard will evaluate predictions for both <em>narrative</em> ('coarse-level') and <em>sub-narrative</em>('fine-level'), however, the official evaluation metric is for the <em>sub-narrative</em>.
+                </p>
+                <p>
+                    Note that <em>narrative</em> should take one or more of the values from the 1st level of the taxonomies (either CC or URW), and <em>sub-narrative</em> should take one or more values from the 2nd level of the taxonomies.
+                    <br>
+                    Participants are free to deploy any strategy to deduce or infer seperately the <em>narrative</em>.
+                    If one choses not to train a model to predict <em>narrative</em>, one still needs to provide a proper value under <em>narrative</em> to pass the format checker code in the scorer (e.g. by just putting everything as 'Other').
+                    <br>
+                </p>
+
+                <h5> Subtask 3 - Narrative Extraction </h5>
+                <p>
+                    The format of a tab-separated line of the ground truth files for subtask 3 is:
+                </p><hr>
+                <pre> article_id   dominant_narrative   dominant_subnarrative   explanation
+	    </pre>
+                <hr>
+
+                <p>
+                    where <em>article_id</em> is the file name of the input article, <em>dominant_narrative</em> is the string representing the dominant narrative of the article, <em>dominant_subnarrative</em> is the string representing the corresponding dominant subnarrative of the article, and <em>explanation</em> is the string representing free text explanation of the dominant narrative.
+                    The format of the submission files is similar (see below), but does not include the dominant-narrative elements.
+                </p><hr>
+                <pre> article_id   explanation
+	    </pre>
+                <hr>
+
+                <p>
+                    This is an example of a section of the gold file for two articles:
+                </p>
+                <hr>
+                <pre>                                EN_10001.txt     URW: Blaming Others     URW: Ukraine is the aggressor            Ukraine war started...
+                                EN_10002.txt     URW: Praise of Russia   URW: Praising Russia’s military might    Russia is...
+		</pre>
+                <hr>
+                Partial view of a gold label file for Subtask 3
+                <p>
+                    For the training set we provide one gold file per article as well as a single gold file with all gold labels for all files.
+                    The participants are expected to upload one file for all the articles per task.
+                </p>
+
+                <p></p></div><p><span size="3">
+
+
+
+	  </span></p><h3> Evaluation </h3>
+            <p>
+                Upon registration, participants will have access to their team page, where they can also download scripts for scoring the different tasks.
+                Here is a brief description of the evaluation measures the scorers compute.
+            </p><h4> Subtask 1 </h4>
+            <p>
+                Subtask 1 is a multiclass multi-label classification problem.
+                The official evaluation measure will be <a href="https://mmuratarat.github.io/2020-01-25/multilabel_classification_metrics">Exact Match Ratio</a>
+                which measures the proportion of samples where all labels are correctly predicted.
+            </p>
+            <h4> Subtask 2 </h4>
+            <p>
+                Subtask 2 is a multi-label multi-class classification problem.
+                The official evaluation measure will be averaged (over test documents) <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">samples F<sub>1</sub></a> computed for entire <em>narrative_x:subnarrative_x</em> labels.
+                That is, we will first compute an F1 score per test document by comparing the predicted to the gold <em>narrative_x:subnarrative_x</em> labels of the document, and we will then average over the test documents.
+                Both the <em>narrative_x</em> and the <em>subnarrative_x</em> part of each predicted <em>narrative_x:subnarrative_x</em> label will have to be correct for the predicted label to be considered correct. We will also report averaged samples F1 computed for narratives only, by ignoring the <em>subnarrative_x parts</em> of the <em>narrative_x:subnarrative_x</em> predicted and gold labels.
+            </p>
+            <h4> Subtask 3 </h4>
+            <p>
+                Subtask 3 is a text generation task. The official evaluation measure is the average of similarities between gold and the corresponding predicted explanations
+                using the F1 metric computed by <a href="https://openreview.net/pdf?id=SkeHuCVFDr">BertScore</a> (see also <a href="https://huggingface.co/spaces/evaluate-metric/bertscore">BertScore at huggingFace</a>).
+
+            </p><p>
+            For all subtasks additional <i>secondary</i> evaluation scores will be computed as well and displayed on the leaderboard.
+        </p>
+
+
+
+
+
+
+            <div id="howto">
+                <h3> Related datasets and material </h3>
+                <p>
+                    Apart from the specific training datasets for our task there are other related datasets that could be
+                    exploited in one way or another for assembling and elaborating models for the various tasks.
+                </p><h4> Subtask 1 </h4>
+                <p>
+                    <a href="https://aclanthology.org/2023.eacl-main.157.pdf">[Sharma et al., 2023]</a>
+                    provides a dataset for identifying heros, villains, and victims in memes, with similar
+                    coarse-level classes. The dataset for target sentiment analysis presented in
+                    <a href="https://aclanthology.org/2021.emnlp-main.721/">[Orbach et al., 2021]</a> could be
+                    used to build a model to identify target entities of certain sentiments.
+                </p>
+                <h4> Subtask 2 </h4>
+                <p>
+                    A dataset consisting of news articles and other types of texts for classification of Climate Change denial
+                    claims, which uses to some extent a similar taxonomy of narratives is presented in
+                    <a href="https://www.nature.com/articles/s41598-021-01714-4">[Coan et al., 2021]</a>, while a cleaned
+                    version thereof is reported in <a href="https://ceur-ws.org/Vol-3117/paper11.pdf">[Piskorski et al., 2022]</a>.
+                    A thorough analysis of the narratives in the context of Ukraine-Russia war is presented in
+                    <a href="https://www.illiberalism.org/tell-us-how-you-really-feel-analyzing-pro-kremlin-propaganda-devices-narratives-to-identify-sentiment-implications/">[Amanatullah, et al., 2023]</a>.
+                    A dataset for fine-grained narrative classification, albeit in a different domain than the ones in our task, namely,
+                    COVID-19 is presented in <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0291423">[Kotseva et al., 2023]</a>.
+                </p>
+                <h4> Subtask 3 </h4>
+                <p>
+                    Detecting persuasion techniques in texts might help to spot relevant text fragments with manipulative content.
+                    A wide range of relevant datasets for detection of such techniques in online news exists:
+                    <a href="https://aclanthology.org/2020.semeval-1.186/">[Da San Martino et al., 2020]</a>
+                    <a href="https://aclanthology.org/2023.semeval-1.317/">[Piskorski et al., 2023]</a>
+                    <a href="https://ceur-ws.org/Vol-3740/paper-26.pdf">[Piskorski et al., 2024]</a>.
+
+                </p></div>
+
+
+
+
+
+
+            <div id="howto">
+                <h2>How to Participate</h2>
+                <ul>
+                    <li>
+                        Ask to participate on the <a href="https://propaganda.math.unipd.it/semeval2025task10/registration.php">registration page</a>, once your account is checked you'll be able to access the data and have the possibility to submit your predictions.
+                    </li>
+                    <li>
+                        After we manually verify your account, you will get an email with your team passcode. In case you do not receive the email, after
+                        checking your SPAM folder, then
+                        <a href="mailto:semeval2025narratives-task@googlegroups.com">send us an email</a>.
+                        We recommed you write down the passcode (and bookmark your team page). <br>
+                        We will use your email only to send you updates on the corpus or to let you know if we organise any event on the topic, we promise.
+                    </li>
+                    <li>
+                        Use the passcode on the <a href="#submit">top-right box</a> to enter your
+                        team page. There you can download the data and submit your runs.
+                    </li>
+                    <li>
+                        <b>Phase 1</b>. Submit your predictions on the development set to check your performance evolution. You will get an immediate feedback for each submission and you can check other participants' performances. <br>
+                        Avoid submitting an abnormal number of submissions with the purpose of guessing the gold labels. <br>
+                        Manual predictions are forbidden; the whole process should be automatic.
+                    </li>
+                    <li>
+                        <b>Phase 2</b>. Once the test set is available, you will be able to submit your predictions on it, but you won't get any  feedback until the end of the evaluation phase. <br>
+                        You can make as many submissions as you like, but we will evaluate only the latest one.
+                    </li>
+                    <li>
+                        The dataset may include content which is protected by copyright of third parties.  It may only be used in the context of this shared task, and only for scientific research purposes. The dataset may not be redistributed or shared in part or full with any third party.  You may not share you passcode with others or give access to the dataset to unauthorised users. Any other use is explicitly prohibited.<br>
+                        In order to disseminate the results, we give the chance to the users to share a link to a paper or a website describing their systems.
+                    </li>
+                </ul>
+            </div>
+
+            <div id="dates">
+                <h2>Dates</h2>
+                <center>
+                    <table>
+                        <tbody><tr>
+                            <td>15 July 2024</td>
+                            <td>Task description available</td>
+                        </tr>
+                        <tr>
+                            <td>9 September 2024</td>
+                            <td>Registration opens<br></td>
+                        </tr>
+                        <tr>
+                            <td>12 September 2024</td>
+                            <td>First chunk of training data released<br></td>
+                        </tr>
+                        <tr>
+                        </tr><tr>
+                            <td>16 October 2024</td>
+                            <td>Second chunk of training data released<br></td>
+                        </tr>
+                        <tr>
+                            <td>11 November 2024</td>
+                            <td>Development dataset released and Leaderboard opened<br></td>
+                        </tr>
+                        <tr>
+                            <td>7 December 2024</td>
+                            <td>Complete training data released<br></td>
+                        </tr>
+                        <tr>
+                            <td>10 January 2025</td>
+                            <td>Release of the gold labels of the development set</td>
+                        </tr>
+                        <tr>
+                        </tr><tr>
+                            <td>19 January 2025</td>
+                            <td>Release of the test set for Subtask 1 and 2</td>
+                        </tr>
+                        <tr>
+                            <td>26 January 2025 at 23:59 (Anywhere on Earth)</td>
+                            <td>Test submission site closes for Subtask 1 and 2</td>
+                        </tr>
+                        <tr>
+                            <td>27 January 2025</td>
+                            <td>Release of the test set for Subtask 3</td>
+                        </tr>
+                        <tr>
+                            <td>31 January 2025 at 23:59 (Anywhere on Earth)</td>
+                            <td>Test submission site closes for Subtask 3</td>
+                        </tr>
+                        <tr>
+                        </tr><tr>
+                            <td>28 February 2025</td>
+                            <td>System Paper Submission Deadline</td>
+                        </tr>
+                        <tr>
+                            <td>31 March 2025</td>
+                            <td>Notification to authors</td>
+                        </tr>
+                        <tr>
+                            <td>21 April 2025</td>
+                            <td>Camera ready papers due</td>
+                        </tr>
+                        <tr>
+                            <td>Summer 2025</td>
+                            <td>SemEval workshop (co-located with a major NLP conference)</td>
+                        </tr>
+                        </tbody></table>
+                </center>
+            </div>
+
+            <div id="organisation">
+                <h2>Contact</h2>
+                <p>
+                    We have created a
+                    <a href="https://groups.google.com/g/semeval2025narratives-task-participants">
+                        google group
+                    </a>
+                    for the task. Join it to ask any question and to interact with other participants.
+                </p>
+                <p>
+                    Follow us on <a href="https://twitter.com/_proppy_" target="_blank">twitter</a>
+                    to get the latest updates on the data and the competition!
+                </p>
+                <p>
+                    If you need to contact the organisers only,
+                    <a href="https://propaganda.math.unipd.it/semeval2025task10/semeval2025narratives-task@googlegroups.com">send us an email</a>.
+                </p>
+                <h2>Credits</h2>
+                <p>
+                    The following people are making this task possible:
+                </p>
+                <ul>
+                    <li>Jakub Piskorski, Institute of Computer Science, Polish Academy of Sciences, Poland</li>
+                    <li>Giovanni Da San Martino, University of Padova, Italy</li>
+                    <li>Elisa Sartori, University of Padova, Italy</li>
+                    <li>Tarek Mahmoud, Mohamed bin Zayed University of Artificial Intelligence, UAE</li>
+                    <li>Preslav Nakov, Mohamed bin Zayed University of Artificial Intelligence, UAE</li>
+                    <li>Zhuohan Xie, Mohamed bin Zayed University of Artificial Intelligence, UAE</li>
+                    <li>Tanmoy Chakraborty, Indian Institute of Technology, Delhi</li>
+                    <li>Shivam Sharma, Indian Institute of Technology, Delhi</li>
+                    <li>Roman Yangarber, University of Helsinki, Finland</li>
+                    <li>Ion Androutsopoulos, Athens University of Economics and Business, and Archimedes/Athena RC, Greece</li>
+                    <li>John Pavlopoulos, Athens University of Economics and Business, and Archimedes/Athena RC, Greece</li>
+                    <li>Nikolaos Nikolaidis, Athens University of Economics and Business, Greece</li>
+                    <li>Ricardo Campos, University of Beira Interior, Portugal</li>
+                    <li>Alípio Jorge, University of Porto and INESC TEC, Portugal</li>
+                    <li>Purificação Silvano, University of Porto, Portugal</li>
+                    <li>Nuno Ricardo Guimarães, University of Porto and INESC TEC, Portugal</li>
+                    <li>Dimitar Dimitrov, Sofia University, Bulgaria</li>
+                    <li>Ivan Koychev, Sofia University, Bulgaria</li>
+                    <li>Nicolas Stefanovitch, European Commission Joint Research Centre, Italy</li>
+                </ul>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <p></p></div></div></div>
+    </div>
+
+    <div>
+        <div class="reader-message"></div>
+    </div>
+    <div aria-owns="toolbar"></div>
+</div>
+
+
+</body></html>

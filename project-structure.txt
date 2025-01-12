@@ -1,0 +1,1544 @@
+.
+├── Data set
+│   ├── analyse_data_set.ipynb
+│   └── training_data_16_October_release
+│       ├── BG
+│       │   ├── raw-documents
+│       │   │   ├── A9_BG_2566.txt
+│       │   │   ├── A9_BG_2719.txt
+│       │   │   ├── A9_BG_2836.txt
+│       │   │   ├── A9_BG_2858.txt
+│       │   │   ├── A9_BG_2931.txt
+│       │   │   ├── A9_BG_2963.txt
+│       │   │   ├── A9_BG_2972.txt
+│       │   │   ├── A9_BG_2973.txt
+│       │   │   ├── A9_BG_3023.txt
+│       │   │   ├── A9_BG_3097.txt
+│       │   │   ├── A9_BG_3109.txt
+│       │   │   ├── A9_BG_3142.txt
+│       │   │   ├── A9_BG_3182.txt
+│       │   │   ├── A9_BG_3203.txt
+│       │   │   ├── A9_BG_3204.txt
+│       │   │   ├── A9_BG_3206.txt
+│       │   │   ├── A9_BG_3273.txt
+│       │   │   ├── A9_BG_3283.txt
+│       │   │   ├── A9_BG_3290.txt
+│       │   │   ├── A9_BG_3298.txt
+│       │   │   ├── A9_BG_3300.txt
+│       │   │   ├── A9_BG_3363.txt
+│       │   │   ├── A9_BG_3379.txt
+│       │   │   ├── A9_BG_3385.txt
+│       │   │   ├── A9_BG_3390.txt
+│       │   │   ├── A9_BG_3395.txt
+│       │   │   ├── A9_BG_3430.txt
+│       │   │   ├── A9_BG_3431.txt
+│       │   │   ├── A9_BG_3440.txt
+│       │   │   ├── A9_BG_3543.txt
+│       │   │   ├── A9_BG_3563.txt
+│       │   │   ├── A9_BG_3586.txt
+│       │   │   ├── A9_BG_3599.txt
+│       │   │   ├── A9_BG_3652.txt
+│       │   │   ├── A9_BG_3672.txt
+│       │   │   ├── A9_BG_3675.txt
+│       │   │   ├── A9_BG_3704.txt
+│       │   │   ├── A9_BG_3734.txt
+│       │   │   ├── A9_BG_3756.txt
+│       │   │   ├── A9_BG_3762.txt
+│       │   │   ├── A9_BG_3779.txt
+│       │   │   ├── A9_BG_3818.txt
+│       │   │   ├── A9_BG_5143.txt
+│       │   │   ├── A9_BG_5155.txt
+│       │   │   ├── A9_BG_5190.txt
+│       │   │   ├── A9_BG_5225.txt
+│       │   │   ├── A9_BG_5226.txt
+│       │   │   ├── A9_BG_5402.txt
+│       │   │   ├── A9_BG_5548.txt
+│       │   │   ├── A9_BG_5596.txt
+│       │   │   ├── A9_BG_5817.txt
+│       │   │   ├── A9_BG_583.txt
+│       │   │   ├── A9_BG_5871.txt
+│       │   │   ├── A9_BG_5903.txt
+│       │   │   ├── A9_BG_5957.txt
+│       │   │   ├── A9_BG_5965.txt
+│       │   │   ├── A9_BG_5984.txt
+│       │   │   ├── A9_BG_6002.txt
+│       │   │   ├── A9_BG_6015.txt
+│       │   │   ├── A9_BG_6207.txt
+│       │   │   ├── A9_BG_6229.txt
+│       │   │   ├── A9_BG_6815.txt
+│       │   │   ├── A9_BG_6875.txt
+│       │   │   ├── A9_BG_7303.txt
+│       │   │   ├── A9_BG_7690.txt
+│       │   │   ├── A9_BG_7720.txt
+│       │   │   ├── A9_BG_8028.txt
+│       │   │   ├── A9_BG_8210.txt
+│       │   │   ├── A9_BG_8333.txt
+│       │   │   ├── A9_BG_8450.txt
+│       │   │   ├── BG_1006.txt
+│       │   │   ├── BG_1044.txt
+│       │   │   ├── BG_1089.txt
+│       │   │   ├── BG_1098.txt
+│       │   │   ├── BG_1163.txt
+│       │   │   ├── BG_1164.txt
+│       │   │   ├── BG_1181.txt
+│       │   │   ├── BG_1249.txt
+│       │   │   ├── BG_1258.txt
+│       │   │   ├── BG_1319.txt
+│       │   │   ├── BG_1341.txt
+│       │   │   ├── BG_1345.txt
+│       │   │   ├── BG_1352.txt
+│       │   │   ├── BG_1390.txt
+│       │   │   ├── BG_1423.txt
+│       │   │   ├── BG_1509.txt
+│       │   │   ├── BG_1544.txt
+│       │   │   ├── BG_1559.txt
+│       │   │   ├── BG_1637.txt
+│       │   │   ├── BG_171.txt
+│       │   │   ├── BG_1725.txt
+│       │   │   ├── BG_1767.txt
+│       │   │   ├── BG_1826.txt
+│       │   │   ├── BG_1843.txt
+│       │   │   ├── BG_1867.txt
+│       │   │   ├── BG_2536.txt
+│       │   │   ├── BG_3079.txt
+│       │   │   ├── BG_3245.txt
+│       │   │   ├── BG_3284.txt
+│       │   │   ├── BG_3351.txt
+│       │   │   ├── BG_3364.txt
+│       │   │   ├── BG_3368.txt
+│       │   │   ├── BG_3541.txt
+│       │   │   ├── BG_3629.txt
+│       │   │   ├── BG_364.txt
+│       │   │   ├── BG_3669.txt
+│       │   │   ├── BG_3671.txt
+│       │   │   ├── BG_3753.txt
+│       │   │   ├── BG_3759.txt
+│       │   │   ├── BG_3867.txt
+│       │   │   ├── BG_3909.txt
+│       │   │   ├── BG_4188.txt
+│       │   │   ├── BG_4228.txt
+│       │   │   ├── BG_423.txt
+│       │   │   ├── BG_430.txt
+│       │   │   ├── BG_435.txt
+│       │   │   ├── BG_4366.txt
+│       │   │   ├── BG_439.txt
+│       │   │   ├── BG_4531.txt
+│       │   │   ├── BG_454.txt
+│       │   │   ├── BG_456.txt
+│       │   │   ├── BG_457.txt
+│       │   │   ├── BG_4613.txt
+│       │   │   ├── BG_4624.txt
+│       │   │   ├── BG_463.txt
+│       │   │   ├── BG_4648.txt
+│       │   │   ├── BG_4713.txt
+│       │   │   ├── BG_473.txt
+│       │   │   ├── BG_4732.txt
+│       │   │   ├── BG_476.txt
+│       │   │   ├── BG_480.txt
+│       │   │   ├── BG_481.txt
+│       │   │   ├── BG_4819.txt
+│       │   │   ├── BG_4845.txt
+│       │   │   ├── BG_4872.txt
+│       │   │   ├── BG_4884.txt
+│       │   │   ├── BG_494.txt
+│       │   │   ├── BG_497.txt
+│       │   │   ├── BG_504.txt
+│       │   │   ├── BG_508.txt
+│       │   │   ├── BG_509.txt
+│       │   │   ├── BG_5098.txt
+│       │   │   ├── BG_513.txt
+│       │   │   ├── BG_521.txt
+│       │   │   ├── BG_526.txt
+│       │   │   ├── BG_529.txt
+│       │   │   ├── BG_5360.txt
+│       │   │   ├── BG_538.txt
+│       │   │   ├── BG_5406.txt
+│       │   │   ├── BG_541.txt
+│       │   │   ├── BG_546.txt
+│       │   │   ├── BG_5470.txt
+│       │   │   ├── BG_548.txt
+│       │   │   ├── BG_551.txt
+│       │   │   ├── BG_553.txt
+│       │   │   ├── BG_555.txt
+│       │   │   ├── BG_559.txt
+│       │   │   ├── BG_560.txt
+│       │   │   ├── BG_561.txt
+│       │   │   ├── BG_573.txt
+│       │   │   ├── BG_576.txt
+│       │   │   ├── BG_582.txt
+│       │   │   ├── BG_585.txt
+│       │   │   ├── BG_5914.txt
+│       │   │   ├── BG_5918.txt
+│       │   │   ├── BG_5942.txt
+│       │   │   ├── BG_6019.txt
+│       │   │   ├── BG_6045.txt
+│       │   │   ├── BG_607.txt
+│       │   │   ├── BG_612.txt
+│       │   │   ├── BG_613.txt
+│       │   │   ├── BG_616.txt
+│       │   │   ├── BG_620.txt
+│       │   │   ├── BG_624.txt
+│       │   │   ├── BG_628.txt
+│       │   │   ├── BG_629.txt
+│       │   │   ├── BG_630.txt
+│       │   │   ├── BG_637.txt
+│       │   │   ├── BG_663.txt
+│       │   │   ├── BG_666.txt
+│       │   │   ├── BG_670.txt
+│       │   │   ├── BG_676.txt
+│       │   │   ├── BG_678.txt
+│       │   │   ├── BG_679.txt
+│       │   │   ├── BG_684.txt
+│       │   │   ├── BG_696.txt
+│       │   │   ├── BG_699.txt
+│       │   │   ├── BG_701.txt
+│       │   │   ├── BG_704.txt
+│       │   │   ├── BG_7070.txt
+│       │   │   ├── BG_723.txt
+│       │   │   ├── BG_7367.txt
+│       │   │   ├── BG_7379.txt
+│       │   │   ├── BG_751.txt
+│       │   │   ├── BG_7557.txt
+│       │   │   ├── BG_799.txt
+│       │   │   ├── BG_8060.txt
+│       │   │   ├── BG_828.txt
+│       │   │   ├── BG_8385.txt
+│       │   │   ├── BG_839.txt
+│       │   │   ├── BG_8453.txt
+│       │   │   ├── BG_8455.txt
+│       │   │   ├── BG_855.txt
+│       │   │   ├── BG_866.txt
+│       │   │   ├── BG_869.txt
+│       │   │   ├── BG_888.txt
+│       │   │   ├── BG_892.txt
+│       │   │   ├── BG_894.txt
+│       │   │   ├── BG_895.txt
+│       │   │   ├── BG_939.txt
+│       │   │   └── BG_971.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── EN
+│       │   ├── raw-documents
+│       │   │   ├── EN_CC_100000.txt
+│       │   │   ├── EN_CC_100002.txt
+│       │   │   ├── EN_CC_100003.txt
+│       │   │   ├── EN_CC_100004.txt
+│       │   │   ├── EN_CC_100005.txt
+│       │   │   ├── EN_CC_100007.txt
+│       │   │   ├── EN_CC_100008.txt
+│       │   │   ├── EN_CC_100009.txt
+│       │   │   ├── EN_CC_100010.txt
+│       │   │   ├── EN_CC_100011.txt
+│       │   │   ├── EN_CC_100012.txt
+│       │   │   ├── EN_CC_100015.txt
+│       │   │   ├── EN_CC_100021.txt
+│       │   │   ├── EN_CC_100024.txt
+│       │   │   ├── EN_CC_100028.txt
+│       │   │   ├── EN_CC_100030.txt
+│       │   │   ├── EN_CC_100036.txt
+│       │   │   ├── EN_CC_100037.txt
+│       │   │   ├── EN_CC_100038.txt
+│       │   │   ├── EN_CC_100040.txt
+│       │   │   ├── EN_CC_100042.txt
+│       │   │   ├── EN_CC_100044.txt
+│       │   │   ├── EN_CC_100046.txt
+│       │   │   ├── EN_CC_100047.txt
+│       │   │   ├── EN_CC_100050.txt
+│       │   │   ├── EN_CC_100054.txt
+│       │   │   ├── EN_CC_100065.txt
+│       │   │   ├── EN_CC_100066.txt
+│       │   │   ├── EN_CC_100067.txt
+│       │   │   ├── EN_CC_100069.txt
+│       │   │   ├── EN_CC_100070.txt
+│       │   │   ├── EN_CC_100076.txt
+│       │   │   ├── EN_CC_100083.txt
+│       │   │   ├── EN_CC_100091.txt
+│       │   │   ├── EN_CC_100093.txt
+│       │   │   ├── EN_CC_100095.txt
+│       │   │   ├── EN_CC_100098.txt
+│       │   │   ├── EN_CC_100106.txt
+│       │   │   ├── EN_CC_100122.txt
+│       │   │   ├── EN_CC_100123.txt
+│       │   │   ├── EN_CC_100124.txt
+│       │   │   ├── EN_CC_100136.txt
+│       │   │   ├── EN_CC_100137.txt
+│       │   │   ├── EN_CC_100139.txt
+│       │   │   ├── EN_CC_100145.txt
+│       │   │   ├── EN_CC_100146.txt
+│       │   │   ├── EN_CC_100147.txt
+│       │   │   ├── EN_CC_100150.txt
+│       │   │   ├── EN_CC_100156.txt
+│       │   │   ├── EN_CC_100159.txt
+│       │   │   ├── EN_CC_100169.txt
+│       │   │   ├── EN_CC_100172.txt
+│       │   │   ├── EN_CC_100197.txt
+│       │   │   ├── EN_CC_100198.txt
+│       │   │   ├── EN_CC_100203.txt
+│       │   │   ├── EN_CC_100211.txt
+│       │   │   ├── EN_CC_100213.txt
+│       │   │   ├── EN_CC_100223.txt
+│       │   │   ├── EN_CC_100232.txt
+│       │   │   ├── EN_CC_100235.txt
+│       │   │   ├── EN_CC_100243.txt
+│       │   │   ├── EN_CC_200001.txt
+│       │   │   ├── EN_CC_200007.txt
+│       │   │   ├── EN_CC_200009.txt
+│       │   │   ├── EN_CC_200012.txt
+│       │   │   ├── EN_CC_200013.txt
+│       │   │   ├── EN_CC_200015.txt
+│       │   │   ├── EN_CC_200016.txt
+│       │   │   ├── EN_CC_200018.txt
+│       │   │   ├── EN_CC_200021.txt
+│       │   │   ├── EN_CC_200022.txt
+│       │   │   ├── EN_CC_200029.txt
+│       │   │   ├── EN_UA_000104.txt
+│       │   │   ├── EN_UA_000543.txt
+│       │   │   ├── EN_UA_000568.txt
+│       │   │   ├── EN_UA_000923.txt
+│       │   │   ├── EN_UA_001032.txt
+│       │   │   ├── EN_UA_001052.txt
+│       │   │   ├── EN_UA_002416.txt
+│       │   │   ├── EN_UA_002531.txt
+│       │   │   ├── EN_UA_002668.txt
+│       │   │   ├── EN_UA_002991.txt
+│       │   │   ├── EN_UA_003579.txt
+│       │   │   ├── EN_UA_004209.txt
+│       │   │   ├── EN_UA_004343.txt
+│       │   │   ├── EN_UA_004616.txt
+│       │   │   ├── EN_UA_008072.txt
+│       │   │   ├── EN_UA_008586.txt
+│       │   │   ├── EN_UA_010091.txt
+│       │   │   ├── EN_UA_010095.txt
+│       │   │   ├── EN_UA_010735.txt
+│       │   │   ├── EN_UA_010901.txt
+│       │   │   ├── EN_UA_010909.txt
+│       │   │   ├── EN_UA_011260.txt
+│       │   │   ├── EN_UA_012234.txt
+│       │   │   ├── EN_UA_012611.txt
+│       │   │   ├── EN_UA_012803.txt
+│       │   │   ├── EN_UA_013257.txt
+│       │   │   ├── EN_UA_013344.txt
+│       │   │   ├── EN_UA_013617.txt
+│       │   │   ├── EN_UA_013710.txt
+│       │   │   ├── EN_UA_013727.txt
+│       │   │   ├── EN_UA_014014.txt
+│       │   │   ├── EN_UA_014413.txt
+│       │   │   ├── EN_UA_014637.txt
+│       │   │   ├── EN_UA_014829.txt
+│       │   │   ├── EN_UA_015443.txt
+│       │   │   ├── EN_UA_015880.txt
+│       │   │   ├── EN_UA_015962.txt
+│       │   │   ├── EN_UA_016012.txt
+│       │   │   ├── EN_UA_016466.txt
+│       │   │   ├── EN_UA_017310.txt
+│       │   │   ├── EN_UA_017831.txt
+│       │   │   ├── EN_UA_018789.txt
+│       │   │   ├── EN_UA_019640.txt
+│       │   │   ├── EN_UA_020543.txt
+│       │   │   ├── EN_UA_021123.txt
+│       │   │   ├── EN_UA_021263.txt
+│       │   │   ├── EN_UA_021270.txt
+│       │   │   ├── EN_UA_021310.txt
+│       │   │   ├── EN_UA_021377.txt
+│       │   │   ├── EN_UA_021872.txt
+│       │   │   ├── EN_UA_021918.txt
+│       │   │   ├── EN_UA_022016.txt
+│       │   │   ├── EN_UA_022051.txt
+│       │   │   ├── EN_UA_022319.txt
+│       │   │   ├── EN_UA_022339.txt
+│       │   │   ├── EN_UA_023008.txt
+│       │   │   ├── EN_UA_023211.txt
+│       │   │   ├── EN_UA_023816.txt
+│       │   │   ├── EN_UA_024050.txt
+│       │   │   ├── EN_UA_024321.txt
+│       │   │   ├── EN_UA_024628.txt
+│       │   │   ├── EN_UA_024847.txt
+│       │   │   ├── EN_UA_025165.txt
+│       │   │   ├── EN_UA_025652.txt
+│       │   │   ├── EN_UA_025764.txt
+│       │   │   ├── EN_UA_026036.txt
+│       │   │   ├── EN_UA_026142.txt
+│       │   │   ├── EN_UA_026697.txt
+│       │   │   ├── EN_UA_026740.txt
+│       │   │   ├── EN_UA_027676.txt
+│       │   │   ├── EN_UA_027787.txt
+│       │   │   ├── EN_UA_027816.txt
+│       │   │   ├── EN_UA_027879.txt
+│       │   │   ├── EN_UA_028103.txt
+│       │   │   ├── EN_UA_028520.txt
+│       │   │   ├── EN_UA_029053.txt
+│       │   │   ├── EN_UA_029155.txt
+│       │   │   ├── EN_UA_100106.txt
+│       │   │   ├── EN_UA_100210.txt
+│       │   │   ├── EN_UA_100411.txt
+│       │   │   ├── EN_UA_100587.txt
+│       │   │   ├── EN_UA_100601.txt
+│       │   │   ├── EN_UA_100688.txt
+│       │   │   ├── EN_UA_100840.txt
+│       │   │   ├── EN_UA_100864.txt
+│       │   │   ├── EN_UA_100868.txt
+│       │   │   ├── EN_UA_101067.txt
+│       │   │   ├── EN_UA_101079.txt
+│       │   │   ├── EN_UA_101189.txt
+│       │   │   ├── EN_UA_101251.txt
+│       │   │   ├── EN_UA_101805.txt
+│       │   │   ├── EN_UA_101954.txt
+│       │   │   ├── EN_UA_101996.txt
+│       │   │   ├── EN_UA_102034.txt
+│       │   │   ├── EN_UA_102054.txt
+│       │   │   ├── EN_UA_102084.txt
+│       │   │   ├── EN_UA_102415.txt
+│       │   │   ├── EN_UA_102655.txt
+│       │   │   ├── EN_UA_102703.txt
+│       │   │   ├── EN_UA_102754.txt
+│       │   │   ├── EN_UA_102892.txt
+│       │   │   ├── EN_UA_102953.txt
+│       │   │   ├── EN_UA_102958.txt
+│       │   │   ├── EN_UA_102963.txt
+│       │   │   ├── EN_UA_102990.txt
+│       │   │   ├── EN_UA_103011.txt
+│       │   │   ├── EN_UA_103025.txt
+│       │   │   ├── EN_UA_103168.txt
+│       │   │   ├── EN_UA_103251.txt
+│       │   │   ├── EN_UA_103372.txt
+│       │   │   ├── EN_UA_103403.txt
+│       │   │   ├── EN_UA_103445.txt
+│       │   │   ├── EN_UA_103517.txt
+│       │   │   ├── EN_UA_103667.txt
+│       │   │   ├── EN_UA_103732.txt
+│       │   │   ├── EN_UA_103861.txt
+│       │   │   ├── EN_UA_103941.txt
+│       │   │   ├── EN_UA_103995.txt
+│       │   │   ├── EN_UA_104152.txt
+│       │   │   ├── EN_UA_104224.txt
+│       │   │   ├── EN_UA_104434.txt
+│       │   │   ├── EN_UA_104523.txt
+│       │   │   ├── EN_UA_104569.txt
+│       │   │   ├── EN_UA_104604.txt
+│       │   │   ├── EN_UA_104775.txt
+│       │   │   ├── EN_UA_104791.txt
+│       │   │   ├── EN_UA_104859.txt
+│       │   │   └── EN_UA_104876.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── HI
+│       │   ├── raw-documents
+│       │   │   ├── HI_1.txt
+│       │   │   ├── HI_100.txt
+│       │   │   ├── HI_101.txt
+│       │   │   ├── HI_102.txt
+│       │   │   ├── HI_103.txt
+│       │   │   ├── HI_104.txt
+│       │   │   ├── HI_105.txt
+│       │   │   ├── HI_106.txt
+│       │   │   ├── HI_108.txt
+│       │   │   ├── HI_109.txt
+│       │   │   ├── HI_111.txt
+│       │   │   ├── HI_112.txt
+│       │   │   ├── HI_113.txt
+│       │   │   ├── HI_115.txt
+│       │   │   ├── HI_116.txt
+│       │   │   ├── HI_117.txt
+│       │   │   ├── HI_118.txt
+│       │   │   ├── HI_119.txt
+│       │   │   ├── HI_120.txt
+│       │   │   ├── HI_121.txt
+│       │   │   ├── HI_122.txt
+│       │   │   ├── HI_123.txt
+│       │   │   ├── HI_124.txt
+│       │   │   ├── HI_127.txt
+│       │   │   ├── HI_128.txt
+│       │   │   ├── HI_129.txt
+│       │   │   ├── HI_13.txt
+│       │   │   ├── HI_130.txt
+│       │   │   ├── HI_131.txt
+│       │   │   ├── HI_132.txt
+│       │   │   ├── HI_133.txt
+│       │   │   ├── HI_136.txt
+│       │   │   ├── HI_137.txt
+│       │   │   ├── HI_138.txt
+│       │   │   ├── HI_14.txt
+│       │   │   ├── HI_141.txt
+│       │   │   ├── HI_142.txt
+│       │   │   ├── HI_144.txt
+│       │   │   ├── HI_145.txt
+│       │   │   ├── HI_146.txt
+│       │   │   ├── HI_147.txt
+│       │   │   ├── HI_148.txt
+│       │   │   ├── HI_149.txt
+│       │   │   ├── HI_15.txt
+│       │   │   ├── HI_150.txt
+│       │   │   ├── HI_16.txt
+│       │   │   ├── HI_18.txt
+│       │   │   ├── HI_2.txt
+│       │   │   ├── HI_20.txt
+│       │   │   ├── HI_21.txt
+│       │   │   ├── HI_22.txt
+│       │   │   ├── HI_23.txt
+│       │   │   ├── HI_24.txt
+│       │   │   ├── HI_25.txt
+│       │   │   ├── HI_27.txt
+│       │   │   ├── HI_29.txt
+│       │   │   ├── HI_3.txt
+│       │   │   ├── HI_30.txt
+│       │   │   ├── HI_32.txt
+│       │   │   ├── HI_33.txt
+│       │   │   ├── HI_36.txt
+│       │   │   ├── HI_37.txt
+│       │   │   ├── HI_39.txt
+│       │   │   ├── HI_40.txt
+│       │   │   ├── HI_41.txt
+│       │   │   ├── HI_42.txt
+│       │   │   ├── HI_43.txt
+│       │   │   ├── HI_44.txt
+│       │   │   ├── HI_45.txt
+│       │   │   ├── HI_46.txt
+│       │   │   ├── HI_47.txt
+│       │   │   ├── HI_48.txt
+│       │   │   ├── HI_49.txt
+│       │   │   ├── HI_53.txt
+│       │   │   ├── HI_54.txt
+│       │   │   ├── HI_55.txt
+│       │   │   ├── HI_56.txt
+│       │   │   ├── HI_57.txt
+│       │   │   ├── HI_58.txt
+│       │   │   ├── HI_59.txt
+│       │   │   ├── HI_6.txt
+│       │   │   ├── HI_60.txt
+│       │   │   ├── HI_61.txt
+│       │   │   ├── HI_62.txt
+│       │   │   ├── HI_63.txt
+│       │   │   ├── HI_64.txt
+│       │   │   ├── HI_65.txt
+│       │   │   ├── HI_66.txt
+│       │   │   ├── HI_67.txt
+│       │   │   ├── HI_69.txt
+│       │   │   ├── HI_7.txt
+│       │   │   ├── HI_70.txt
+│       │   │   ├── HI_72.txt
+│       │   │   ├── HI_73.txt
+│       │   │   ├── HI_74.txt
+│       │   │   ├── HI_78.txt
+│       │   │   ├── HI_79.txt
+│       │   │   ├── HI_8.txt
+│       │   │   ├── HI_80.txt
+│       │   │   ├── HI_81.txt
+│       │   │   ├── HI_82.txt
+│       │   │   ├── HI_84.txt
+│       │   │   ├── HI_85.txt
+│       │   │   ├── HI_86.txt
+│       │   │   ├── HI_87.txt
+│       │   │   ├── HI_88.txt
+│       │   │   ├── HI_89.txt
+│       │   │   ├── HI_9.txt
+│       │   │   ├── HI_90.txt
+│       │   │   ├── HI_91.txt
+│       │   │   ├── HI_92.txt
+│       │   │   ├── HI_93.txt
+│       │   │   ├── HI_94.txt
+│       │   │   ├── HI_98.txt
+│       │   │   └── HI_99.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       └── PT
+│           ├── raw-documents
+│           │   ├── PT_01.txt
+│           │   ├── PT_02.txt
+│           │   ├── PT_03.txt
+│           │   ├── PT_04.txt
+│           │   ├── PT_05.txt
+│           │   ├── PT_06.txt
+│           │   ├── PT_07.txt
+│           │   ├── PT_08.txt
+│           │   ├── PT_09.txt
+│           │   ├── PT_10.txt
+│           │   ├── PT_100.txt
+│           │   ├── PT_101.txt
+│           │   ├── PT_102.txt
+│           │   ├── PT_103.txt
+│           │   ├── PT_104.txt
+│           │   ├── PT_105.txt
+│           │   ├── PT_106.txt
+│           │   ├── PT_107.txt
+│           │   ├── PT_108.txt
+│           │   ├── PT_109.txt
+│           │   ├── PT_11.txt
+│           │   ├── PT_110.txt
+│           │   ├── PT_111.txt
+│           │   ├── PT_112.txt
+│           │   ├── PT_113.txt
+│           │   ├── PT_114.txt
+│           │   ├── PT_115.txt
+│           │   ├── PT_116.txt
+│           │   ├── PT_117.txt
+│           │   ├── PT_118.txt
+│           │   ├── PT_119.txt
+│           │   ├── PT_12.txt
+│           │   ├── PT_120.txt
+│           │   ├── PT_121.txt
+│           │   ├── PT_122.txt
+│           │   ├── PT_123.txt
+│           │   ├── PT_124.txt
+│           │   ├── PT_125.txt
+│           │   ├── PT_126.txt
+│           │   ├── PT_127.txt
+│           │   ├── PT_128.txt
+│           │   ├── PT_129.txt
+│           │   ├── PT_13.txt
+│           │   ├── PT_130.txt
+│           │   ├── PT_131.txt
+│           │   ├── PT_132.txt
+│           │   ├── PT_133.txt
+│           │   ├── PT_134.txt
+│           │   ├── PT_135.txt
+│           │   ├── PT_136.txt
+│           │   ├── PT_137.txt
+│           │   ├── PT_138.txt
+│           │   ├── PT_139.txt
+│           │   ├── PT_14.txt
+│           │   ├── PT_140.txt
+│           │   ├── PT_141.txt
+│           │   ├── PT_142.txt
+│           │   ├── PT_143.txt
+│           │   ├── PT_144.txt
+│           │   ├── PT_145.txt
+│           │   ├── PT_146.txt
+│           │   ├── PT_147.txt
+│           │   ├── PT_148.txt
+│           │   ├── PT_149.txt
+│           │   ├── PT_15.txt
+│           │   ├── PT_150.txt
+│           │   ├── PT_151.txt
+│           │   ├── PT_152.txt
+│           │   ├── PT_153.txt
+│           │   ├── PT_154.txt
+│           │   ├── PT_155.txt
+│           │   ├── PT_156.txt
+│           │   ├── PT_157.txt
+│           │   ├── PT_158.txt
+│           │   ├── PT_159.txt
+│           │   ├── PT_16.txt
+│           │   ├── PT_160.txt
+│           │   ├── PT_161.txt
+│           │   ├── PT_162.txt
+│           │   ├── PT_163.txt
+│           │   ├── PT_164.txt
+│           │   ├── PT_165.txt
+│           │   ├── PT_166.txt
+│           │   ├── PT_167.txt
+│           │   ├── PT_168.txt
+│           │   ├── PT_169.txt
+│           │   ├── PT_17.txt
+│           │   ├── PT_170.txt
+│           │   ├── PT_171.txt
+│           │   ├── PT_172.txt
+│           │   ├── PT_173.txt
+│           │   ├── PT_174.txt
+│           │   ├── PT_175.txt
+│           │   ├── PT_176.txt
+│           │   ├── PT_177.txt
+│           │   ├── PT_178.txt
+│           │   ├── PT_179.txt
+│           │   ├── PT_18.txt
+│           │   ├── PT_180.txt
+│           │   ├── PT_181.txt
+│           │   ├── PT_182.txt
+│           │   ├── PT_183.txt
+│           │   ├── PT_184.txt
+│           │   ├── PT_185.txt
+│           │   ├── PT_186.txt
+│           │   ├── PT_187.txt
+│           │   ├── PT_188.txt
+│           │   ├── PT_189.txt
+│           │   ├── PT_19.txt
+│           │   ├── PT_190.txt
+│           │   ├── PT_191.txt
+│           │   ├── PT_192.txt
+│           │   ├── PT_193.txt
+│           │   ├── PT_194.txt
+│           │   ├── PT_195.txt
+│           │   ├── PT_196.txt
+│           │   ├── PT_197.txt
+│           │   ├── PT_198.txt
+│           │   ├── PT_199.txt
+│           │   ├── PT_20.txt
+│           │   ├── PT_200.txt
+│           │   ├── PT_21.txt
+│           │   ├── PT_22.txt
+│           │   ├── PT_23.txt
+│           │   ├── PT_24.txt
+│           │   ├── PT_25.txt
+│           │   ├── PT_26.txt
+│           │   ├── PT_27.txt
+│           │   ├── PT_28.txt
+│           │   ├── PT_29.txt
+│           │   ├── PT_30.txt
+│           │   ├── PT_31.txt
+│           │   ├── PT_32.txt
+│           │   ├── PT_33.txt
+│           │   ├── PT_34.txt
+│           │   ├── PT_35.txt
+│           │   ├── PT_36.txt
+│           │   ├── PT_37.txt
+│           │   ├── PT_38.txt
+│           │   ├── PT_39.txt
+│           │   ├── PT_40.txt
+│           │   ├── PT_41.txt
+│           │   ├── PT_42.txt
+│           │   ├── PT_43.txt
+│           │   ├── PT_44.txt
+│           │   ├── PT_45.txt
+│           │   ├── PT_46.txt
+│           │   ├── PT_47.txt
+│           │   ├── PT_48.txt
+│           │   ├── PT_49.txt
+│           │   ├── PT_50.txt
+│           │   ├── PT_51.txt
+│           │   ├── PT_52.txt
+│           │   ├── PT_53.txt
+│           │   ├── PT_54.txt
+│           │   ├── PT_55.txt
+│           │   ├── PT_56.txt
+│           │   ├── PT_57.txt
+│           │   ├── PT_58.txt
+│           │   ├── PT_59.txt
+│           │   ├── PT_60.txt
+│           │   ├── PT_61.txt
+│           │   ├── PT_62.txt
+│           │   ├── PT_63.txt
+│           │   ├── PT_64.txt
+│           │   ├── PT_65.txt
+│           │   ├── PT_66.txt
+│           │   ├── PT_67.txt
+│           │   ├── PT_68.txt
+│           │   ├── PT_69.txt
+│           │   ├── PT_70.txt
+│           │   ├── PT_71.txt
+│           │   ├── PT_72.txt
+│           │   ├── PT_73.txt
+│           │   ├── PT_74.txt
+│           │   ├── PT_75.txt
+│           │   ├── PT_76.txt
+│           │   ├── PT_77.txt
+│           │   ├── PT_78.txt
+│           │   ├── PT_79.txt
+│           │   ├── PT_80.txt
+│           │   ├── PT_81.txt
+│           │   ├── PT_82.txt
+│           │   ├── PT_83.txt
+│           │   ├── PT_84.txt
+│           │   ├── PT_85.txt
+│           │   ├── PT_86.txt
+│           │   ├── PT_87.txt
+│           │   ├── PT_88.txt
+│           │   ├── PT_89.txt
+│           │   ├── PT_90.txt
+│           │   ├── PT_91.txt
+│           │   ├── PT_92.txt
+│           │   ├── PT_93.txt
+│           │   ├── PT_94.txt
+│           │   ├── PT_95.txt
+│           │   ├── PT_96.txt
+│           │   ├── PT_97.txt
+│           │   ├── PT_98.txt
+│           │   └── PT_99.txt
+│           ├── subtask-1-annotations.txt
+│           ├── subtask-2-annotations.txt
+│           └── subtask-3-annotations.txt
+├── README.md
+├── config
+├── notebooks
+├── requirements.txt
+├── results
+│   ├── models
+│   └── predictions
+└── src
+    ├── models
+    ├── preprocessing
+    ├── training
+    └── utils
+
+21 directories, 741 files
+jonas.thierjung@Q6CJ7TKXMY NLP % tree
+.
+├── Data set
+│   ├── analyse_data_set.ipynb
+│   └── training_data_16_October_release
+│       ├── BG
+│       │   ├── raw-documents
+│       │   │   ├── A9_BG_2566.txt
+│       │   │   ├── A9_BG_2719.txt
+│       │   │   ├── A9_BG_2836.txt
+│       │   │   ├── A9_BG_2858.txt
+│       │   │   ├── A9_BG_2931.txt
+│       │   │   ├── A9_BG_2963.txt
+│       │   │   ├── A9_BG_2972.txt
+│       │   │   ├── A9_BG_2973.txt
+│       │   │   ├── A9_BG_3023.txt
+│       │   │   ├── A9_BG_3097.txt
+│       │   │   ├── A9_BG_3109.txt
+│       │   │   ├── A9_BG_3142.txt
+│       │   │   ├── A9_BG_3182.txt
+│       │   │   ├── A9_BG_3203.txt
+│       │   │   ├── A9_BG_3204.txt
+│       │   │   ├── A9_BG_3206.txt
+│       │   │   ├── A9_BG_3273.txt
+│       │   │   ├── A9_BG_3283.txt
+│       │   │   ├── A9_BG_3290.txt
+│       │   │   ├── A9_BG_3298.txt
+│       │   │   ├── A9_BG_3300.txt
+│       │   │   ├── A9_BG_3363.txt
+│       │   │   ├── A9_BG_3379.txt
+│       │   │   ├── A9_BG_3385.txt
+│       │   │   ├── A9_BG_3390.txt
+│       │   │   ├── A9_BG_3395.txt
+│       │   │   ├── A9_BG_3430.txt
+│       │   │   ├── A9_BG_3431.txt
+│       │   │   ├── A9_BG_3440.txt
+│       │   │   ├── A9_BG_3543.txt
+│       │   │   ├── A9_BG_3563.txt
+│       │   │   ├── A9_BG_3586.txt
+│       │   │   ├── A9_BG_3599.txt
+│       │   │   ├── A9_BG_3652.txt
+│       │   │   ├── A9_BG_3672.txt
+│       │   │   ├── A9_BG_3675.txt
+│       │   │   ├── A9_BG_3704.txt
+│       │   │   ├── A9_BG_3734.txt
+│       │   │   ├── A9_BG_3756.txt
+│       │   │   ├── A9_BG_3762.txt
+│       │   │   ├── A9_BG_3779.txt
+│       │   │   ├── A9_BG_3818.txt
+│       │   │   ├── A9_BG_5143.txt
+│       │   │   ├── A9_BG_5155.txt
+│       │   │   ├── A9_BG_5190.txt
+│       │   │   ├── A9_BG_5225.txt
+│       │   │   ├── A9_BG_5226.txt
+│       │   │   ├── A9_BG_5402.txt
+│       │   │   ├── A9_BG_5548.txt
+│       │   │   ├── A9_BG_5596.txt
+│       │   │   ├── A9_BG_5817.txt
+│       │   │   ├── A9_BG_583.txt
+│       │   │   ├── A9_BG_5871.txt
+│       │   │   ├── A9_BG_5903.txt
+│       │   │   ├── A9_BG_5957.txt
+│       │   │   ├── A9_BG_5965.txt
+│       │   │   ├── A9_BG_5984.txt
+│       │   │   ├── A9_BG_6002.txt
+│       │   │   ├── A9_BG_6015.txt
+│       │   │   ├── A9_BG_6207.txt
+│       │   │   ├── A9_BG_6229.txt
+│       │   │   ├── A9_BG_6815.txt
+│       │   │   ├── A9_BG_6875.txt
+│       │   │   ├── A9_BG_7303.txt
+│       │   │   ├── A9_BG_7690.txt
+│       │   │   ├── A9_BG_7720.txt
+│       │   │   ├── A9_BG_8028.txt
+│       │   │   ├── A9_BG_8210.txt
+│       │   │   ├── A9_BG_8333.txt
+│       │   │   ├── A9_BG_8450.txt
+│       │   │   ├── BG_1006.txt
+│       │   │   ├── BG_1044.txt
+│       │   │   ├── BG_1089.txt
+│       │   │   ├── BG_1098.txt
+│       │   │   ├── BG_1163.txt
+│       │   │   ├── BG_1164.txt
+│       │   │   ├── BG_1181.txt
+│       │   │   ├── BG_1249.txt
+│       │   │   ├── BG_1258.txt
+│       │   │   ├── BG_1319.txt
+│       │   │   ├── BG_1341.txt
+│       │   │   ├── BG_1345.txt
+│       │   │   ├── BG_1352.txt
+│       │   │   ├── BG_1390.txt
+│       │   │   ├── BG_1423.txt
+│       │   │   ├── BG_1509.txt
+│       │   │   ├── BG_1544.txt
+│       │   │   ├── BG_1559.txt
+│       │   │   ├── BG_1637.txt
+│       │   │   ├── BG_171.txt
+│       │   │   ├── BG_1725.txt
+│       │   │   ├── BG_1767.txt
+│       │   │   ├── BG_1826.txt
+│       │   │   ├── BG_1843.txt
+│       │   │   ├── BG_1867.txt
+│       │   │   ├── BG_2536.txt
+│       │   │   ├── BG_3079.txt
+│       │   │   ├── BG_3245.txt
+│       │   │   ├── BG_3284.txt
+│       │   │   ├── BG_3351.txt
+│       │   │   ├── BG_3364.txt
+│       │   │   ├── BG_3368.txt
+│       │   │   ├── BG_3541.txt
+│       │   │   ├── BG_3629.txt
+│       │   │   ├── BG_364.txt
+│       │   │   ├── BG_3669.txt
+│       │   │   ├── BG_3671.txt
+│       │   │   ├── BG_3753.txt
+│       │   │   ├── BG_3759.txt
+│       │   │   ├── BG_3867.txt
+│       │   │   ├── BG_3909.txt
+│       │   │   ├── BG_4188.txt
+│       │   │   ├── BG_4228.txt
+│       │   │   ├── BG_423.txt
+│       │   │   ├── BG_430.txt
+│       │   │   ├── BG_435.txt
+│       │   │   ├── BG_4366.txt
+│       │   │   ├── BG_439.txt
+│       │   │   ├── BG_4531.txt
+│       │   │   ├── BG_454.txt
+│       │   │   ├── BG_456.txt
+│       │   │   ├── BG_457.txt
+│       │   │   ├── BG_4613.txt
+│       │   │   ├── BG_4624.txt
+│       │   │   ├── BG_463.txt
+│       │   │   ├── BG_4648.txt
+│       │   │   ├── BG_4713.txt
+│       │   │   ├── BG_473.txt
+│       │   │   ├── BG_4732.txt
+│       │   │   ├── BG_476.txt
+│       │   │   ├── BG_480.txt
+│       │   │   ├── BG_481.txt
+│       │   │   ├── BG_4819.txt
+│       │   │   ├── BG_4845.txt
+│       │   │   ├── BG_4872.txt
+│       │   │   ├── BG_4884.txt
+│       │   │   ├── BG_494.txt
+│       │   │   ├── BG_497.txt
+│       │   │   ├── BG_504.txt
+│       │   │   ├── BG_508.txt
+│       │   │   ├── BG_509.txt
+│       │   │   ├── BG_5098.txt
+│       │   │   ├── BG_513.txt
+│       │   │   ├── BG_521.txt
+│       │   │   ├── BG_526.txt
+│       │   │   ├── BG_529.txt
+│       │   │   ├── BG_5360.txt
+│       │   │   ├── BG_538.txt
+│       │   │   ├── BG_5406.txt
+│       │   │   ├── BG_541.txt
+│       │   │   ├── BG_546.txt
+│       │   │   ├── BG_5470.txt
+│       │   │   ├── BG_548.txt
+│       │   │   ├── BG_551.txt
+│       │   │   ├── BG_553.txt
+│       │   │   ├── BG_555.txt
+│       │   │   ├── BG_559.txt
+│       │   │   ├── BG_560.txt
+│       │   │   ├── BG_561.txt
+│       │   │   ├── BG_573.txt
+│       │   │   ├── BG_576.txt
+│       │   │   ├── BG_582.txt
+│       │   │   ├── BG_585.txt
+│       │   │   ├── BG_5914.txt
+│       │   │   ├── BG_5918.txt
+│       │   │   ├── BG_5942.txt
+│       │   │   ├── BG_6019.txt
+│       │   │   ├── BG_6045.txt
+│       │   │   ├── BG_607.txt
+│       │   │   ├── BG_612.txt
+│       │   │   ├── BG_613.txt
+│       │   │   ├── BG_616.txt
+│       │   │   ├── BG_620.txt
+│       │   │   ├── BG_624.txt
+│       │   │   ├── BG_628.txt
+│       │   │   ├── BG_629.txt
+│       │   │   ├── BG_630.txt
+│       │   │   ├── BG_637.txt
+│       │   │   ├── BG_663.txt
+│       │   │   ├── BG_666.txt
+│       │   │   ├── BG_670.txt
+│       │   │   ├── BG_676.txt
+│       │   │   ├── BG_678.txt
+│       │   │   ├── BG_679.txt
+│       │   │   ├── BG_684.txt
+│       │   │   ├── BG_696.txt
+│       │   │   ├── BG_699.txt
+│       │   │   ├── BG_701.txt
+│       │   │   ├── BG_704.txt
+│       │   │   ├── BG_7070.txt
+│       │   │   ├── BG_723.txt
+│       │   │   ├── BG_7367.txt
+│       │   │   ├── BG_7379.txt
+│       │   │   ├── BG_751.txt
+│       │   │   ├── BG_7557.txt
+│       │   │   ├── BG_799.txt
+│       │   │   ├── BG_8060.txt
+│       │   │   ├── BG_828.txt
+│       │   │   ├── BG_8385.txt
+│       │   │   ├── BG_839.txt
+│       │   │   ├── BG_8453.txt
+│       │   │   ├── BG_8455.txt
+│       │   │   ├── BG_855.txt
+│       │   │   ├── BG_866.txt
+│       │   │   ├── BG_869.txt
+│       │   │   ├── BG_888.txt
+│       │   │   ├── BG_892.txt
+│       │   │   ├── BG_894.txt
+│       │   │   ├── BG_895.txt
+│       │   │   ├── BG_939.txt
+│       │   │   └── BG_971.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── EN
+│       │   ├── raw-documents
+│       │   │   ├── EN_CC_100000.txt
+│       │   │   ├── EN_CC_100002.txt
+│       │   │   ├── EN_CC_100003.txt
+│       │   │   ├── EN_CC_100004.txt
+│       │   │   ├── EN_CC_100005.txt
+│       │   │   ├── EN_CC_100007.txt
+│       │   │   ├── EN_CC_100008.txt
+│       │   │   ├── EN_CC_100009.txt
+│       │   │   ├── EN_CC_100010.txt
+│       │   │   ├── EN_CC_100011.txt
+│       │   │   ├── EN_CC_100012.txt
+│       │   │   ├── EN_CC_100015.txt
+│       │   │   ├── EN_CC_100021.txt
+│       │   │   ├── EN_CC_100024.txt
+│       │   │   ├── EN_CC_100028.txt
+│       │   │   ├── EN_CC_100030.txt
+│       │   │   ├── EN_CC_100036.txt
+│       │   │   ├── EN_CC_100037.txt
+│       │   │   ├── EN_CC_100038.txt
+│       │   │   ├── EN_CC_100040.txt
+│       │   │   ├── EN_CC_100042.txt
+│       │   │   ├── EN_CC_100044.txt
+│       │   │   ├── EN_CC_100046.txt
+│       │   │   ├── EN_CC_100047.txt
+│       │   │   ├── EN_CC_100050.txt
+│       │   │   ├── EN_CC_100054.txt
+│       │   │   ├── EN_CC_100065.txt
+│       │   │   ├── EN_CC_100066.txt
+│       │   │   ├── EN_CC_100067.txt
+│       │   │   ├── EN_CC_100069.txt
+│       │   │   ├── EN_CC_100070.txt
+│       │   │   ├── EN_CC_100076.txt
+│       │   │   ├── EN_CC_100083.txt
+│       │   │   ├── EN_CC_100091.txt
+│       │   │   ├── EN_CC_100093.txt
+│       │   │   ├── EN_CC_100095.txt
+│       │   │   ├── EN_CC_100098.txt
+│       │   │   ├── EN_CC_100106.txt
+│       │   │   ├── EN_CC_100122.txt
+│       │   │   ├── EN_CC_100123.txt
+│       │   │   ├── EN_CC_100124.txt
+│       │   │   ├── EN_CC_100136.txt
+│       │   │   ├── EN_CC_100137.txt
+│       │   │   ├── EN_CC_100139.txt
+│       │   │   ├── EN_CC_100145.txt
+│       │   │   ├── EN_CC_100146.txt
+│       │   │   ├── EN_CC_100147.txt
+│       │   │   ├── EN_CC_100150.txt
+│       │   │   ├── EN_CC_100156.txt
+│       │   │   ├── EN_CC_100159.txt
+│       │   │   ├── EN_CC_100169.txt
+│       │   │   ├── EN_CC_100172.txt
+│       │   │   ├── EN_CC_100197.txt
+│       │   │   ├── EN_CC_100198.txt
+│       │   │   ├── EN_CC_100203.txt
+│       │   │   ├── EN_CC_100211.txt
+│       │   │   ├── EN_CC_100213.txt
+│       │   │   ├── EN_CC_100223.txt
+│       │   │   ├── EN_CC_100232.txt
+│       │   │   ├── EN_CC_100235.txt
+│       │   │   ├── EN_CC_100243.txt
+│       │   │   ├── EN_CC_200001.txt
+│       │   │   ├── EN_CC_200007.txt
+│       │   │   ├── EN_CC_200009.txt
+│       │   │   ├── EN_CC_200012.txt
+│       │   │   ├── EN_CC_200013.txt
+│       │   │   ├── EN_CC_200015.txt
+│       │   │   ├── EN_CC_200016.txt
+│       │   │   ├── EN_CC_200018.txt
+│       │   │   ├── EN_CC_200021.txt
+│       │   │   ├── EN_CC_200022.txt
+│       │   │   ├── EN_CC_200029.txt
+│       │   │   ├── EN_UA_000104.txt
+│       │   │   ├── EN_UA_000543.txt
+│       │   │   ├── EN_UA_000568.txt
+│       │   │   ├── EN_UA_000923.txt
+│       │   │   ├── EN_UA_001032.txt
+│       │   │   ├── EN_UA_001052.txt
+│       │   │   ├── EN_UA_002416.txt
+│       │   │   ├── EN_UA_002531.txt
+│       │   │   ├── EN_UA_002668.txt
+│       │   │   ├── EN_UA_002991.txt
+│       │   │   ├── EN_UA_003579.txt
+│       │   │   ├── EN_UA_004209.txt
+│       │   │   ├── EN_UA_004343.txt
+│       │   │   ├── EN_UA_004616.txt
+│       │   │   ├── EN_UA_008072.txt
+│       │   │   ├── EN_UA_008586.txt
+│       │   │   ├── EN_UA_010091.txt
+│       │   │   ├── EN_UA_010095.txt
+│       │   │   ├── EN_UA_010735.txt
+│       │   │   ├── EN_UA_010901.txt
+│       │   │   ├── EN_UA_010909.txt
+│       │   │   ├── EN_UA_011260.txt
+│       │   │   ├── EN_UA_012234.txt
+│       │   │   ├── EN_UA_012611.txt
+│       │   │   ├── EN_UA_012803.txt
+│       │   │   ├── EN_UA_013257.txt
+│       │   │   ├── EN_UA_013344.txt
+│       │   │   ├── EN_UA_013617.txt
+│       │   │   ├── EN_UA_013710.txt
+│       │   │   ├── EN_UA_013727.txt
+│       │   │   ├── EN_UA_014014.txt
+│       │   │   ├── EN_UA_014413.txt
+│       │   │   ├── EN_UA_014637.txt
+│       │   │   ├── EN_UA_014829.txt
+│       │   │   ├── EN_UA_015443.txt
+│       │   │   ├── EN_UA_015880.txt
+│       │   │   ├── EN_UA_015962.txt
+│       │   │   ├── EN_UA_016012.txt
+│       │   │   ├── EN_UA_016466.txt
+│       │   │   ├── EN_UA_017310.txt
+│       │   │   ├── EN_UA_017831.txt
+│       │   │   ├── EN_UA_018789.txt
+│       │   │   ├── EN_UA_019640.txt
+│       │   │   ├── EN_UA_020543.txt
+│       │   │   ├── EN_UA_021123.txt
+│       │   │   ├── EN_UA_021263.txt
+│       │   │   ├── EN_UA_021270.txt
+│       │   │   ├── EN_UA_021310.txt
+│       │   │   ├── EN_UA_021377.txt
+│       │   │   ├── EN_UA_021872.txt
+│       │   │   ├── EN_UA_021918.txt
+│       │   │   ├── EN_UA_022016.txt
+│       │   │   ├── EN_UA_022051.txt
+│       │   │   ├── EN_UA_022319.txt
+│       │   │   ├── EN_UA_022339.txt
+│       │   │   ├── EN_UA_023008.txt
+│       │   │   ├── EN_UA_023211.txt
+│       │   │   ├── EN_UA_023816.txt
+│       │   │   ├── EN_UA_024050.txt
+│       │   │   ├── EN_UA_024321.txt
+│       │   │   ├── EN_UA_024628.txt
+│       │   │   ├── EN_UA_024847.txt
+│       │   │   ├── EN_UA_025165.txt
+│       │   │   ├── EN_UA_025652.txt
+│       │   │   ├── EN_UA_025764.txt
+│       │   │   ├── EN_UA_026036.txt
+│       │   │   ├── EN_UA_026142.txt
+│       │   │   ├── EN_UA_026697.txt
+│       │   │   ├── EN_UA_026740.txt
+│       │   │   ├── EN_UA_027676.txt
+│       │   │   ├── EN_UA_027787.txt
+│       │   │   ├── EN_UA_027816.txt
+│       │   │   ├── EN_UA_027879.txt
+│       │   │   ├── EN_UA_028103.txt
+│       │   │   ├── EN_UA_028520.txt
+│       │   │   ├── EN_UA_029053.txt
+│       │   │   ├── EN_UA_029155.txt
+│       │   │   ├── EN_UA_100106.txt
+│       │   │   ├── EN_UA_100210.txt
+│       │   │   ├── EN_UA_100411.txt
+│       │   │   ├── EN_UA_100587.txt
+│       │   │   ├── EN_UA_100601.txt
+│       │   │   ├── EN_UA_100688.txt
+│       │   │   ├── EN_UA_100840.txt
+│       │   │   ├── EN_UA_100864.txt
+│       │   │   ├── EN_UA_100868.txt
+│       │   │   ├── EN_UA_101067.txt
+│       │   │   ├── EN_UA_101079.txt
+│       │   │   ├── EN_UA_101189.txt
+│       │   │   ├── EN_UA_101251.txt
+│       │   │   ├── EN_UA_101805.txt
+│       │   │   ├── EN_UA_101954.txt
+│       │   │   ├── EN_UA_101996.txt
+│       │   │   ├── EN_UA_102034.txt
+│       │   │   ├── EN_UA_102054.txt
+│       │   │   ├── EN_UA_102084.txt
+│       │   │   ├── EN_UA_102415.txt
+│       │   │   ├── EN_UA_102655.txt
+│       │   │   ├── EN_UA_102703.txt
+│       │   │   ├── EN_UA_102754.txt
+│       │   │   ├── EN_UA_102892.txt
+│       │   │   ├── EN_UA_102953.txt
+│       │   │   ├── EN_UA_102958.txt
+│       │   │   ├── EN_UA_102963.txt
+│       │   │   ├── EN_UA_102990.txt
+│       │   │   ├── EN_UA_103011.txt
+│       │   │   ├── EN_UA_103025.txt
+│       │   │   ├── EN_UA_103168.txt
+│       │   │   ├── EN_UA_103251.txt
+│       │   │   ├── EN_UA_103372.txt
+│       │   │   ├── EN_UA_103403.txt
+│       │   │   ├── EN_UA_103445.txt
+│       │   │   ├── EN_UA_103517.txt
+│       │   │   ├── EN_UA_103667.txt
+│       │   │   ├── EN_UA_103732.txt
+│       │   │   ├── EN_UA_103861.txt
+│       │   │   ├── EN_UA_103941.txt
+│       │   │   ├── EN_UA_103995.txt
+│       │   │   ├── EN_UA_104152.txt
+│       │   │   ├── EN_UA_104224.txt
+│       │   │   ├── EN_UA_104434.txt
+│       │   │   ├── EN_UA_104523.txt
+│       │   │   ├── EN_UA_104569.txt
+│       │   │   ├── EN_UA_104604.txt
+│       │   │   ├── EN_UA_104775.txt
+│       │   │   ├── EN_UA_104791.txt
+│       │   │   ├── EN_UA_104859.txt
+│       │   │   └── EN_UA_104876.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── HI
+│       │   ├── raw-documents
+│       │   │   ├── HI_1.txt
+│       │   │   ├── HI_100.txt
+│       │   │   ├── HI_101.txt
+│       │   │   ├── HI_102.txt
+│       │   │   ├── HI_103.txt
+│       │   │   ├── HI_104.txt
+│       │   │   ├── HI_105.txt
+│       │   │   ├── HI_106.txt
+│       │   │   ├── HI_108.txt
+│       │   │   ├── HI_109.txt
+│       │   │   ├── HI_111.txt
+│       │   │   ├── HI_112.txt
+│       │   │   ├── HI_113.txt
+│       │   │   ├── HI_115.txt
+│       │   │   ├── HI_116.txt
+│       │   │   ├── HI_117.txt
+│       │   │   ├── HI_118.txt
+│       │   │   ├── HI_119.txt
+│       │   │   ├── HI_120.txt
+│       │   │   ├── HI_121.txt
+│       │   │   ├── HI_122.txt
+│       │   │   ├── HI_123.txt
+│       │   │   ├── HI_124.txt
+│       │   │   ├── HI_127.txt
+│       │   │   ├── HI_128.txt
+│       │   │   ├── HI_129.txt
+│       │   │   ├── HI_13.txt
+│       │   │   ├── HI_130.txt
+│       │   │   ├── HI_131.txt
+│       │   │   ├── HI_132.txt
+│       │   │   ├── HI_133.txt
+│       │   │   ├── HI_136.txt
+│       │   │   ├── HI_137.txt
+│       │   │   ├── HI_138.txt
+│       │   │   ├── HI_14.txt
+│       │   │   ├── HI_141.txt
+│       │   │   ├── HI_142.txt
+│       │   │   ├── HI_144.txt
+│       │   │   ├── HI_145.txt
+│       │   │   ├── HI_146.txt
+│       │   │   ├── HI_147.txt
+│       │   │   ├── HI_148.txt
+│       │   │   ├── HI_149.txt
+│       │   │   ├── HI_15.txt
+│       │   │   ├── HI_150.txt
+│       │   │   ├── HI_16.txt
+│       │   │   ├── HI_18.txt
+│       │   │   ├── HI_2.txt
+│       │   │   ├── HI_20.txt
+│       │   │   ├── HI_21.txt
+│       │   │   ├── HI_22.txt
+│       │   │   ├── HI_23.txt
+│       │   │   ├── HI_24.txt
+│       │   │   ├── HI_25.txt
+│       │   │   ├── HI_27.txt
+│       │   │   ├── HI_29.txt
+│       │   │   ├── HI_3.txt
+│       │   │   ├── HI_30.txt
+│       │   │   ├── HI_32.txt
+│       │   │   ├── HI_33.txt
+│       │   │   ├── HI_36.txt
+│       │   │   ├── HI_37.txt
+│       │   │   ├── HI_39.txt
+│       │   │   ├── HI_40.txt
+│       │   │   ├── HI_41.txt
+│       │   │   ├── HI_42.txt
+│       │   │   ├── HI_43.txt
+│       │   │   ├── HI_44.txt
+│       │   │   ├── HI_45.txt
+│       │   │   ├── HI_46.txt
+│       │   │   ├── HI_47.txt
+│       │   │   ├── HI_48.txt
+│       │   │   ├── HI_49.txt
+│       │   │   ├── HI_53.txt
+│       │   │   ├── HI_54.txt
+│       │   │   ├── HI_55.txt
+│       │   │   ├── HI_56.txt
+│       │   │   ├── HI_57.txt
+│       │   │   ├── HI_58.txt
+│       │   │   ├── HI_59.txt
+│       │   │   ├── HI_6.txt
+│       │   │   ├── HI_60.txt
+│       │   │   ├── HI_61.txt
+│       │   │   ├── HI_62.txt
+│       │   │   ├── HI_63.txt
+│       │   │   ├── HI_64.txt
+│       │   │   ├── HI_65.txt
+│       │   │   ├── HI_66.txt
+│       │   │   ├── HI_67.txt
+│       │   │   ├── HI_69.txt
+│       │   │   ├── HI_7.txt
+│       │   │   ├── HI_70.txt
+│       │   │   ├── HI_72.txt
+│       │   │   ├── HI_73.txt
+│       │   │   ├── HI_74.txt
+│       │   │   ├── HI_78.txt
+│       │   │   ├── HI_79.txt
+│       │   │   ├── HI_8.txt
+│       │   │   ├── HI_80.txt
+│       │   │   ├── HI_81.txt
+│       │   │   ├── HI_82.txt
+│       │   │   ├── HI_84.txt
+│       │   │   ├── HI_85.txt
+│       │   │   ├── HI_86.txt
+│       │   │   ├── HI_87.txt
+│       │   │   ├── HI_88.txt
+│       │   │   ├── HI_89.txt
+│       │   │   ├── HI_9.txt
+│       │   │   ├── HI_90.txt
+│       │   │   ├── HI_91.txt
+│       │   │   ├── HI_92.txt
+│       │   │   ├── HI_93.txt
+│       │   │   ├── HI_94.txt
+│       │   │   ├── HI_98.txt
+│       │   │   └── HI_99.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       └── PT
+│           ├── raw-documents
+│           │   ├── PT_01.txt
+│           │   ├── PT_02.txt
+│           │   ├── PT_03.txt
+│           │   ├── PT_04.txt
+│           │   ├── PT_05.txt
+│           │   ├── PT_06.txt
+│           │   ├── PT_07.txt
+│           │   ├── PT_08.txt
+│           │   ├── PT_09.txt
+│           │   ├── PT_10.txt
+│           │   ├── PT_100.txt
+│           │   ├── PT_101.txt
+│           │   ├── PT_102.txt
+│           │   ├── PT_103.txt
+│           │   ├── PT_104.txt
+│           │   ├── PT_105.txt
+│           │   ├── PT_106.txt
+│           │   ├── PT_107.txt
+│           │   ├── PT_108.txt
+│           │   ├── PT_109.txt
+│           │   ├── PT_11.txt
+│           │   ├── PT_110.txt
+│           │   ├── PT_111.txt
+│           │   ├── PT_112.txt
+│           │   ├── PT_113.txt
+│           │   ├── PT_114.txt
+│           │   ├── PT_115.txt
+│           │   ├── PT_116.txt
+│           │   ├── PT_117.txt
+│           │   ├── PT_118.txt
+│           │   ├── PT_119.txt
+│           │   ├── PT_12.txt
+│           │   ├── PT_120.txt
+│           │   ├── PT_121.txt
+│           │   ├── PT_122.txt
+│           │   ├── PT_123.txt
+│           │   ├── PT_124.txt
+│           │   ├── PT_125.txt
+│           │   ├── PT_126.txt
+│           │   ├── PT_127.txt
+│           │   ├── PT_128.txt
+│           │   ├── PT_129.txt
+│           │   ├── PT_13.txt
+│           │   ├── PT_130.txt
+│           │   ├── PT_131.txt
+│           │   ├── PT_132.txt
+│           │   ├── PT_133.txt
+│           │   ├── PT_134.txt
+│           │   ├── PT_135.txt
+│           │   ├── PT_136.txt
+│           │   ├── PT_137.txt
+│           │   ├── PT_138.txt
+│           │   ├── PT_139.txt
+│           │   ├── PT_14.txt
+│           │   ├── PT_140.txt
+│           │   ├── PT_141.txt
+│           │   ├── PT_142.txt
+│           │   ├── PT_143.txt
+│           │   ├── PT_144.txt
+│           │   ├── PT_145.txt
+│           │   ├── PT_146.txt
+│           │   ├── PT_147.txt
+│           │   ├── PT_148.txt
+│           │   ├── PT_149.txt
+│           │   ├── PT_15.txt
+│           │   ├── PT_150.txt
+│           │   ├── PT_151.txt
+│           │   ├── PT_152.txt
+│           │   ├── PT_153.txt
+│           │   ├── PT_154.txt
+│           │   ├── PT_155.txt
+│           │   ├── PT_156.txt
+│           │   ├── PT_157.txt
+│           │   ├── PT_158.txt
+│           │   ├── PT_159.txt
+│           │   ├── PT_16.txt
+│           │   ├── PT_160.txt
+│           │   ├── PT_161.txt
+│           │   ├── PT_162.txt
+│           │   ├── PT_163.txt
+│           │   ├── PT_164.txt
+│           │   ├── PT_165.txt
+│           │   ├── PT_166.txt
+│           │   ├── PT_167.txt
+│           │   ├── PT_168.txt
+│           │   ├── PT_169.txt
+│           │   ├── PT_17.txt
+│           │   ├── PT_170.txt
+│           │   ├── PT_171.txt
+│           │   ├── PT_172.txt
+│           │   ├── PT_173.txt
+│           │   ├── PT_174.txt
+│           │   ├── PT_175.txt
+│           │   ├── PT_176.txt
+│           │   ├── PT_177.txt
+│           │   ├── PT_178.txt
+│           │   ├── PT_179.txt
+│           │   ├── PT_18.txt
+│           │   ├── PT_180.txt
+│           │   ├── PT_181.txt
+│           │   ├── PT_182.txt
+│           │   ├── PT_183.txt
+│           │   ├── PT_184.txt
+│           │   ├── PT_185.txt
+│           │   ├── PT_186.txt
+│           │   ├── PT_187.txt
+│           │   ├── PT_188.txt
+│           │   ├── PT_189.txt
+│           │   ├── PT_19.txt
+│           │   ├── PT_190.txt
+│           │   ├── PT_191.txt
+│           │   ├── PT_192.txt
+│           │   ├── PT_193.txt
+│           │   ├── PT_194.txt
+│           │   ├── PT_195.txt
+│           │   ├── PT_196.txt
+│           │   ├── PT_197.txt
+│           │   ├── PT_198.txt
+│           │   ├── PT_199.txt
+│           │   ├── PT_20.txt
+│           │   ├── PT_200.txt
+│           │   ├── PT_21.txt
+│           │   ├── PT_22.txt
+│           │   ├── PT_23.txt
+│           │   ├── PT_24.txt
+│           │   ├── PT_25.txt
+│           │   ├── PT_26.txt
+│           │   ├── PT_27.txt
+│           │   ├── PT_28.txt
+│           │   ├── PT_29.txt
+│           │   ├── PT_30.txt
+│           │   ├── PT_31.txt
+│           │   ├── PT_32.txt
+│           │   ├── PT_33.txt
+│           │   ├── PT_34.txt
+│           │   ├── PT_35.txt
+│           │   ├── PT_36.txt
+│           │   ├── PT_37.txt
+│           │   ├── PT_38.txt
+│           │   ├── PT_39.txt
+│           │   ├── PT_40.txt
+│           │   ├── PT_41.txt
+│           │   ├── PT_42.txt
+│           │   ├── PT_43.txt
+│           │   ├── PT_44.txt
+│           │   ├── PT_45.txt
+│           │   ├── PT_46.txt
+│           │   ├── PT_47.txt
+│           │   ├── PT_48.txt
+│           │   ├── PT_49.txt
+│           │   ├── PT_50.txt
+│           │   ├── PT_51.txt
+│           │   ├── PT_52.txt
+│           │   ├── PT_53.txt
+│           │   ├── PT_54.txt
+│           │   ├── PT_55.txt
+│           │   ├── PT_56.txt
+│           │   ├── PT_57.txt
+│           │   ├── PT_58.txt
+│           │   ├── PT_59.txt
+│           │   ├── PT_60.txt
+│           │   ├── PT_61.txt
+│           │   ├── PT_62.txt
+│           │   ├── PT_63.txt
+│           │   ├── PT_64.txt
+│           │   ├── PT_65.txt
+│           │   ├── PT_66.txt
+│           │   ├── PT_67.txt
+│           │   ├── PT_68.txt
+│           │   ├── PT_69.txt
+│           │   ├── PT_70.txt
+│           │   ├── PT_71.txt
+│           │   ├── PT_72.txt
+│           │   ├── PT_73.txt
+│           │   ├── PT_74.txt
+│           │   ├── PT_75.txt
+│           │   ├── PT_76.txt
+│           │   ├── PT_77.txt
+│           │   ├── PT_78.txt
+│           │   ├── PT_79.txt
+│           │   ├── PT_80.txt
+│           │   ├── PT_81.txt
+│           │   ├── PT_82.txt
+│           │   ├── PT_83.txt
+│           │   ├── PT_84.txt
+│           │   ├── PT_85.txt
+│           │   ├── PT_86.txt
+│           │   ├── PT_87.txt
+│           │   ├── PT_88.txt
+│           │   ├── PT_89.txt
+│           │   ├── PT_90.txt
+│           │   ├── PT_91.txt
+│           │   ├── PT_92.txt
+│           │   ├── PT_93.txt
+│           │   ├── PT_94.txt
+│           │   ├── PT_95.txt
+│           │   ├── PT_96.txt
+│           │   ├── PT_97.txt
+│           │   ├── PT_98.txt
+│           │   └── PT_99.txt
+│           ├── subtask-1-annotations.txt
+│           ├── subtask-2-annotations.txt
+│           └── subtask-3-annotations.txt
+├── README.md
+├── Requirements.txt
+├── config
+│   └── model_config.yaml
+├── notebooks
+├── results
+│   ├── models
+│   └── predictions
+├── src
+│   ├── models
+│   │   ├── _init_.py
+│   │   ├── classifier.py
+│   │   ├── config.py
+│   │   ├── factory.py
+│   │   └── loss.py
+│   ├── preprocessing
+│   ├── training
+│   │   ├── train.py
+│   │   └── trainer.py
+│   └── utils
+│       ├── _init_.py
+│       ├── config.py
+│       ├── constants.py
+│       ├── file_utils.py
+│       └── metrics.py
+└── tests
+    ├── test_config.yaml
+    ├── test_model.py
+    └── test_trainer.py

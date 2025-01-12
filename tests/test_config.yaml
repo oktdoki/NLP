@@ -1,0 +1,37 @@
+# tests/test_config.yaml
+model:
+  name: "xlm-roberta-base"  # using base model for testing
+  max_length: 128          # smaller sequence length for testing
+  hidden_dropout_prob: 0.1
+  attention_dropout_prob: 0.1
+
+training:
+  batch_size: 2
+  learning_rate: 2e-5
+  num_epochs: 2
+  warmup_steps: 10
+  weight_decay: 0.01
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  seed: 42
+
+data:
+  train_ratio: 0.8
+  validation_ratio: 0.2
+  supported_languages: ["EN"]  # just English for testing
+  label_categories:
+    narratives: ["URW", "CC", "Other"]
+    subnarratives: ["URW: Blaming Others", "CC: Climate Change Denial"]
+
+optimizer:
+  type: "AdamW"
+  beta1: 0.9
+  beta2: 0.999
+  epsilon: 1e-8
+
+logging:
+  wandb_project: ""  # disable wandb for testing
+  save_steps: 10
+  eval_steps: 5
+  logging_steps: 5
+  output_dir: "tests/outputs"
