@@ -1,6 +1,6 @@
 # src/models/factory.py
 
-from typing import Optional
+from typing import Optional, Dict
 import torch
 from .config import ModelConfig
 from .classifier import NarrativeClassifier
@@ -12,82 +12,66 @@ class ModelFactory:
     def create_model(
         num_narratives: int,
         num_subnarratives: int,
+        narrative_to_idx: Optional[Dict[str, int]] = None,
+        subnarrative_to_idx: Optional[Dict[str, int]] = None,
         config: Optional[ModelConfig] = None
     ) -> NarrativeClassifier:
-        """
-        Create a new narrative classifier.
-        
-        Args:
-            num_narratives: Number of narrative classes
-            num_subnarratives: Number of subnarrative classes
-            config: Optional model configuration
-            
-        Returns:
-            NarrativeClassifier: Initialized model
-        """
-        # Use default config if none provided
+        """Create a new narrative classifier."""
         if config is None:
             config = ModelConfig()
-            
-        # Create and return model
+
         model = NarrativeClassifier(
             config=config,
             num_narratives=num_narratives,
-            num_subnarratives=num_subnarratives
+            num_subnarratives=num_subnarratives,
+            narrative_to_idx=narrative_to_idx,
+            subnarrative_to_idx=subnarrative_to_idx
         )
-        
+
         return model
+
     
     @staticmethod
     def save_model(model: NarrativeClassifier, path: str):
-        """
-        Save model to disk.
-        
-        Args:
-            model: Model to save
-            path: Path to save model to
-        """
-        torch.save({
+        """Save model with only essential components."""
+        save_dict = {
             'state_dict': model.state_dict(),
-            'config': model.config
-        }, path)
+            'config': model.config,
+            'num_narratives': model.narrative_classifier[4].weight.size(0),
+            'num_subnarratives': model.subnarrative_classifier[4].weight.size(0)
+        }
+
+        # Save with compression to reduce file size
+        torch.save(save_dict, path, _use_new_zipfile_serialization=True)
     
     @staticmethod
     def load_model(path: str) -> NarrativeClassifier:
-        """
-        Load model from checkpoint.
-
-        Args:
-            path: Path to load model from
-
-        Returns:
-            NarrativeClassifier: Loaded model
-        """
-        # Load checkpoint
+        """Load model from checkpoint."""
         try:
-            checkpoint = torch.load(path)
-
-            # Handle different checkpoint formats
-            state_dict = checkpoint.get('state_dict', checkpoint)
+            checkpoint = torch.load(path, map_location='cpu')
+            state_dict = checkpoint.get('model_state_dict', checkpoint)
             config = checkpoint.get('config', ModelConfig())
 
-            # Get dimensions from the state dict
+            # Get dimensions from state dict
             narrative_weight = state_dict['narrative_classifier.4.weight']
             subnarrative_weight = state_dict['subnarrative_classifier.4.weight']
 
             num_narratives = narrative_weight.size(0)
             num_subnarratives = subnarrative_weight.size(0)
 
-            # Create model
+            # Load label mappings if they exist in checkpoint
+            narrative_to_idx = checkpoint.get('narrative_to_idx', {})
+            subnarrative_to_idx = checkpoint.get('subnarrative_to_idx', {})
+
             model = NarrativeClassifier(
                 config=config,
                 num_narratives=num_narratives,
-                num_subnarratives=num_subnarratives
+                num_subnarratives=num_subnarratives,
+                narrative_to_idx=narrative_to_idx,
+                subnarrative_to_idx=subnarrative_to_idx
             )
 
-            # Load state dict
             model.load_state_dict(state_dict)
-
             return model
 
         except Exception as e:

@@ -154,31 +154,44 @@ class Trainer:
             'loss': avg_loss
         }
     
-    def save_checkpoint(self, epoch: int, metrics: Dict[str, float], path: str):
-        """Save a checkpoint."""
-        Path(path).parent.mkdir(parents=True, exist_ok=True)
+    def save_checkpoint(self, epoch: int, metrics: Dict[str, float], path: str, save_full: bool = False):
+         """Save a checkpoint.
 
-        checkpoint = {
-            'epoch': epoch,
-            'model_state_dict': self.model.state_dict(),
-            'optimizer_state_dict': self.optimizer.state_dict(),
-            'scheduler_state_dict': self.scheduler.state_dict(),
-            'metrics': metrics,
-            'config': self.config
-        }
+         Args:
+             epoch: Current epoch number
+             metrics: Current metrics
+             path: Path to save checkpoint
+             save_full: If True, save full training state, otherwise just model weights
+         """
+         Path(path).parent.mkdir(parents=True, exist_ok=True)
 
-        torch.save(checkpoint, path)
-        self.logger.info(f"Saved checkpoint to {path}")
+         if save_full:
+             # Save full training state
+             checkpoint = {
+                 'epoch': epoch,
+                 'model_state_dict': self.model.state_dict(),
+                 'optimizer_state_dict': self.optimizer.state_dict(),
+                 'scheduler_state_dict': self.scheduler.state_dict(),
+                 'metrics': metrics,
+                 'config': self.config
+             }
+             full_path = str(Path(path).parent / 'full_checkpoint.pt')
+             torch.save(checkpoint, full_path)
+             self.logger.info(f"Saved full checkpoint to {full_path}")
+
+         # Always save inference version
+         inference_checkpoint = {
+             'model_state_dict': self.model.state_dict(),
+             'config': self.config
+         }
+         inference_path = path
+         torch.save(inference_checkpoint, inference_path)
+         self.logger.info(f"Saved inference checkpoint to {inference_path}")
     
     def train(self, checkpoint_dir: str = 'checkpoints'):
-        """
-        Train the model.
-        
-        Args:
-            checkpoint_dir: Directory to save checkpoints
-        """
+        """Train the model."""
         self.logger.info("Starting training...")
-        
+
         for epoch in range(self.config.max_epochs):
             self.logger.info(f"\nEpoch {epoch + 1}/{self.config.max_epochs}")
 
@@ -189,19 +202,25 @@ class Trainer:
             # Validation
             val_metrics = self.validate()
             self.logger.info(f"Validation Loss: {val_metrics['loss']:.4f}")
-            
+
             # Save checkpoint if best model
             if val_metrics['loss'] < self.best_val_loss:
                 self.best_val_loss = val_metrics['loss']
                 self.best_epoch = epoch
-                
+
+                # Save both full and inference checkpoints for best model
                 checkpoint_path = Path(checkpoint_dir) / 'best_model.pt'
-                self.save_checkpoint(epoch, val_metrics, str(checkpoint_path))
-            
+                self.save_checkpoint(
+                    epoch=epoch,
+                    metrics=val_metrics,
+                    path=str(checkpoint_path),
+                    save_full=True  # This will save both versions
+                )
+
             # Early stopping
             if epoch - self.best_epoch >= 5:  # 5 epochs patience
                 self.logger.info("Early stopping triggered!")
                 break
-        
+
         self.logger.info("Training completed!")
         self.logger.info(f"Best validation loss: {self.best_val_loss:.4f} at epoch {self.best_epoch + 1}")

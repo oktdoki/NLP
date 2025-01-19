@@ -15,7 +15,9 @@ class NarrativeClassifier(nn.Module):
         self,
         config: ModelConfig,
         num_narratives: int,
-        num_subnarratives: int
+        num_subnarratives: int,
+        narrative_to_idx: Optional[Dict[str, int]] = None,  # Add this
+        subnarrative_to_idx: Optional[Dict[str, int]] = None  # Add this
     ):
         """
         Initialize the classifier.
@@ -24,9 +26,14 @@ class NarrativeClassifier(nn.Module):
             config: Model configuration
             num_narratives: Number of narrative classes
             num_subnarratives: Number of subnarrative classes
+            narrative_to_idx: Optional mapping from narrative labels to indices
+            subnarrative_to_idx: Optional mapping from subnarrative labels to indices
         """
         super().__init__()
 
+        # Store label mappings
+        self.narrative_to_idx = narrative_to_idx or {}
+        self.subnarrative_to_idx = subnarrative_to_idx or {}
         # Load base model
         self.base_model = AutoModel.from_pretrained(config.model_name)
 
@@ -126,25 +133,37 @@ class NarrativeClassifier(nn.Module):
         input_ids: torch.Tensor,
         attention_mask: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Make predictions for inference.
-
-        Args:
-            input_ids: Input token IDs
-            attention_mask: Attention mask
-
-        Returns:
-            Tuple of narrative and subnarrative predictions
-        """
+        """Make predictions with refined thresholding."""
         self.eval()
         with torch.no_grad():
             outputs = self(input_ids, attention_mask)
 
-            narrative_preds = torch.sigmoid(outputs['narrative_logits'])
-            subnarrative_preds = torch.sigmoid(outputs['subnarrative_logits'])
+            # Get probabilities
+            narrative_probs = torch.sigmoid(outputs['narrative_logits'])
+            subnarrative_probs = torch.sigmoid(outputs['subnarrative_logits'])
 
-            # Apply thresholds
-            narrative_preds = (narrative_preds > self.config.narrative_threshold).float()
-            subnarrative_preds = (subnarrative_preds > self.config.subnarrative_threshold).float()
+            # Dynamic thresholding for narratives
+            # Take only the top probability if it's above threshold
+            max_narrative_probs, max_narrative_indices = narrative_probs.max(dim=1)
+            narrative_preds = torch.zeros_like(narrative_probs)
+            above_thresh = max_narrative_probs > self.config.narrative_threshold
+            narrative_preds[above_thresh, max_narrative_indices[above_thresh]] = 1
+
+            # Add "Other" only if no other narrative is predicted
+            other_idx = self.narrative_to_idx.get("Other", -1)
+            if other_idx != -1:
+                no_predictions = (narrative_preds.sum(dim=1) == 0)
+                narrative_preds[no_predictions, other_idx] = 1
+
+            # More lenient threshold for subnarratives
+            subnarrative_threshold = self.config.subnarrative_threshold * 0.8
+            subnarrative_preds = (subnarrative_probs > subnarrative_threshold).float()
+
+            # Ensure at least one subnarrative is predicted if we have any narrative
+            zero_subnarratives = (subnarrative_preds.sum(dim=1) == 0)
+            if zero_subnarratives.any():
+                # For samples with no predictions, take the highest probability subnarrative
+                top_subnarratives = subnarrative_probs[zero_subnarratives].argmax(dim=1)
+                subnarrative_preds[zero_subnarratives, top_subnarratives] = 1
 
         return narrative_preds, subnarrative_preds

@@ -19,16 +19,6 @@ class ModelEvaluator:
         subnarrative_idx_to_label: Dict[int, str],
         device: str = None
     ):
-        """
-        Initialize the evaluator.
-
-        Args:
-            model: Model to evaluate
-            test_loader: DataLoader for test data
-            narrative_idx_to_label: Mapping from narrative indices to labels
-            subnarrative_idx_to_label: Mapping from subnarrative indices to labels
-            device: Device to use for evaluation
-        """
         self.model = model
         self.test_loader = test_loader
         self.narrative_idx_to_label = narrative_idx_to_label
@@ -36,119 +26,120 @@ class ModelEvaluator:
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
         self.model.to(self.device)
 
-    def evaluate(self) -> Dict[str, float]:
-        """
-        Evaluate the model on test data.
+        # Initialize metrics dictionaries
+        self.narrative_class_metrics = {}
+        self.subnarrative_class_metrics = {}
 
-        Returns:
-            Dictionary containing evaluation metrics
-        """
+    def evaluate(self) -> Dict[str, float]:
+        """Evaluate the model on test data."""
         self.model.eval()
         all_narrative_preds = []
         all_narrative_labels = []
         all_subnarrative_preds = []
         all_subnarrative_labels = []
 
+        # Collect predictions
         with torch.no_grad():
             for batch in tqdm(self.test_loader, desc="Evaluating"):
-                # Move batch to device
                 batch = {k: v.to(self.device) for k, v in batch.items()}
 
-                # Get predictions
                 narrative_preds, subnarrative_preds = self.model.predict(
                     input_ids=batch['input_ids'],
                     attention_mask=batch['attention_mask']
                 )
 
-                # Collect predictions and labels
                 all_narrative_preds.append(narrative_preds.cpu())
                 all_narrative_labels.append(batch['narrative_labels'].cpu())
                 all_subnarrative_preds.append(subnarrative_preds.cpu())
                 all_subnarrative_labels.append(batch['subnarrative_labels'].cpu())
 
-        # Concatenate all predictions and labels
+        # Concatenate predictions and labels
         narrative_preds = torch.cat(all_narrative_preds, dim=0).numpy()
         narrative_labels = torch.cat(all_narrative_labels, dim=0).numpy()
         subnarrative_preds = torch.cat(all_subnarrative_preds, dim=0).numpy()
         subnarrative_labels = torch.cat(all_subnarrative_labels, dim=0).numpy()
 
-        # Calculate metrics
+        # Calculate overall metrics
         metrics = {}
 
-        # Narrative metrics
-        n_precision, n_recall, n_f1, _ = precision_recall_fscore_support(
-            narrative_labels, narrative_preds, average='weighted'
+        # Calculate narrative metrics
+        narrative_metrics = self._calculate_metrics(
+            narrative_labels,
+            narrative_preds,
+            "narrative"
         )
-        metrics['narrative_precision'] = n_precision
-        metrics['narrative_recall'] = n_recall
-        metrics['narrative_f1'] = n_f1
+        metrics.update(narrative_metrics)
 
-        # Subnarrative metrics
-        s_precision, s_recall, s_f1, _ = precision_recall_fscore_support(
-            subnarrative_labels, subnarrative_preds, average='weighted'
+        # Calculate subnarrative metrics
+        subnarrative_metrics = self._calculate_metrics(
+            subnarrative_labels,
+            subnarrative_preds,
+            "subnarrative"
         )
-        metrics['subnarrative_precision'] = s_precision
-        metrics['subnarrative_recall'] = s_recall
-        metrics['subnarrative_f1'] = s_f1
-
-        # Per-class metrics
-        self.narrative_class_metrics = self._calculate_per_class_metrics(
-            narrative_labels, narrative_preds, self.narrative_idx_to_label
-        )
-
-        self.subnarrative_class_metrics = self._calculate_per_class_metrics(
-            subnarrative_labels, subnarrative_preds, self.subnarrative_idx_to_label
-        )
+        metrics.update(subnarrative_metrics)
 
         return metrics
 
-    def _calculate_per_class_metrics(
+    def _calculate_metrics(
         self,
         labels: np.ndarray,
         predictions: np.ndarray,
-        idx_to_label: Dict[int, str]
-    ) -> Dict[str, Dict[str, float]]:
-        """Calculate precision, recall, and F1 for each class."""
+        prefix: str
+    ) -> Dict[str, float]:
+        """Calculate metrics for a set of predictions."""
+        # Overall metrics
         precision, recall, f1, _ = precision_recall_fscore_support(
-            labels, predictions, average=None
+            labels, predictions, average='weighted'
         )
 
+        metrics = {
+            f'{prefix}_precision': precision,
+            f'{prefix}_recall': recall,
+            f'{prefix}_f1': f1
+        }
+
+        # Per-class metrics
+        per_class_p, per_class_r, per_class_f1, _ = precision_recall_fscore_support(
+            labels, predictions, average=None, zero_division=0
+        )
+
+        # Store per-class metrics
         class_metrics = {}
-        for idx, (p, r, f) in enumerate(zip(precision, recall, f1)):
+        idx_to_label = (self.narrative_idx_to_label if prefix == "narrative"
+                       else self.subnarrative_idx_to_label)
+
+        for idx, (p, r, f) in enumerate(zip(per_class_p, per_class_r, per_class_f1)):
             label = idx_to_label[idx]
             class_metrics[label] = {
                 'precision': p,
                 'recall': r,
-                'f1': f
+                'f1': f,
+                'support': labels[:, idx].sum()  # Number of true instances
             }
 
-        return class_metrics
+        # Store in instance variables
+        if prefix == "narrative":
+            self.narrative_class_metrics = class_metrics
+        else:
+            self.subnarrative_class_metrics = class_metrics
+
+        return metrics
 
     def get_error_analysis(self, num_examples: int = 5) -> List[Dict]:
-        """
-        Get examples of prediction errors for analysis.
-
-        Args:
-            num_examples: Number of error examples to return
-
-        Returns:
-            List of dictionaries containing error examples
-        """
+        """Get examples of prediction errors."""
         self.model.eval()
         errors = []
 
         with torch.no_grad():
             for batch in self.test_loader:
-                # Move batch to device
                 batch = {k: v.to(self.device) for k, v in batch.items()}
 
-                # Get predictions
                 narrative_preds, subnarrative_preds = self.model.predict(
                     input_ids=batch['input_ids'],
                     attention_mask=batch['attention_mask']
                 )
 
-                # Find errors
+                # Find misclassifications
                 narrative_errors = (narrative_preds != batch['narrative_labels']).any(dim=1)
                 subnarrative_errors = (subnarrative_preds != batch['subnarrative_labels']).any(dim=1)
 
@@ -171,8 +162,8 @@ class ModelEvaluator:
         narrative_pred: torch.Tensor,
         subnarrative_pred: torch.Tensor
     ) -> Dict:
-        """Format a single error example."""
-        # Get true and predicted labels
+        """Format an error example with detailed information."""
+        # Get predictions and true labels
         true_narratives = [
             self.narrative_idx_to_label[i]
             for i, val in enumerate(batch['narrative_labels'][idx])
@@ -201,5 +192,7 @@ class ModelEvaluator:
             'true_narratives': true_narratives,
             'predicted_narratives': pred_narratives,
             'true_subnarratives': true_subnarratives,
-            'predicted_subnarratives': pred_subnarratives
+            'predicted_subnarratives': pred_subnarratives,
+            'is_narrative_error': len(set(true_narratives) ^ set(pred_narratives)) > 0,
+            'is_subnarrative_error': len(set(true_subnarratives) ^ set(pred_subnarratives)) > 0
         }
