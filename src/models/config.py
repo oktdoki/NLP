@@ -1,72 +1,42 @@
-# src/utils/config.py
+# src/models/config.py
+
 from dataclasses import dataclass
-from typing import List, Dict, Optional
+from typing import Optional
 
 @dataclass
 class ModelConfig:
-    name: str
-    max_length: int
-    hidden_dropout_prob: float
-    attention_dropout_prob: float
+    """Configuration for the narrative classification model."""
 
-@dataclass
-class TrainingConfig:
-    batch_size: int
-    learning_rate: float
-    num_epochs: int
-    warmup_steps: int
-    weight_decay: float
-    gradient_accumulation_steps: int
-    max_grad_norm: float
-    seed: int
+    # Base model configuration
+    model_name: str = "xlm-roberta-base"
+    max_length: int = 512
 
-@dataclass
-class DataConfig:
-    train_ratio: float
-    validation_ratio: float
-    supported_languages: List[str]
-    label_categories: Dict[str, List[str]]
+    # Model architecture
+    dropout_prob: float = 0.1
+    hidden_size: int = 768  # Default for xlm-roberta-base
 
-@dataclass
-class OptimizerConfig:
-    type: str
-    beta1: float
-    beta2: float
-    epsilon: float
+    # Training configuration
+    learning_rate: float = 2e-5
+    weight_decay: float = 0.01
+    warmup_steps: int = 500
+    max_epochs: int = 10
+    batch_size: int = 16
 
-@dataclass
-class LoggingConfig:
-    wandb_project: str
-    save_steps: int
-    eval_steps: int
-    logging_steps: int
-    output_dir: str
+    # Multi-task learning weights
+    narrative_loss_weight: float = 1.0
+    subnarrative_loss_weight: float = 1.0
 
-@dataclass
-class Config:
-    model: ModelConfig
-    training: TrainingConfig
-    data: DataConfig
-    optimizer: OptimizerConfig
-    logging: LoggingConfig
+    # Thresholds for prediction
+    narrative_threshold: float = 0.5
+    subnarrative_threshold: float = 0.5
 
-def load_config(config_path: str) -> Config:
-    """Load config from YAML file."""
-    import yaml
-
-    with open(config_path, 'r') as f:
-        config_dict = yaml.safe_load(f)
-
-    model_config = ModelConfig(**config_dict['model'])
-    training_config = TrainingConfig(**config_dict['training'])
-    data_config = DataConfig(**config_dict['data'])
-    optimizer_config = OptimizerConfig(**config_dict['optimizer'])
-    logging_config = LoggingConfig(**config_dict['logging'])
-
-    return Config(
-        model=model_config,
-        training=training_config,
-        data=data_config,
-        optimizer=optimizer_config,
-        logging=logging_config
-    )
+    def __post_init__(self):
+        """Validate configuration after initialization."""
+        if self.dropout_prob < 0 or self.dropout_prob > 1:
+            raise ValueError("Dropout probability must be between 0 and 1")
+        if self.learning_rate <= 0:
+            raise ValueError("Learning rate must be positive")
+        if self.weight_decay < 0:
+            raise ValueError("Weight decay must be non-negative")
+        if self.max_epochs <= 0:
+            raise ValueError("Max epochs must be positive")

@@ -72,3 +72,4 @@ def test_model_training(config, device):
                 has_grad = True
                 break
     assert has_grad, "No gradients were computed"
+

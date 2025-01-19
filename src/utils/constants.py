@@ -1,20 +1,17 @@
-# Core ML libraries
-torch==2.0.1
-transformers==4.30.2  # For XLM-R
-accelerate==0.21.0    # For better hardware acceleration
+# Supported languages
+SUPPORTED_LANGUAGES = ['EN', 'BG', 'PT', 'HI', 'RU']
 
-# Data Processing & Analysis
-pandas==1.5.3
-numpy==1.24.3
-scikit-learn==1.2.2   # For evaluation metrics
+# Default paths
+DEFAULT_DATA_DIR = 'data_set/target_4_December_JSON'
 
-# Progress & Logging
-tqdm==4.65.0
-wandb==0.15.8         # For experiment tracking
+# Model constants
+DEFAULT_MAX_LENGTH = 512
+DEFAULT_BATCH_SIZE = 16
 
-# Utilities
-pyyaml==6.0.1         # For config files
+# Training constants
+DEFAULT_LEARNING_RATE = 2e-5
+DEFAULT_NUM_EPOCHS = 10
+DEFAULT_WARMUP_STEPS = 500
 
-# Development
-jupyter==1.0.0
-notebook==6.5.4       # For data exploration
+# Device settings
+DEFAULT_NUM_WORKERS = 4
