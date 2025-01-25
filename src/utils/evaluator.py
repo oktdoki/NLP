@@ -78,6 +78,12 @@ class ModelEvaluator:
         )
         metrics.update(subnarrative_metrics)
 
+        hierarchy_metrics = self._calculate_hierarchy_metrics(
+            narrative_preds,
+            subnarrative_preds
+        )
+        metrics.update(hierarchy_metrics)
+
         return metrics
 
     def _calculate_metrics(
@@ -126,73 +132,77 @@ class ModelEvaluator:
         return metrics
 
     def get_error_analysis(self, num_examples: int = 5) -> List[Dict]:
-        """Get examples of prediction errors."""
         self.model.eval()
         errors = []
 
         with torch.no_grad():
             for batch in self.test_loader:
                 batch = {k: v.to(self.device) for k, v in batch.items()}
-
                 narrative_preds, subnarrative_preds = self.model.predict(
                     input_ids=batch['input_ids'],
                     attention_mask=batch['attention_mask']
                 )
 
-                # Find misclassifications
+                # Find hierarchy violations and misclassifications
+                hierarchy_errors = self._check_hierarchy_errors(narrative_preds, subnarrative_preds)
                 narrative_errors = (narrative_preds != batch['narrative_labels']).any(dim=1)
                 subnarrative_errors = (subnarrative_preds != batch['subnarrative_labels']).any(dim=1)
 
                 for i in range(len(batch['input_ids'])):
-                    if narrative_errors[i] or subnarrative_errors[i]:
+                    if narrative_errors[i] or subnarrative_errors[i] or hierarchy_errors[i]:
                         error = self._format_error_example(
-                            batch, i, narrative_preds[i], subnarrative_preds[i]
+                            batch, i, narrative_preds[i], subnarrative_preds[i],
+                            hierarchy_error=hierarchy_errors[i]
                         )
                         errors.append(error)
-
                         if len(errors) >= num_examples:
                             return errors
+            return errors
+
+    def _check_hierarchy_errors(self, narrative_preds: torch.Tensor, subnarrative_preds: torch.Tensor) -> torch.Tensor:
+        errors = torch.zeros(narrative_preds.size(0), dtype=torch.bool)
+
+        for i in range(narrative_preds.size(0)):
+            for narr_idx in torch.nonzero(narrative_preds[i]).squeeze(1):
+                if narr_idx in self.model.narrative_to_subnarratives:
+                    valid_subnarrs = self.model.narrative_to_subnarratives[narr_idx]
+                    if subnarrative_preds[i, valid_subnarrs].sum() == 0:
+                        errors[i] = True
 
         return errors
 
     def _format_error_example(
-        self,
-        batch: Dict[str, torch.Tensor],
-        idx: int,
-        narrative_pred: torch.Tensor,
-        subnarrative_pred: torch.Tensor
+            self,
+            batch: Dict[str, torch.Tensor],
+            idx: int,
+            narrative_pred: torch.Tensor,
+            subnarrative_pred: torch.Tensor,
+            hierarchy_error: bool
     ) -> Dict:
-        """Format an error example with detailed information."""
-        # Get predictions and true labels
-        true_narratives = [
-            self.narrative_idx_to_label[i]
-            for i, val in enumerate(batch['narrative_labels'][idx])
-            if val == 1
-        ]
-
-        pred_narratives = [
-            self.narrative_idx_to_label[i]
-            for i, val in enumerate(narrative_pred)
-            if val == 1
-        ]
-
-        true_subnarratives = [
-            self.subnarrative_idx_to_label[i]
-            for i, val in enumerate(batch['subnarrative_labels'][idx])
-            if val == 1
-        ]
-
-        pred_subnarratives = [
-            self.subnarrative_idx_to_label[i]
-            for i, val in enumerate(subnarrative_pred)
-            if val == 1
-        ]
-
-        return {
+        # Previous code remains...
+        error_dict = {
             'true_narratives': true_narratives,
             'predicted_narratives': pred_narratives,
             'true_subnarratives': true_subnarratives,
             'predicted_subnarratives': pred_subnarratives,
             'is_narrative_error': len(set(true_narratives) ^ set(pred_narratives)) > 0,
-            'is_subnarrative_error': len(set(true_subnarratives) ^ set(pred_subnarratives)) > 0
+            'is_subnarrative_error': len(set(true_subnarratives) ^ set(pred_subnarratives)) > 0,
+            'is_hierarchy_error': hierarchy_error
+        }
+        return error_dict
+
+    def _calculate_hierarchy_metrics(self, narrative_preds: np.ndarray, subnarrative_preds: np.ndarray) -> Dict[str, float]:
+        hierarchy_consistency = 0
+        total = 0
+
+        for i in range(narrative_preds.shape[0]):
+            for narr_idx, narr_pred in enumerate(narrative_preds[i]):
+                if narr_pred == 1 and narr_idx in self.model.narrative_to_subnarratives:
+                    valid_subnarrs = self.model.narrative_to_subnarratives[narr_idx]
+                    subnarr_match = subnarrative_preds[i][valid_subnarrs].sum() > 0
+                    hierarchy_consistency += int(subnarr_match)
+                    total += 1
+
+        return {
+            'hierarchy_consistency': hierarchy_consistency / max(total, 1)
         }

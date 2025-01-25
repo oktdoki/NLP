@@ -1,0 +1,4764 @@
+.
+├── README.md
+├── Requirements.txt
+├── checkpoint_inspector.py
+├── checkpoints
+│   ├── best_model.pt
+│   └── full_checkpoint.pt
+├── config
+│   └── model_config.yaml
+├── data_set
+│   ├── analyse_data_set.ipynb
+│   ├── dev-documents_4_December
+│   │   ├── BG
+│   │   │   ├── subtask-1-documents
+│   │   │   │   ├── A9_BG_2569.txt
+│   │   │   │   ├── A9_BG_2663.txt
+│   │   │   │   ├── A9_BG_2828.txt
+│   │   │   │   ├── A9_BG_2961.txt
+│   │   │   │   ├── A9_BG_3819.txt
+│   │   │   │   ├── A9_BG_3921.txt
+│   │   │   │   ├── A9_BG_3964.txt
+│   │   │   │   ├── A9_BG_3970.txt
+│   │   │   │   ├── A9_BG_4039.txt
+│   │   │   │   ├── A9_BG_4076.txt
+│   │   │   │   ├── A9_BG_4093.txt
+│   │   │   │   ├── A9_BG_8427.txt
+│   │   │   │   ├── BG_73.txt
+│   │   │   │   ├── BG_950.txt
+│   │   │   │   └── BG_979.txt
+│   │   │   ├── subtask-1-entity-mentions.txt
+│   │   │   ├── subtask-2-documents
+│   │   │   │   ├── A9_BG_2569.txt
+│   │   │   │   ├── A9_BG_2592.txt
+│   │   │   │   ├── A9_BG_2663.txt
+│   │   │   │   ├── A9_BG_2707.txt
+│   │   │   │   ├── A9_BG_2756.txt
+│   │   │   │   ├── A9_BG_2820.txt
+│   │   │   │   ├── A9_BG_2828.txt
+│   │   │   │   ├── A9_BG_2961.txt
+│   │   │   │   ├── A9_BG_3819.txt
+│   │   │   │   ├── A9_BG_3921.txt
+│   │   │   │   ├── A9_BG_3964.txt
+│   │   │   │   ├── A9_BG_3970.txt
+│   │   │   │   ├── A9_BG_4026.txt
+│   │   │   │   ├── A9_BG_4039.txt
+│   │   │   │   ├── A9_BG_4076.txt
+│   │   │   │   ├── A9_BG_4093.txt
+│   │   │   │   ├── A9_BG_4110.txt
+│   │   │   │   ├── A9_BG_8427.txt
+│   │   │   │   ├── BG_1091.txt
+│   │   │   │   ├── BG_1146.txt
+│   │   │   │   ├── BG_1169.txt
+│   │   │   │   ├── BG_1178.txt
+│   │   │   │   ├── BG_125.txt
+│   │   │   │   ├── BG_1378.txt
+│   │   │   │   ├── BG_1455.txt
+│   │   │   │   ├── BG_1856.txt
+│   │   │   │   ├── BG_212.txt
+│   │   │   │   ├── BG_245.txt
+│   │   │   │   ├── BG_277.txt
+│   │   │   │   ├── BG_63.txt
+│   │   │   │   ├── BG_73.txt
+│   │   │   │   ├── BG_877.txt
+│   │   │   │   ├── BG_909.txt
+│   │   │   │   ├── BG_950.txt
+│   │   │   │   └── BG_979.txt
+│   │   │   ├── subtask-3-documents
+│   │   │   │   ├── A9_BG_2569.txt
+│   │   │   │   ├── A9_BG_2592.txt
+│   │   │   │   ├── A9_BG_2663.txt
+│   │   │   │   ├── A9_BG_2707.txt
+│   │   │   │   ├── A9_BG_2756.txt
+│   │   │   │   ├── A9_BG_2828.txt
+│   │   │   │   ├── A9_BG_3819.txt
+│   │   │   │   ├── A9_BG_3964.txt
+│   │   │   │   ├── A9_BG_3970.txt
+│   │   │   │   ├── A9_BG_4026.txt
+│   │   │   │   ├── A9_BG_4039.txt
+│   │   │   │   ├── A9_BG_4076.txt
+│   │   │   │   ├── A9_BG_4093.txt
+│   │   │   │   ├── A9_BG_4110.txt
+│   │   │   │   ├── A9_BG_8427.txt
+│   │   │   │   ├── BG_1146.txt
+│   │   │   │   ├── BG_1169.txt
+│   │   │   │   ├── BG_1178.txt
+│   │   │   │   ├── BG_125.txt
+│   │   │   │   ├── BG_1455.txt
+│   │   │   │   ├── BG_212.txt
+│   │   │   │   ├── BG_245.txt
+│   │   │   │   ├── BG_277.txt
+│   │   │   │   ├── BG_63.txt
+│   │   │   │   ├── BG_73.txt
+│   │   │   │   ├── BG_909.txt
+│   │   │   │   ├── BG_950.txt
+│   │   │   │   └── BG_979.txt
+│   │   │   └── subtask-3-dominant-narratives.txt
+│   │   ├── EN
+│   │   │   ├── subtask-1-documents
+│   │   │   │   ├── EN_CC_200033.txt
+│   │   │   │   ├── EN_CC_200034.txt
+│   │   │   │   ├── EN_CC_200035.txt
+│   │   │   │   ├── EN_CC_200036.txt
+│   │   │   │   ├── EN_CC_200040.txt
+│   │   │   │   ├── EN_CC_200046.txt
+│   │   │   │   ├── EN_CC_200047.txt
+│   │   │   │   ├── EN_CC_200053.txt
+│   │   │   │   ├── EN_CC_200054.txt
+│   │   │   │   ├── EN_CC_200064.txt
+│   │   │   │   ├── EN_CC_200069.txt
+│   │   │   │   ├── EN_CC_200070.txt
+│   │   │   │   ├── EN_CC_200071.txt
+│   │   │   │   ├── EN_CC_200077.txt
+│   │   │   │   ├── EN_CC_200079.txt
+│   │   │   │   ├── EN_CC_200081.txt
+│   │   │   │   ├── EN_UA_DEV_100002.txt
+│   │   │   │   ├── EN_UA_DEV_100012.txt
+│   │   │   │   ├── EN_UA_DEV_100013.txt
+│   │   │   │   ├── EN_UA_DEV_100019.txt
+│   │   │   │   ├── EN_UA_DEV_100026.txt
+│   │   │   │   ├── EN_UA_DEV_100029.txt
+│   │   │   │   ├── EN_UA_DEV_100033.txt
+│   │   │   │   ├── EN_UA_DEV_20.txt
+│   │   │   │   ├── EN_UA_DEV_213.txt
+│   │   │   │   ├── EN_UA_DEV_214.txt
+│   │   │   │   └── EN_UA_DEV_215.txt
+│   │   │   ├── subtask-1-entity-mentions.txt
+│   │   │   ├── subtask-2-documents
+│   │   │   │   ├── EN_CC_200030.txt
+│   │   │   │   ├── EN_CC_200033.txt
+│   │   │   │   ├── EN_CC_200034.txt
+│   │   │   │   ├── EN_CC_200035.txt
+│   │   │   │   ├── EN_CC_200036.txt
+│   │   │   │   ├── EN_CC_200040.txt
+│   │   │   │   ├── EN_CC_200046.txt
+│   │   │   │   ├── EN_CC_200047.txt
+│   │   │   │   ├── EN_CC_200049.txt
+│   │   │   │   ├── EN_CC_200050.txt
+│   │   │   │   ├── EN_CC_200053.txt
+│   │   │   │   ├── EN_CC_200054.txt
+│   │   │   │   ├── EN_CC_200060.txt
+│   │   │   │   ├── EN_CC_200063.txt
+│   │   │   │   ├── EN_CC_200064.txt
+│   │   │   │   ├── EN_CC_200065.txt
+│   │   │   │   ├── EN_CC_200069.txt
+│   │   │   │   ├── EN_CC_200070.txt
+│   │   │   │   ├── EN_CC_200071.txt
+│   │   │   │   ├── EN_CC_200077.txt
+│   │   │   │   ├── EN_CC_200078.txt
+│   │   │   │   ├── EN_CC_200079.txt
+│   │   │   │   ├── EN_CC_200081.txt
+│   │   │   │   ├── EN_CC_200085.txt
+│   │   │   │   ├── EN_UA_DEV_100002.txt
+│   │   │   │   ├── EN_UA_DEV_100003.txt
+│   │   │   │   ├── EN_UA_DEV_100004.txt
+│   │   │   │   ├── EN_UA_DEV_100005.txt
+│   │   │   │   ├── EN_UA_DEV_100012.txt
+│   │   │   │   ├── EN_UA_DEV_100013.txt
+│   │   │   │   ├── EN_UA_DEV_100019.txt
+│   │   │   │   ├── EN_UA_DEV_100026.txt
+│   │   │   │   ├── EN_UA_DEV_100029.txt
+│   │   │   │   ├── EN_UA_DEV_100033.txt
+│   │   │   │   ├── EN_UA_DEV_100034.txt
+│   │   │   │   ├── EN_UA_DEV_100036.txt
+│   │   │   │   ├── EN_UA_DEV_20.txt
+│   │   │   │   ├── EN_UA_DEV_213.txt
+│   │   │   │   ├── EN_UA_DEV_214.txt
+│   │   │   │   ├── EN_UA_DEV_215.txt
+│   │   │   │   └── EN_UA_DEV_22.txt
+│   │   │   ├── subtask-3-documents
+│   │   │   │   ├── EN_CC_200033.txt
+│   │   │   │   ├── EN_CC_200034.txt
+│   │   │   │   ├── EN_CC_200035.txt
+│   │   │   │   ├── EN_CC_200036.txt
+│   │   │   │   ├── EN_CC_200040.txt
+│   │   │   │   ├── EN_CC_200046.txt
+│   │   │   │   ├── EN_CC_200047.txt
+│   │   │   │   ├── EN_CC_200049.txt
+│   │   │   │   ├── EN_CC_200054.txt
+│   │   │   │   ├── EN_CC_200064.txt
+│   │   │   │   ├── EN_CC_200065.txt
+│   │   │   │   ├── EN_CC_200069.txt
+│   │   │   │   ├── EN_CC_200070.txt
+│   │   │   │   ├── EN_CC_200071.txt
+│   │   │   │   ├── EN_CC_200077.txt
+│   │   │   │   ├── EN_CC_200079.txt
+│   │   │   │   ├── EN_CC_200081.txt
+│   │   │   │   ├── EN_UA_DEV_100002.txt
+│   │   │   │   ├── EN_UA_DEV_100005.txt
+│   │   │   │   ├── EN_UA_DEV_100012.txt
+│   │   │   │   ├── EN_UA_DEV_100013.txt
+│   │   │   │   ├── EN_UA_DEV_100026.txt
+│   │   │   │   ├── EN_UA_DEV_100029.txt
+│   │   │   │   ├── EN_UA_DEV_100033.txt
+│   │   │   │   ├── EN_UA_DEV_100034.txt
+│   │   │   │   ├── EN_UA_DEV_20.txt
+│   │   │   │   ├── EN_UA_DEV_213.txt
+│   │   │   │   ├── EN_UA_DEV_214.txt
+│   │   │   │   ├── EN_UA_DEV_215.txt
+│   │   │   │   └── EN_UA_DEV_22.txt
+│   │   │   └── subtask-3-dominant-narratives.txt
+│   │   ├── HI
+│   │   │   ├── subtask-1-documents
+│   │   │   │   ├── HI_10.txt
+│   │   │   │   ├── HI_107.txt
+│   │   │   │   ├── HI_11.txt
+│   │   │   │   ├── HI_110.txt
+│   │   │   │   ├── HI_114.txt
+│   │   │   │   ├── HI_12.txt
+│   │   │   │   ├── HI_125.txt
+│   │   │   │   ├── HI_126.txt
+│   │   │   │   ├── HI_134.txt
+│   │   │   │   ├── HI_139.txt
+│   │   │   │   ├── HI_140.txt
+│   │   │   │   ├── HI_143.txt
+│   │   │   │   ├── HI_151.txt
+│   │   │   │   ├── HI_152.txt
+│   │   │   │   ├── HI_154.txt
+│   │   │   │   ├── HI_156.txt
+│   │   │   │   ├── HI_158.txt
+│   │   │   │   ├── HI_159.txt
+│   │   │   │   ├── HI_160.txt
+│   │   │   │   ├── HI_17.txt
+│   │   │   │   ├── HI_19.txt
+│   │   │   │   ├── HI_26.txt
+│   │   │   │   ├── HI_28.txt
+│   │   │   │   ├── HI_31.txt
+│   │   │   │   ├── HI_34.txt
+│   │   │   │   ├── HI_35.txt
+│   │   │   │   ├── HI_38.txt
+│   │   │   │   ├── HI_4.txt
+│   │   │   │   ├── HI_5.txt
+│   │   │   │   ├── HI_51.txt
+│   │   │   │   ├── HI_71.txt
+│   │   │   │   ├── HI_75.txt
+│   │   │   │   ├── HI_76.txt
+│   │   │   │   ├── HI_95.txt
+│   │   │   │   └── HI_97.txt
+│   │   │   ├── subtask-1-entity-mentions.txt
+│   │   │   ├── subtask-2-documents
+│   │   │   │   ├── HI_10.txt
+│   │   │   │   ├── HI_107.txt
+│   │   │   │   ├── HI_11.txt
+│   │   │   │   ├── HI_110.txt
+│   │   │   │   ├── HI_114.txt
+│   │   │   │   ├── HI_12.txt
+│   │   │   │   ├── HI_125.txt
+│   │   │   │   ├── HI_126.txt
+│   │   │   │   ├── HI_134.txt
+│   │   │   │   ├── HI_139.txt
+│   │   │   │   ├── HI_140.txt
+│   │   │   │   ├── HI_143.txt
+│   │   │   │   ├── HI_151.txt
+│   │   │   │   ├── HI_152.txt
+│   │   │   │   ├── HI_154.txt
+│   │   │   │   ├── HI_156.txt
+│   │   │   │   ├── HI_158.txt
+│   │   │   │   ├── HI_159.txt
+│   │   │   │   ├── HI_160.txt
+│   │   │   │   ├── HI_17.txt
+│   │   │   │   ├── HI_19.txt
+│   │   │   │   ├── HI_26.txt
+│   │   │   │   ├── HI_28.txt
+│   │   │   │   ├── HI_31.txt
+│   │   │   │   ├── HI_34.txt
+│   │   │   │   ├── HI_35.txt
+│   │   │   │   ├── HI_38.txt
+│   │   │   │   ├── HI_4.txt
+│   │   │   │   ├── HI_5.txt
+│   │   │   │   ├── HI_51.txt
+│   │   │   │   ├── HI_71.txt
+│   │   │   │   ├── HI_75.txt
+│   │   │   │   ├── HI_76.txt
+│   │   │   │   ├── HI_95.txt
+│   │   │   │   └── HI_97.txt
+│   │   │   ├── subtask-3-documents
+│   │   │   │   ├── HI_107.txt
+│   │   │   │   ├── HI_110.txt
+│   │   │   │   ├── HI_114.txt
+│   │   │   │   ├── HI_125.txt
+│   │   │   │   ├── HI_126.txt
+│   │   │   │   ├── HI_134.txt
+│   │   │   │   ├── HI_139.txt
+│   │   │   │   ├── HI_140.txt
+│   │   │   │   ├── HI_143.txt
+│   │   │   │   ├── HI_151.txt
+│   │   │   │   ├── HI_152.txt
+│   │   │   │   ├── HI_154.txt
+│   │   │   │   ├── HI_156.txt
+│   │   │   │   ├── HI_158.txt
+│   │   │   │   ├── HI_159.txt
+│   │   │   │   ├── HI_160.txt
+│   │   │   │   ├── HI_19.txt
+│   │   │   │   ├── HI_26.txt
+│   │   │   │   ├── HI_28.txt
+│   │   │   │   ├── HI_34.txt
+│   │   │   │   ├── HI_35.txt
+│   │   │   │   ├── HI_38.txt
+│   │   │   │   ├── HI_4.txt
+│   │   │   │   ├── HI_5.txt
+│   │   │   │   ├── HI_51.txt
+│   │   │   │   ├── HI_71.txt
+│   │   │   │   ├── HI_75.txt
+│   │   │   │   ├── HI_95.txt
+│   │   │   │   └── HI_97.txt
+│   │   │   └── subtask-3-dominant-narratives.txt
+│   │   ├── PT
+│   │   │   ├── subtask-1-documents
+│   │   │   │   ├── PT_202.txt
+│   │   │   │   ├── PT_203.txt
+│   │   │   │   ├── PT_204.txt
+│   │   │   │   ├── PT_206.txt
+│   │   │   │   ├── PT_207.txt
+│   │   │   │   ├── PT_208.txt
+│   │   │   │   ├── PT_209.txt
+│   │   │   │   ├── PT_210.txt
+│   │   │   │   ├── PT_211.txt
+│   │   │   │   ├── PT_213.txt
+│   │   │   │   ├── PT_217.txt
+│   │   │   │   ├── PT_220.txt
+│   │   │   │   ├── PT_224.txt
+│   │   │   │   ├── PT_225.txt
+│   │   │   │   ├── PT_226.txt
+│   │   │   │   ├── PT_228.txt
+│   │   │   │   ├── PT_229.txt
+│   │   │   │   ├── PT_230.txt
+│   │   │   │   ├── PT_232.txt
+│   │   │   │   ├── PT_233.txt
+│   │   │   │   ├── PT_234.txt
+│   │   │   │   ├── PT_237.txt
+│   │   │   │   ├── PT_239.txt
+│   │   │   │   ├── PT_241.txt
+│   │   │   │   ├── PT_244.txt
+│   │   │   │   ├── PT_245.txt
+│   │   │   │   ├── PT_249.txt
+│   │   │   │   ├── PT_250.txt
+│   │   │   │   ├── PT_253.txt
+│   │   │   │   ├── PT_254.txt
+│   │   │   │   └── PT_259.txt
+│   │   │   ├── subtask-1-entity-mentions.txt
+│   │   │   ├── subtask-2-documents
+│   │   │   │   ├── PT_201.txt
+│   │   │   │   ├── PT_202.txt
+│   │   │   │   ├── PT_203.txt
+│   │   │   │   ├── PT_204.txt
+│   │   │   │   ├── PT_205.txt
+│   │   │   │   ├── PT_206.txt
+│   │   │   │   ├── PT_207.txt
+│   │   │   │   ├── PT_208.txt
+│   │   │   │   ├── PT_209.txt
+│   │   │   │   ├── PT_210.txt
+│   │   │   │   ├── PT_211.txt
+│   │   │   │   ├── PT_213.txt
+│   │   │   │   ├── PT_216.txt
+│   │   │   │   ├── PT_217.txt
+│   │   │   │   ├── PT_220.txt
+│   │   │   │   ├── PT_221.txt
+│   │   │   │   ├── PT_224.txt
+│   │   │   │   ├── PT_225.txt
+│   │   │   │   ├── PT_226.txt
+│   │   │   │   ├── PT_228.txt
+│   │   │   │   ├── PT_229.txt
+│   │   │   │   ├── PT_230.txt
+│   │   │   │   ├── PT_232.txt
+│   │   │   │   ├── PT_233.txt
+│   │   │   │   ├── PT_234.txt
+│   │   │   │   ├── PT_237.txt
+│   │   │   │   ├── PT_239.txt
+│   │   │   │   ├── PT_241.txt
+│   │   │   │   ├── PT_244.txt
+│   │   │   │   ├── PT_245.txt
+│   │   │   │   ├── PT_249.txt
+│   │   │   │   ├── PT_250.txt
+│   │   │   │   ├── PT_253.txt
+│   │   │   │   ├── PT_254.txt
+│   │   │   │   └── PT_259.txt
+│   │   │   ├── subtask-3-documents
+│   │   │   │   ├── PT_205.txt
+│   │   │   │   ├── PT_206.txt
+│   │   │   │   ├── PT_207.txt
+│   │   │   │   ├── PT_208.txt
+│   │   │   │   ├── PT_211.txt
+│   │   │   │   ├── PT_213.txt
+│   │   │   │   ├── PT_216.txt
+│   │   │   │   ├── PT_217.txt
+│   │   │   │   ├── PT_220.txt
+│   │   │   │   ├── PT_221.txt
+│   │   │   │   ├── PT_224.txt
+│   │   │   │   ├── PT_225.txt
+│   │   │   │   ├── PT_226.txt
+│   │   │   │   ├── PT_228.txt
+│   │   │   │   ├── PT_229.txt
+│   │   │   │   ├── PT_230.txt
+│   │   │   │   ├── PT_232.txt
+│   │   │   │   ├── PT_233.txt
+│   │   │   │   ├── PT_234.txt
+│   │   │   │   ├── PT_244.txt
+│   │   │   │   ├── PT_249.txt
+│   │   │   │   ├── PT_250.txt
+│   │   │   │   ├── PT_253.txt
+│   │   │   │   ├── PT_254.txt
+│   │   │   │   └── PT_259.txt
+│   │   │   └── subtask-3-dominant-narratives.txt
+│   │   └── RU
+│   │       ├── subtask-1-documents
+│   │       │   ├── RU-URW-1004.txt
+│   │       │   ├── RU-URW-1014.txt
+│   │       │   ├── RU-URW-1023.txt
+│   │       │   ├── RU-URW-1032.txt
+│   │       │   ├── RU-URW-1043.txt
+│   │       │   ├── RU-URW-1053.txt
+│   │       │   ├── RU-URW-1061.txt
+│   │       │   ├── RU-URW-1069.txt
+│   │       │   ├── RU-URW-1073.txt
+│   │       │   ├── RU-URW-1077.txt
+│   │       │   ├── RU-URW-1085.txt
+│   │       │   ├── RU-URW-1093.txt
+│   │       │   ├── RU-URW-1101.txt
+│   │       │   ├── RU-URW-1102.txt
+│   │       │   ├── RU-URW-1110.txt
+│   │       │   ├── RU-URW-1118.txt
+│   │       │   ├── RU-URW-1120.txt
+│   │       │   ├── RU-URW-1127.txt
+│   │       │   ├── RU-URW-1135.txt
+│   │       │   ├── RU-URW-1139.txt
+│   │       │   ├── RU-URW-1146.txt
+│   │       │   ├── RU-URW-1152.txt
+│   │       │   ├── RU-URW-1166.txt
+│   │       │   ├── RU-URW-1168.txt
+│   │       │   ├── RU-URW-1170.txt
+│   │       │   ├── RU-URW-1171.txt
+│   │       │   ├── RU-URW-1174.txt
+│   │       │   └── RU-URW-1184.txt
+│   │       ├── subtask-1-entity-mentions.txt
+│   │       ├── subtask-2-documents
+│   │       │   ├── RU-URW-1004.txt
+│   │       │   ├── RU-URW-1014.txt
+│   │       │   ├── RU-URW-1023.txt
+│   │       │   ├── RU-URW-1032.txt
+│   │       │   ├── RU-URW-1043.txt
+│   │       │   ├── RU-URW-1053.txt
+│   │       │   ├── RU-URW-1061.txt
+│   │       │   ├── RU-URW-1069.txt
+│   │       │   ├── RU-URW-1073.txt
+│   │       │   ├── RU-URW-1077.txt
+│   │       │   ├── RU-URW-1085.txt
+│   │       │   ├── RU-URW-1089.txt
+│   │       │   ├── RU-URW-1090.txt
+│   │       │   ├── RU-URW-1093.txt
+│   │       │   ├── RU-URW-1101.txt
+│   │       │   ├── RU-URW-1102.txt
+│   │       │   ├── RU-URW-1110.txt
+│   │       │   ├── RU-URW-1118.txt
+│   │       │   ├── RU-URW-1120.txt
+│   │       │   ├── RU-URW-1127.txt
+│   │       │   ├── RU-URW-1133.txt
+│   │       │   ├── RU-URW-1135.txt
+│   │       │   ├── RU-URW-1139.txt
+│   │       │   ├── RU-URW-1146.txt
+│   │       │   ├── RU-URW-1147.txt
+│   │       │   ├── RU-URW-1152.txt
+│   │       │   ├── RU-URW-1166.txt
+│   │       │   ├── RU-URW-1168.txt
+│   │       │   ├── RU-URW-1170.txt
+│   │       │   ├── RU-URW-1171.txt
+│   │       │   ├── RU-URW-1174.txt
+│   │       │   └── RU-URW-1184.txt
+│   │       ├── subtask-3-documents
+│   │       │   ├── RU-URW-1004.txt
+│   │       │   ├── RU-URW-1014.txt
+│   │       │   ├── RU-URW-1023.txt
+│   │       │   ├── RU-URW-1032.txt
+│   │       │   ├── RU-URW-1043.txt
+│   │       │   ├── RU-URW-1053.txt
+│   │       │   ├── RU-URW-1061.txt
+│   │       │   ├── RU-URW-1069.txt
+│   │       │   ├── RU-URW-1073.txt
+│   │       │   ├── RU-URW-1077.txt
+│   │       │   ├── RU-URW-1085.txt
+│   │       │   ├── RU-URW-1093.txt
+│   │       │   ├── RU-URW-1101.txt
+│   │       │   ├── RU-URW-1102.txt
+│   │       │   ├── RU-URW-1110.txt
+│   │       │   ├── RU-URW-1118.txt
+│   │       │   ├── RU-URW-1120.txt
+│   │       │   ├── RU-URW-1127.txt
+│   │       │   ├── RU-URW-1135.txt
+│   │       │   ├── RU-URW-1139.txt
+│   │       │   ├── RU-URW-1146.txt
+│   │       │   ├── RU-URW-1152.txt
+│   │       │   ├── RU-URW-1166.txt
+│   │       │   ├── RU-URW-1168.txt
+│   │       │   ├── RU-URW-1170.txt
+│   │       │   ├── RU-URW-1171.txt
+│   │       │   ├── RU-URW-1174.txt
+│   │       │   └── RU-URW-1184.txt
+│   │       └── subtask-3-dominant-narratives.txt
+│   ├── readTextandLabels.py
+│   ├── target_4_December_JSON
+│   │   ├── BG
+│   │   │   ├── A6_CC_BG_10015.json
+│   │   │   ├── A6_CC_BG_10345.json
+│   │   │   ├── A6_CC_BG_10380.json
+│   │   │   ├── A6_CC_BG_10468.json
+│   │   │   ├── A6_CC_BG_10525.json
+│   │   │   ├── A6_CC_BG_10556.json
+│   │   │   ├── A6_CC_BG_10565.json
+│   │   │   ├── A6_CC_BG_10575.json
+│   │   │   ├── A6_CC_BG_10635.json
+│   │   │   ├── A6_CC_BG_10648.json
+│   │   │   ├── A6_CC_BG_10649.json
+│   │   │   ├── A6_CC_BG_10701.json
+│   │   │   ├── A6_CC_BG_10756.json
+│   │   │   ├── A6_CC_BG_10784.json
+│   │   │   ├── A6_CC_BG_10815.json
+│   │   │   ├── A6_CC_BG_10910.json
+│   │   │   ├── A6_CC_BG_10952.json
+│   │   │   ├── A6_CC_BG_10986.json
+│   │   │   ├── A6_CC_BG_11056.json
+│   │   │   ├── A6_CC_BG_11301.json
+│   │   │   ├── A6_CC_BG_11357.json
+│   │   │   ├── A6_CC_BG_11378.json
+│   │   │   ├── A6_CC_BG_11380.json
+│   │   │   ├── A6_CC_BG_11388.json
+│   │   │   ├── A6_CC_BG_11419.json
+│   │   │   ├── A6_CC_BG_11466.json
+│   │   │   ├── A6_CC_BG_11619.json
+│   │   │   ├── A6_CC_BG_11636.json
+│   │   │   ├── A6_CC_BG_11770.json
+│   │   │   ├── A6_CC_BG_11814.json
+│   │   │   ├── A6_CC_BG_11938.json
+│   │   │   ├── A6_CC_BG_12082.json
+│   │   │   ├── A6_CC_BG_12088.json
+│   │   │   ├── A6_CC_BG_12138.json
+│   │   │   ├── A6_CC_BG_12204.json
+│   │   │   ├── A6_CC_BG_12223.json
+│   │   │   ├── A6_CC_BG_12243.json
+│   │   │   ├── A6_CC_BG_12507.json
+│   │   │   ├── A6_CC_BG_12763.json
+│   │   │   ├── A6_CC_BG_12970.json
+│   │   │   ├── A6_CC_BG_13037.json
+│   │   │   ├── A6_CC_BG_13248.json
+│   │   │   ├── A6_CC_BG_13258.json
+│   │   │   ├── A6_CC_BG_13264.json
+│   │   │   ├── A6_CC_BG_13417.json
+│   │   │   ├── A6_CC_BG_13641.json
+│   │   │   ├── A6_CC_BG_13652.json
+│   │   │   ├── A6_CC_BG_8520.json
+│   │   │   ├── A6_CC_BG_8841.json
+│   │   │   ├── A6_CC_BG_8984.json
+│   │   │   ├── A6_CC_BG_9245.json
+│   │   │   ├── A6_CC_BG_9247.json
+│   │   │   ├── A6_CC_BG_9249.json
+│   │   │   ├── A6_CC_BG_9250.json
+│   │   │   ├── A6_CC_BG_9254.json
+│   │   │   ├── A6_CC_BG_9326.json
+│   │   │   ├── A6_CC_BG_9375.json
+│   │   │   ├── A6_CC_BG_9522.json
+│   │   │   ├── A6_CC_BG_9579.json
+│   │   │   ├── A6_CC_BG_9905.json
+│   │   │   ├── A7_URW_BG_2596.json
+│   │   │   ├── A7_URW_BG_2658.json
+│   │   │   ├── A7_URW_BG_2691.json
+│   │   │   ├── A7_URW_BG_2710.json
+│   │   │   ├── A7_URW_BG_2783.json
+│   │   │   ├── A7_URW_BG_2786.json
+│   │   │   ├── A7_URW_BG_2800.json
+│   │   │   ├── A7_URW_BG_2882.json
+│   │   │   ├── A7_URW_BG_2951.json
+│   │   │   ├── A7_URW_BG_2952.json
+│   │   │   ├── A7_URW_BG_2962.json
+│   │   │   ├── A7_URW_BG_2969.json
+│   │   │   ├── A7_URW_BG_3062.json
+│   │   │   ├── A7_URW_BG_3200.json
+│   │   │   ├── A7_URW_BG_3209.json
+│   │   │   ├── A7_URW_BG_3240.json
+│   │   │   ├── A7_URW_BG_3370.json
+│   │   │   ├── A7_URW_BG_3499.json
+│   │   │   ├── A7_URW_BG_3530.json
+│   │   │   ├── A7_URW_BG_3564.json
+│   │   │   ├── A7_URW_BG_3566.json
+│   │   │   ├── A7_URW_BG_3572.json
+│   │   │   ├── A7_URW_BG_3575.json
+│   │   │   ├── A7_URW_BG_3616.json
+│   │   │   ├── A7_URW_BG_3618.json
+│   │   │   ├── A7_URW_BG_3808.json
+│   │   │   ├── A7_URW_BG_3919.json
+│   │   │   ├── A7_URW_BG_4230.json
+│   │   │   ├── A7_URW_BG_4359.json
+│   │   │   ├── A7_URW_BG_4451.json
+│   │   │   ├── A7_URW_BG_4517.json
+│   │   │   ├── A7_URW_BG_4629.json
+│   │   │   ├── A7_URW_BG_4663.json
+│   │   │   ├── A7_URW_BG_4793.json
+│   │   │   ├── A7_URW_BG_4906.json
+│   │   │   ├── A7_URW_BG_5077.json
+│   │   │   ├── A7_URW_BG_5078.json
+│   │   │   ├── A7_URW_BG_5108.json
+│   │   │   ├── A7_URW_BG_5156.json
+│   │   │   ├── A7_URW_BG_5178.json
+│   │   │   ├── A7_URW_BG_5265.json
+│   │   │   ├── A7_URW_BG_5431.json
+│   │   │   ├── A7_URW_BG_5448.json
+│   │   │   ├── A7_URW_BG_5459.json
+│   │   │   ├── A7_URW_BG_5634.json
+│   │   │   ├── A7_URW_BG_5660.json
+│   │   │   ├── A7_URW_BG_5683.json
+│   │   │   ├── A7_URW_BG_5720.json
+│   │   │   ├── A7_URW_BG_5735.json
+│   │   │   ├── A7_URW_BG_5759.json
+│   │   │   ├── A7_URW_BG_5857.json
+│   │   │   ├── A7_URW_BG_5868.json
+│   │   │   ├── A7_URW_BG_5925.json
+│   │   │   ├── A7_URW_BG_5994.json
+│   │   │   ├── A7_URW_BG_6121.json
+│   │   │   ├── A7_URW_BG_6326.json
+│   │   │   ├── A7_URW_BG_6694.json
+│   │   │   ├── A7_URW_BG_6700.json
+│   │   │   ├── A7_URW_BG_6975.json
+│   │   │   ├── A7_URW_BG_7035.json
+│   │   │   ├── A7_URW_BG_7168.json
+│   │   │   ├── A7_URW_BG_7466.json
+│   │   │   ├── A7_URW_BG_7898.json
+│   │   │   ├── A7_URW_BG_8093.json
+│   │   │   ├── A7_URW_BG_8199.json
+│   │   │   ├── A7_URW_BG_8200.json
+│   │   │   ├── A8_CC_BG_10103.json
+│   │   │   ├── A8_CC_BG_10189.json
+│   │   │   ├── A8_CC_BG_10193.json
+│   │   │   ├── A8_CC_BG_8534.json
+│   │   │   ├── A8_CC_BG_8654.json
+│   │   │   ├── A8_CC_BG_8668.json
+│   │   │   ├── A8_CC_BG_8732.json
+│   │   │   ├── A8_CC_BG_8803.json
+│   │   │   ├── A8_CC_BG_8887.json
+│   │   │   ├── A8_CC_BG_8957.json
+│   │   │   ├── A8_CC_BG_9081.json
+│   │   │   ├── A8_CC_BG_9090.json
+│   │   │   ├── A8_CC_BG_9187.json
+│   │   │   ├── A8_CC_BG_9196.json
+│   │   │   ├── A8_CC_BG_9200.json
+│   │   │   ├── A8_CC_BG_9217.json
+│   │   │   ├── A8_CC_BG_9298.json
+│   │   │   ├── A8_CC_BG_9315.json
+│   │   │   ├── A8_CC_BG_9451.json
+│   │   │   ├── A8_CC_BG_9693.json
+│   │   │   ├── A8_CC_BG_9754.json
+│   │   │   ├── A8_CC_BG_9783.json
+│   │   │   ├── A8_CC_BG_9816.json
+│   │   │   ├── A8_CC_BG_9904.json
+│   │   │   ├── A9_BG_2566.json
+│   │   │   ├── A9_BG_2719.json
+│   │   │   ├── A9_BG_2836.json
+│   │   │   ├── A9_BG_2858.json
+│   │   │   ├── A9_BG_2931.json
+│   │   │   ├── A9_BG_2963.json
+│   │   │   ├── A9_BG_2972.json
+│   │   │   ├── A9_BG_2973.json
+│   │   │   ├── A9_BG_3023.json
+│   │   │   ├── A9_BG_3097.json
+│   │   │   ├── A9_BG_3109.json
+│   │   │   ├── A9_BG_3142.json
+│   │   │   ├── A9_BG_3182.json
+│   │   │   ├── A9_BG_3203.json
+│   │   │   ├── A9_BG_3204.json
+│   │   │   ├── A9_BG_3206.json
+│   │   │   ├── A9_BG_3273.json
+│   │   │   ├── A9_BG_3283.json
+│   │   │   ├── A9_BG_3290.json
+│   │   │   ├── A9_BG_3298.json
+│   │   │   ├── A9_BG_3300.json
+│   │   │   ├── A9_BG_3363.json
+│   │   │   ├── A9_BG_3379.json
+│   │   │   ├── A9_BG_3385.json
+│   │   │   ├── A9_BG_3390.json
+│   │   │   ├── A9_BG_3395.json
+│   │   │   ├── A9_BG_3430.json
+│   │   │   ├── A9_BG_3431.json
+│   │   │   ├── A9_BG_3440.json
+│   │   │   ├── A9_BG_3543.json
+│   │   │   ├── A9_BG_3563.json
+│   │   │   ├── A9_BG_3586.json
+│   │   │   ├── A9_BG_3599.json
+│   │   │   ├── A9_BG_3652.json
+│   │   │   ├── A9_BG_3672.json
+│   │   │   ├── A9_BG_3675.json
+│   │   │   ├── A9_BG_3704.json
+│   │   │   ├── A9_BG_3734.json
+│   │   │   ├── A9_BG_3756.json
+│   │   │   ├── A9_BG_3762.json
+│   │   │   ├── A9_BG_3779.json
+│   │   │   ├── A9_BG_3818.json
+│   │   │   ├── A9_BG_4016.json
+│   │   │   ├── A9_BG_4116.json
+│   │   │   ├── A9_BG_4185.json
+│   │   │   ├── A9_BG_4189.json
+│   │   │   ├── A9_BG_4197.json
+│   │   │   ├── A9_BG_4216.json
+│   │   │   ├── A9_BG_4258.json
+│   │   │   ├── A9_BG_4272.json
+│   │   │   ├── A9_BG_4297.json
+│   │   │   ├── A9_BG_4361.json
+│   │   │   ├── A9_BG_4362.json
+│   │   │   ├── A9_BG_437.json
+│   │   │   ├── A9_BG_4374.json
+│   │   │   ├── A9_BG_4379.json
+│   │   │   ├── A9_BG_4389.json
+│   │   │   ├── A9_BG_4483.json
+│   │   │   ├── A9_BG_4571.json
+│   │   │   ├── A9_BG_4576.json
+│   │   │   ├── A9_BG_4577.json
+│   │   │   ├── A9_BG_4605.json
+│   │   │   ├── A9_BG_4606.json
+│   │   │   ├── A9_BG_4622.json
+│   │   │   ├── A9_BG_4658.json
+│   │   │   ├── A9_BG_4718.json
+│   │   │   ├── A9_BG_4737.json
+│   │   │   ├── A9_BG_4768.json
+│   │   │   ├── A9_BG_4830.json
+│   │   │   ├── A9_BG_4832.json
+│   │   │   ├── A9_BG_4839.json
+│   │   │   ├── A9_BG_4840.json
+│   │   │   ├── A9_BG_4844.json
+│   │   │   ├── A9_BG_4851.json
+│   │   │   ├── A9_BG_4885.json
+│   │   │   ├── A9_BG_4898.json
+│   │   │   ├── A9_BG_4905.json
+│   │   │   ├── A9_BG_4971.json
+│   │   │   ├── A9_BG_4978.json
+│   │   │   ├── A9_BG_5009.json
+│   │   │   ├── A9_BG_5053.json
+│   │   │   ├── A9_BG_5082.json
+│   │   │   ├── A9_BG_5143.json
+│   │   │   ├── A9_BG_5155.json
+│   │   │   ├── A9_BG_5190.json
+│   │   │   ├── A9_BG_5225.json
+│   │   │   ├── A9_BG_5226.json
+│   │   │   ├── A9_BG_5402.json
+│   │   │   ├── A9_BG_5548.json
+│   │   │   ├── A9_BG_5596.json
+│   │   │   ├── A9_BG_5817.json
+│   │   │   ├── A9_BG_583.json
+│   │   │   ├── A9_BG_5871.json
+│   │   │   ├── A9_BG_5903.json
+│   │   │   ├── A9_BG_5957.json
+│   │   │   ├── A9_BG_5965.json
+│   │   │   ├── A9_BG_5984.json
+│   │   │   ├── A9_BG_6002.json
+│   │   │   ├── A9_BG_6015.json
+│   │   │   ├── A9_BG_6207.json
+│   │   │   ├── A9_BG_6229.json
+│   │   │   ├── A9_BG_6815.json
+│   │   │   ├── A9_BG_6875.json
+│   │   │   ├── A9_BG_7303.json
+│   │   │   ├── A9_BG_7690.json
+│   │   │   ├── A9_BG_7720.json
+│   │   │   ├── A9_BG_8028.json
+│   │   │   ├── A9_BG_8210.json
+│   │   │   ├── A9_BG_8333.json
+│   │   │   ├── A9_BG_8450.json
+│   │   │   ├── BG_1006.json
+│   │   │   ├── BG_1044.json
+│   │   │   ├── BG_1089.json
+│   │   │   ├── BG_1098.json
+│   │   │   ├── BG_1163.json
+│   │   │   ├── BG_1164.json
+│   │   │   ├── BG_1181.json
+│   │   │   ├── BG_1249.json
+│   │   │   ├── BG_1258.json
+│   │   │   ├── BG_1319.json
+│   │   │   ├── BG_1341.json
+│   │   │   ├── BG_1345.json
+│   │   │   ├── BG_1352.json
+│   │   │   ├── BG_1390.json
+│   │   │   ├── BG_1423.json
+│   │   │   ├── BG_1509.json
+│   │   │   ├── BG_1544.json
+│   │   │   ├── BG_1559.json
+│   │   │   ├── BG_1637.json
+│   │   │   ├── BG_171.json
+│   │   │   ├── BG_1725.json
+│   │   │   ├── BG_1767.json
+│   │   │   ├── BG_1826.json
+│   │   │   ├── BG_1843.json
+│   │   │   ├── BG_1867.json
+│   │   │   ├── BG_2536.json
+│   │   │   ├── BG_3079.json
+│   │   │   ├── BG_3245.json
+│   │   │   ├── BG_3284.json
+│   │   │   ├── BG_3351.json
+│   │   │   ├── BG_3364.json
+│   │   │   ├── BG_3368.json
+│   │   │   ├── BG_3541.json
+│   │   │   ├── BG_3629.json
+│   │   │   ├── BG_364.json
+│   │   │   ├── BG_3669.json
+│   │   │   ├── BG_3671.json
+│   │   │   ├── BG_3753.json
+│   │   │   ├── BG_3759.json
+│   │   │   ├── BG_3867.json
+│   │   │   ├── BG_3909.json
+│   │   │   ├── BG_4188.json
+│   │   │   ├── BG_4228.json
+│   │   │   ├── BG_423.json
+│   │   │   ├── BG_430.json
+│   │   │   ├── BG_435.json
+│   │   │   ├── BG_4366.json
+│   │   │   ├── BG_439.json
+│   │   │   ├── BG_4531.json
+│   │   │   ├── BG_454.json
+│   │   │   ├── BG_456.json
+│   │   │   ├── BG_457.json
+│   │   │   ├── BG_4613.json
+│   │   │   ├── BG_4624.json
+│   │   │   ├── BG_463.json
+│   │   │   ├── BG_4648.json
+│   │   │   ├── BG_4713.json
+│   │   │   ├── BG_473.json
+│   │   │   ├── BG_4732.json
+│   │   │   ├── BG_476.json
+│   │   │   ├── BG_480.json
+│   │   │   ├── BG_481.json
+│   │   │   ├── BG_4819.json
+│   │   │   ├── BG_4845.json
+│   │   │   ├── BG_4872.json
+│   │   │   ├── BG_4884.json
+│   │   │   ├── BG_494.json
+│   │   │   ├── BG_497.json
+│   │   │   ├── BG_504.json
+│   │   │   ├── BG_508.json
+│   │   │   ├── BG_509.json
+│   │   │   ├── BG_5098.json
+│   │   │   ├── BG_513.json
+│   │   │   ├── BG_521.json
+│   │   │   ├── BG_526.json
+│   │   │   ├── BG_529.json
+│   │   │   ├── BG_5360.json
+│   │   │   ├── BG_538.json
+│   │   │   ├── BG_5406.json
+│   │   │   ├── BG_541.json
+│   │   │   ├── BG_546.json
+│   │   │   ├── BG_5470.json
+│   │   │   ├── BG_548.json
+│   │   │   ├── BG_551.json
+│   │   │   ├── BG_553.json
+│   │   │   ├── BG_555.json
+│   │   │   ├── BG_559.json
+│   │   │   ├── BG_560.json
+│   │   │   ├── BG_561.json
+│   │   │   ├── BG_573.json
+│   │   │   ├── BG_576.json
+│   │   │   ├── BG_582.json
+│   │   │   ├── BG_585.json
+│   │   │   ├── BG_5914.json
+│   │   │   ├── BG_5918.json
+│   │   │   ├── BG_5942.json
+│   │   │   ├── BG_6019.json
+│   │   │   ├── BG_6045.json
+│   │   │   ├── BG_607.json
+│   │   │   ├── BG_612.json
+│   │   │   ├── BG_613.json
+│   │   │   ├── BG_616.json
+│   │   │   ├── BG_620.json
+│   │   │   ├── BG_624.json
+│   │   │   ├── BG_628.json
+│   │   │   ├── BG_629.json
+│   │   │   ├── BG_630.json
+│   │   │   ├── BG_637.json
+│   │   │   ├── BG_663.json
+│   │   │   ├── BG_666.json
+│   │   │   ├── BG_670.json
+│   │   │   ├── BG_676.json
+│   │   │   ├── BG_678.json
+│   │   │   ├── BG_679.json
+│   │   │   ├── BG_684.json
+│   │   │   ├── BG_696.json
+│   │   │   ├── BG_699.json
+│   │   │   ├── BG_701.json
+│   │   │   ├── BG_704.json
+│   │   │   ├── BG_7070.json
+│   │   │   ├── BG_723.json
+│   │   │   ├── BG_7367.json
+│   │   │   ├── BG_7379.json
+│   │   │   ├── BG_751.json
+│   │   │   ├── BG_7557.json
+│   │   │   ├── BG_799.json
+│   │   │   ├── BG_8060.json
+│   │   │   ├── BG_828.json
+│   │   │   ├── BG_8385.json
+│   │   │   ├── BG_839.json
+│   │   │   ├── BG_8453.json
+│   │   │   ├── BG_8455.json
+│   │   │   ├── BG_855.json
+│   │   │   ├── BG_866.json
+│   │   │   ├── BG_869.json
+│   │   │   ├── BG_888.json
+│   │   │   ├── BG_892.json
+│   │   │   ├── BG_894.json
+│   │   │   ├── BG_895.json
+│   │   │   ├── BG_939.json
+│   │   │   └── BG_971.json
+│   │   ├── EN
+│   │   │   ├── EN_CC_100000.json
+│   │   │   ├── EN_CC_100002.json
+│   │   │   ├── EN_CC_100003.json
+│   │   │   ├── EN_CC_100004.json
+│   │   │   ├── EN_CC_100005.json
+│   │   │   ├── EN_CC_100007.json
+│   │   │   ├── EN_CC_100008.json
+│   │   │   ├── EN_CC_100009.json
+│   │   │   ├── EN_CC_100010.json
+│   │   │   ├── EN_CC_100011.json
+│   │   │   ├── EN_CC_100012.json
+│   │   │   ├── EN_CC_100013.json
+│   │   │   ├── EN_CC_100014.json
+│   │   │   ├── EN_CC_100015.json
+│   │   │   ├── EN_CC_100016.json
+│   │   │   ├── EN_CC_100021.json
+│   │   │   ├── EN_CC_100023.json
+│   │   │   ├── EN_CC_100024.json
+│   │   │   ├── EN_CC_100028.json
+│   │   │   ├── EN_CC_100030.json
+│   │   │   ├── EN_CC_100034.json
+│   │   │   ├── EN_CC_100035.json
+│   │   │   ├── EN_CC_100036.json
+│   │   │   ├── EN_CC_100037.json
+│   │   │   ├── EN_CC_100038.json
+│   │   │   ├── EN_CC_100040.json
+│   │   │   ├── EN_CC_100042.json
+│   │   │   ├── EN_CC_100044.json
+│   │   │   ├── EN_CC_100046.json
+│   │   │   ├── EN_CC_100047.json
+│   │   │   ├── EN_CC_100050.json
+│   │   │   ├── EN_CC_100054.json
+│   │   │   ├── EN_CC_100065.json
+│   │   │   ├── EN_CC_100066.json
+│   │   │   ├── EN_CC_100067.json
+│   │   │   ├── EN_CC_100069.json
+│   │   │   ├── EN_CC_100070.json
+│   │   │   ├── EN_CC_100076.json
+│   │   │   ├── EN_CC_100083.json
+│   │   │   ├── EN_CC_100091.json
+│   │   │   ├── EN_CC_100093.json
+│   │   │   ├── EN_CC_100095.json
+│   │   │   ├── EN_CC_100098.json
+│   │   │   ├── EN_CC_100106.json
+│   │   │   ├── EN_CC_100122.json
+│   │   │   ├── EN_CC_100123.json
+│   │   │   ├── EN_CC_100124.json
+│   │   │   ├── EN_CC_100136.json
+│   │   │   ├── EN_CC_100137.json
+│   │   │   ├── EN_CC_100139.json
+│   │   │   ├── EN_CC_100145.json
+│   │   │   ├── EN_CC_100146.json
+│   │   │   ├── EN_CC_100147.json
+│   │   │   ├── EN_CC_100150.json
+│   │   │   ├── EN_CC_100156.json
+│   │   │   ├── EN_CC_100159.json
+│   │   │   ├── EN_CC_100169.json
+│   │   │   ├── EN_CC_100172.json
+│   │   │   ├── EN_CC_100197.json
+│   │   │   ├── EN_CC_100198.json
+│   │   │   ├── EN_CC_100203.json
+│   │   │   ├── EN_CC_100211.json
+│   │   │   ├── EN_CC_100213.json
+│   │   │   ├── EN_CC_100223.json
+│   │   │   ├── EN_CC_100232.json
+│   │   │   ├── EN_CC_100235.json
+│   │   │   ├── EN_CC_100243.json
+│   │   │   ├── EN_CC_200001.json
+│   │   │   ├── EN_CC_200007.json
+│   │   │   ├── EN_CC_200009.json
+│   │   │   ├── EN_CC_200012.json
+│   │   │   ├── EN_CC_200013.json
+│   │   │   ├── EN_CC_200015.json
+│   │   │   ├── EN_CC_200016.json
+│   │   │   ├── EN_CC_200018.json
+│   │   │   ├── EN_CC_200021.json
+│   │   │   ├── EN_CC_200022.json
+│   │   │   ├── EN_CC_200024.json
+│   │   │   ├── EN_CC_200025.json
+│   │   │   ├── EN_CC_200029.json
+│   │   │   ├── EN_CC_200041.json
+│   │   │   ├── EN_CC_200044.json
+│   │   │   ├── EN_CC_200048.json
+│   │   │   ├── EN_CC_200052.json
+│   │   │   ├── EN_CC_200055.json
+│   │   │   ├── EN_CC_200056.json
+│   │   │   ├── EN_CC_200058.json
+│   │   │   ├── EN_CC_200073.json
+│   │   │   ├── EN_CC_200083.json
+│   │   │   ├── EN_CC_200086.json
+│   │   │   ├── EN_CC_200092.json
+│   │   │   ├── EN_CC_200093.json
+│   │   │   ├── EN_CC_200097.json
+│   │   │   ├── EN_CC_200098.json
+│   │   │   ├── EN_CC_200101.json
+│   │   │   ├── EN_CC_200104.json
+│   │   │   ├── EN_CC_200105.json
+│   │   │   ├── EN_CC_200107.json
+│   │   │   ├── EN_CC_200110.json
+│   │   │   ├── EN_CC_200113.json
+│   │   │   ├── EN_CC_200116.json
+│   │   │   ├── EN_CC_200132.json
+│   │   │   ├── EN_CC_200134.json
+│   │   │   ├── EN_CC_200137.json
+│   │   │   ├── EN_CC_200139.json
+│   │   │   ├── EN_CC_200141.json
+│   │   │   ├── EN_CC_200144.json
+│   │   │   ├── EN_CC_200145.json
+│   │   │   ├── EN_CC_200150.json
+│   │   │   ├── EN_CC_200152.json
+│   │   │   ├── EN_CC_200154.json
+│   │   │   ├── EN_CC_200159.json
+│   │   │   ├── EN_CC_200165.json
+│   │   │   ├── EN_CC_200166.json
+│   │   │   ├── EN_CC_200168.json
+│   │   │   ├── EN_CC_200181.json
+│   │   │   ├── EN_CC_200188.json
+│   │   │   ├── EN_CC_200191.json
+│   │   │   ├── EN_CC_200211.json
+│   │   │   ├── EN_CC_200218.json
+│   │   │   ├── EN_CC_200221.json
+│   │   │   ├── EN_CC_200227.json
+│   │   │   ├── EN_CC_200234.json
+│   │   │   ├── EN_CC_200242.json
+│   │   │   ├── EN_CC_200245.json
+│   │   │   ├── EN_CC_200246.json
+│   │   │   ├── EN_CC_200254.json
+│   │   │   ├── EN_CC_200262.json
+│   │   │   ├── EN_CC_200270.json
+│   │   │   ├── EN_CC_200278.json
+│   │   │   ├── EN_CC_200279.json
+│   │   │   ├── EN_CC_200285.json
+│   │   │   ├── EN_CC_200289.json
+│   │   │   ├── EN_CC_200292.json
+│   │   │   ├── EN_CC_200294.json
+│   │   │   ├── EN_CC_200318.json
+│   │   │   ├── EN_CC_200321.json
+│   │   │   ├── EN_CC_200324.json
+│   │   │   ├── EN_CC_200326.json
+│   │   │   ├── EN_CC_200327.json
+│   │   │   ├── EN_CC_200337.json
+│   │   │   ├── EN_CC_200342.json
+│   │   │   ├── EN_CC_200343.json
+│   │   │   ├── EN_CC_200344.json
+│   │   │   ├── EN_CC_200349.json
+│   │   │   ├── EN_CC_300001.json
+│   │   │   ├── EN_CC_300003.json
+│   │   │   ├── EN_CC_300004.json
+│   │   │   ├── EN_CC_300005.json
+│   │   │   ├── EN_CC_300006.json
+│   │   │   ├── EN_CC_300008.json
+│   │   │   ├── EN_CC_300010.json
+│   │   │   ├── EN_CC_300017.json
+│   │   │   ├── EN_CC_300018.json
+│   │   │   ├── EN_CC_300022.json
+│   │   │   ├── EN_CC_300023.json
+│   │   │   ├── EN_CC_300028.json
+│   │   │   ├── EN_CC_300030.json
+│   │   │   ├── EN_CC_300031.json
+│   │   │   ├── EN_CC_300037.json
+│   │   │   ├── EN_CC_300038.json
+│   │   │   ├── EN_CC_300040.json
+│   │   │   ├── EN_CC_300052.json
+│   │   │   ├── EN_CC_300054.json
+│   │   │   ├── EN_CC_300057.json
+│   │   │   ├── EN_CC_300064.json
+│   │   │   ├── EN_CC_300074.json
+│   │   │   ├── EN_CC_300088.json
+│   │   │   ├── EN_CC_300112.json
+│   │   │   ├── EN_CC_300114.json
+│   │   │   ├── EN_CC_300124.json
+│   │   │   ├── EN_CC_300125.json
+│   │   │   ├── EN_CC_300134.json
+│   │   │   ├── EN_CC_300151.json
+│   │   │   ├── EN_CC_300158.json
+│   │   │   ├── EN_CC_300179.json
+│   │   │   ├── EN_UA_000104.json
+│   │   │   ├── EN_UA_000543.json
+│   │   │   ├── EN_UA_000568.json
+│   │   │   ├── EN_UA_000923.json
+│   │   │   ├── EN_UA_001032.json
+│   │   │   ├── EN_UA_001052.json
+│   │   │   ├── EN_UA_002416.json
+│   │   │   ├── EN_UA_002531.json
+│   │   │   ├── EN_UA_002668.json
+│   │   │   ├── EN_UA_002991.json
+│   │   │   ├── EN_UA_003579.json
+│   │   │   ├── EN_UA_004209.json
+│   │   │   ├── EN_UA_004343.json
+│   │   │   ├── EN_UA_004616.json
+│   │   │   ├── EN_UA_008072.json
+│   │   │   ├── EN_UA_008586.json
+│   │   │   ├── EN_UA_010091.json
+│   │   │   ├── EN_UA_010095.json
+│   │   │   ├── EN_UA_010735.json
+│   │   │   ├── EN_UA_010901.json
+│   │   │   ├── EN_UA_010909.json
+│   │   │   ├── EN_UA_011260.json
+│   │   │   ├── EN_UA_012234.json
+│   │   │   ├── EN_UA_012611.json
+│   │   │   ├── EN_UA_012803.json
+│   │   │   ├── EN_UA_013257.json
+│   │   │   ├── EN_UA_013344.json
+│   │   │   ├── EN_UA_013617.json
+│   │   │   ├── EN_UA_013710.json
+│   │   │   ├── EN_UA_013727.json
+│   │   │   ├── EN_UA_014014.json
+│   │   │   ├── EN_UA_014413.json
+│   │   │   ├── EN_UA_014637.json
+│   │   │   ├── EN_UA_014829.json
+│   │   │   ├── EN_UA_015443.json
+│   │   │   ├── EN_UA_015880.json
+│   │   │   ├── EN_UA_015962.json
+│   │   │   ├── EN_UA_016012.json
+│   │   │   ├── EN_UA_016466.json
+│   │   │   ├── EN_UA_017310.json
+│   │   │   ├── EN_UA_017831.json
+│   │   │   ├── EN_UA_018789.json
+│   │   │   ├── EN_UA_019640.json
+│   │   │   ├── EN_UA_020543.json
+│   │   │   ├── EN_UA_021123.json
+│   │   │   ├── EN_UA_021263.json
+│   │   │   ├── EN_UA_021270.json
+│   │   │   ├── EN_UA_021310.json
+│   │   │   ├── EN_UA_021377.json
+│   │   │   ├── EN_UA_021872.json
+│   │   │   ├── EN_UA_021918.json
+│   │   │   ├── EN_UA_022016.json
+│   │   │   ├── EN_UA_022051.json
+│   │   │   ├── EN_UA_022319.json
+│   │   │   ├── EN_UA_022339.json
+│   │   │   ├── EN_UA_023008.json
+│   │   │   ├── EN_UA_023211.json
+│   │   │   ├── EN_UA_023816.json
+│   │   │   ├── EN_UA_024050.json
+│   │   │   ├── EN_UA_024321.json
+│   │   │   ├── EN_UA_024628.json
+│   │   │   ├── EN_UA_024847.json
+│   │   │   ├── EN_UA_025165.json
+│   │   │   ├── EN_UA_025652.json
+│   │   │   ├── EN_UA_025764.json
+│   │   │   ├── EN_UA_026036.json
+│   │   │   ├── EN_UA_026142.json
+│   │   │   ├── EN_UA_026697.json
+│   │   │   ├── EN_UA_026740.json
+│   │   │   ├── EN_UA_027676.json
+│   │   │   ├── EN_UA_027787.json
+│   │   │   ├── EN_UA_027816.json
+│   │   │   ├── EN_UA_027879.json
+│   │   │   ├── EN_UA_028103.json
+│   │   │   ├── EN_UA_028520.json
+│   │   │   ├── EN_UA_029053.json
+│   │   │   ├── EN_UA_029155.json
+│   │   │   ├── EN_UA_100106.json
+│   │   │   ├── EN_UA_100210.json
+│   │   │   ├── EN_UA_100411.json
+│   │   │   ├── EN_UA_100587.json
+│   │   │   ├── EN_UA_100601.json
+│   │   │   ├── EN_UA_100688.json
+│   │   │   ├── EN_UA_100840.json
+│   │   │   ├── EN_UA_100864.json
+│   │   │   ├── EN_UA_100868.json
+│   │   │   ├── EN_UA_101067.json
+│   │   │   ├── EN_UA_101079.json
+│   │   │   ├── EN_UA_101189.json
+│   │   │   ├── EN_UA_101251.json
+│   │   │   ├── EN_UA_101805.json
+│   │   │   ├── EN_UA_101954.json
+│   │   │   ├── EN_UA_101996.json
+│   │   │   ├── EN_UA_102034.json
+│   │   │   ├── EN_UA_102054.json
+│   │   │   ├── EN_UA_102084.json
+│   │   │   ├── EN_UA_102415.json
+│   │   │   ├── EN_UA_102655.json
+│   │   │   ├── EN_UA_102703.json
+│   │   │   ├── EN_UA_102754.json
+│   │   │   ├── EN_UA_102892.json
+│   │   │   ├── EN_UA_102953.json
+│   │   │   ├── EN_UA_102958.json
+│   │   │   ├── EN_UA_102963.json
+│   │   │   ├── EN_UA_102990.json
+│   │   │   ├── EN_UA_103011.json
+│   │   │   ├── EN_UA_103025.json
+│   │   │   ├── EN_UA_103168.json
+│   │   │   ├── EN_UA_103251.json
+│   │   │   ├── EN_UA_103372.json
+│   │   │   ├── EN_UA_103403.json
+│   │   │   ├── EN_UA_103445.json
+│   │   │   ├── EN_UA_103517.json
+│   │   │   ├── EN_UA_103667.json
+│   │   │   ├── EN_UA_103732.json
+│   │   │   ├── EN_UA_103861.json
+│   │   │   ├── EN_UA_103941.json
+│   │   │   ├── EN_UA_103995.json
+│   │   │   ├── EN_UA_104152.json
+│   │   │   ├── EN_UA_104224.json
+│   │   │   ├── EN_UA_104434.json
+│   │   │   ├── EN_UA_104523.json
+│   │   │   ├── EN_UA_104569.json
+│   │   │   ├── EN_UA_104604.json
+│   │   │   ├── EN_UA_104775.json
+│   │   │   ├── EN_UA_104791.json
+│   │   │   ├── EN_UA_104859.json
+│   │   │   ├── EN_UA_104876.json
+│   │   │   ├── EN_UA_300000.json
+│   │   │   ├── EN_UA_300001.json
+│   │   │   ├── EN_UA_300005.json
+│   │   │   ├── EN_UA_300006.json
+│   │   │   ├── EN_UA_300007.json
+│   │   │   ├── EN_UA_300009.json
+│   │   │   ├── EN_UA_300010.json
+│   │   │   ├── EN_UA_300011.json
+│   │   │   ├── EN_UA_300012.json
+│   │   │   ├── EN_UA_300013.json
+│   │   │   ├── EN_UA_300015.json
+│   │   │   ├── EN_UA_300016.json
+│   │   │   ├── EN_UA_300017.json
+│   │   │   ├── EN_UA_300018.json
+│   │   │   ├── EN_UA_300019.json
+│   │   │   ├── EN_UA_300020.json
+│   │   │   ├── EN_UA_300022.json
+│   │   │   ├── EN_UA_300023.json
+│   │   │   ├── EN_UA_300025.json
+│   │   │   ├── EN_UA_300028.json
+│   │   │   ├── EN_UA_300029.json
+│   │   │   ├── EN_UA_300030.json
+│   │   │   ├── EN_UA_300031.json
+│   │   │   ├── EN_UA_300032.json
+│   │   │   ├── EN_UA_300034.json
+│   │   │   ├── EN_UA_300035.json
+│   │   │   ├── EN_UA_300036.json
+│   │   │   ├── EN_UA_300037.json
+│   │   │   ├── EN_UA_300038.json
+│   │   │   ├── EN_UA_300039.json
+│   │   │   ├── EN_UA_300040.json
+│   │   │   ├── EN_UA_300041.json
+│   │   │   ├── EN_UA_300043.json
+│   │   │   ├── EN_UA_300044.json
+│   │   │   ├── EN_UA_300045.json
+│   │   │   ├── EN_UA_300046.json
+│   │   │   ├── EN_UA_300048.json
+│   │   │   ├── EN_UA_300049.json
+│   │   │   ├── EN_UA_300050.json
+│   │   │   ├── EN_UA_300051.json
+│   │   │   ├── EN_UA_300052.json
+│   │   │   ├── EN_UA_300053.json
+│   │   │   ├── EN_UA_300058.json
+│   │   │   ├── EN_UA_300059.json
+│   │   │   ├── EN_UA_300060.json
+│   │   │   ├── EN_UA_300063.json
+│   │   │   ├── EN_UA_300065.json
+│   │   │   ├── EN_UA_300066.json
+│   │   │   ├── EN_UA_300067.json
+│   │   │   ├── EN_UA_300069.json
+│   │   │   ├── EN_UA_300070.json
+│   │   │   ├── EN_UA_300071.json
+│   │   │   ├── EN_UA_300073.json
+│   │   │   ├── EN_UA_300074.json
+│   │   │   ├── EN_UA_300075.json
+│   │   │   ├── EN_UA_300076.json
+│   │   │   ├── EN_UA_300077.json
+│   │   │   ├── EN_UA_300079.json
+│   │   │   ├── EN_UA_300080.json
+│   │   │   ├── EN_UA_300082.json
+│   │   │   ├── EN_UA_300084.json
+│   │   │   ├── EN_UA_300085.json
+│   │   │   ├── EN_UA_300086.json
+│   │   │   ├── EN_UA_300089.json
+│   │   │   ├── EN_UA_300090.json
+│   │   │   ├── EN_UA_300092.json
+│   │   │   ├── EN_UA_300099.json
+│   │   │   ├── EN_UA_300100.json
+│   │   │   ├── EN_UA_300102.json
+│   │   │   ├── EN_UA_300103.json
+│   │   │   ├── EN_UA_300104.json
+│   │   │   ├── EN_UA_300108.json
+│   │   │   ├── EN_UA_300115.json
+│   │   │   ├── EN_UA_300117.json
+│   │   │   ├── EN_UA_300120.json
+│   │   │   ├── EN_UA_300127.json
+│   │   │   ├── EN_UA_300129.json
+│   │   │   ├── EN_UA_300132.json
+│   │   │   ├── EN_UA_300133.json
+│   │   │   ├── EN_UA_300134.json
+│   │   │   ├── EN_UA_300135.json
+│   │   │   ├── EN_UA_300139.json
+│   │   │   ├── EN_UA_300141.json
+│   │   │   ├── EN_UA_300142.json
+│   │   │   ├── EN_UA_300144.json
+│   │   │   ├── EN_UA_300145.json
+│   │   │   ├── EN_UA_300150.json
+│   │   │   ├── EN_UA_300153.json
+│   │   │   ├── EN_UA_300154.json
+│   │   │   ├── EN_UA_300156.json
+│   │   │   ├── EN_UA_DEV_100028.json
+│   │   │   ├── EN_UA_DEV_216.json
+│   │   │   ├── EN_UA_DEV_23.json
+│   │   │   ├── EN_UA_DEV_24.json
+│   │   │   └── EN_UA_DEV_26.json
+│   │   ├── HI
+│   │   │   ├── HI_1.json
+│   │   │   ├── HI_100.json
+│   │   │   ├── HI_101.json
+│   │   │   ├── HI_102.json
+│   │   │   ├── HI_103.json
+│   │   │   ├── HI_104.json
+│   │   │   ├── HI_105.json
+│   │   │   ├── HI_106.json
+│   │   │   ├── HI_108.json
+│   │   │   ├── HI_109.json
+│   │   │   ├── HI_111.json
+│   │   │   ├── HI_112.json
+│   │   │   ├── HI_113.json
+│   │   │   ├── HI_115.json
+│   │   │   ├── HI_116.json
+│   │   │   ├── HI_117.json
+│   │   │   ├── HI_118.json
+│   │   │   ├── HI_119.json
+│   │   │   ├── HI_120.json
+│   │   │   ├── HI_121.json
+│   │   │   ├── HI_122.json
+│   │   │   ├── HI_123.json
+│   │   │   ├── HI_124.json
+│   │   │   ├── HI_127.json
+│   │   │   ├── HI_128.json
+│   │   │   ├── HI_129.json
+│   │   │   ├── HI_13.json
+│   │   │   ├── HI_130.json
+│   │   │   ├── HI_131.json
+│   │   │   ├── HI_132.json
+│   │   │   ├── HI_133.json
+│   │   │   ├── HI_135.json
+│   │   │   ├── HI_136.json
+│   │   │   ├── HI_137.json
+│   │   │   ├── HI_138.json
+│   │   │   ├── HI_14.json
+│   │   │   ├── HI_141.json
+│   │   │   ├── HI_142.json
+│   │   │   ├── HI_144.json
+│   │   │   ├── HI_145.json
+│   │   │   ├── HI_146.json
+│   │   │   ├── HI_147.json
+│   │   │   ├── HI_148.json
+│   │   │   ├── HI_149.json
+│   │   │   ├── HI_15.json
+│   │   │   ├── HI_150.json
+│   │   │   ├── HI_153.json
+│   │   │   ├── HI_155.json
+│   │   │   ├── HI_157.json
+│   │   │   ├── HI_16.json
+│   │   │   ├── HI_161.json
+│   │   │   ├── HI_162.json
+│   │   │   ├── HI_163.json
+│   │   │   ├── HI_164.json
+│   │   │   ├── HI_165.json
+│   │   │   ├── HI_166.json
+│   │   │   ├── HI_167.json
+│   │   │   ├── HI_168.json
+│   │   │   ├── HI_169.json
+│   │   │   ├── HI_170.json
+│   │   │   ├── HI_171.json
+│   │   │   ├── HI_172.json
+│   │   │   ├── HI_173.json
+│   │   │   ├── HI_174.json
+│   │   │   ├── HI_175.json
+│   │   │   ├── HI_176.json
+│   │   │   ├── HI_177.json
+│   │   │   ├── HI_178.json
+│   │   │   ├── HI_179.json
+│   │   │   ├── HI_18.json
+│   │   │   ├── HI_180.json
+│   │   │   ├── HI_181.json
+│   │   │   ├── HI_182.json
+│   │   │   ├── HI_183.json
+│   │   │   ├── HI_184.json
+│   │   │   ├── HI_185.json
+│   │   │   ├── HI_186.json
+│   │   │   ├── HI_187.json
+│   │   │   ├── HI_188.json
+│   │   │   ├── HI_189.json
+│   │   │   ├── HI_190.json
+│   │   │   ├── HI_191.json
+│   │   │   ├── HI_192.json
+│   │   │   ├── HI_193.json
+│   │   │   ├── HI_194.json
+│   │   │   ├── HI_195.json
+│   │   │   ├── HI_196.json
+│   │   │   ├── HI_197.json
+│   │   │   ├── HI_198.json
+│   │   │   ├── HI_199.json
+│   │   │   ├── HI_2.json
+│   │   │   ├── HI_20.json
+│   │   │   ├── HI_200.json
+│   │   │   ├── HI_201.json
+│   │   │   ├── HI_202.json
+│   │   │   ├── HI_203.json
+│   │   │   ├── HI_204.json
+│   │   │   ├── HI_205.json
+│   │   │   ├── HI_206.json
+│   │   │   ├── HI_207.json
+│   │   │   ├── HI_208.json
+│   │   │   ├── HI_209.json
+│   │   │   ├── HI_21.json
+│   │   │   ├── HI_210.json
+│   │   │   ├── HI_211.json
+│   │   │   ├── HI_212.json
+│   │   │   ├── HI_213.json
+│   │   │   ├── HI_214.json
+│   │   │   ├── HI_215.json
+│   │   │   ├── HI_216.json
+│   │   │   ├── HI_217.json
+│   │   │   ├── HI_218.json
+│   │   │   ├── HI_219.json
+│   │   │   ├── HI_22.json
+│   │   │   ├── HI_220.json
+│   │   │   ├── HI_221.json
+│   │   │   ├── HI_222.json
+│   │   │   ├── HI_223.json
+│   │   │   ├── HI_224.json
+│   │   │   ├── HI_225.json
+│   │   │   ├── HI_226.json
+│   │   │   ├── HI_227.json
+│   │   │   ├── HI_228.json
+│   │   │   ├── HI_229.json
+│   │   │   ├── HI_23.json
+│   │   │   ├── HI_230.json
+│   │   │   ├── HI_231.json
+│   │   │   ├── HI_232.json
+│   │   │   ├── HI_233.json
+│   │   │   ├── HI_234.json
+│   │   │   ├── HI_235.json
+│   │   │   ├── HI_236.json
+│   │   │   ├── HI_237.json
+│   │   │   ├── HI_238.json
+│   │   │   ├── HI_239.json
+│   │   │   ├── HI_24.json
+│   │   │   ├── HI_240.json
+│   │   │   ├── HI_241.json
+│   │   │   ├── HI_242.json
+│   │   │   ├── HI_243.json
+│   │   │   ├── HI_244.json
+│   │   │   ├── HI_245.json
+│   │   │   ├── HI_246.json
+│   │   │   ├── HI_247.json
+│   │   │   ├── HI_248.json
+│   │   │   ├── HI_249.json
+│   │   │   ├── HI_25.json
+│   │   │   ├── HI_250.json
+│   │   │   ├── HI_251.json
+│   │   │   ├── HI_252.json
+│   │   │   ├── HI_253.json
+│   │   │   ├── HI_254.json
+│   │   │   ├── HI_255.json
+│   │   │   ├── HI_256.json
+│   │   │   ├── HI_257.json
+│   │   │   ├── HI_258.json
+│   │   │   ├── HI_259.json
+│   │   │   ├── HI_260.json
+│   │   │   ├── HI_261.json
+│   │   │   ├── HI_262.json
+│   │   │   ├── HI_263.json
+│   │   │   ├── HI_264.json
+│   │   │   ├── HI_265.json
+│   │   │   ├── HI_266.json
+│   │   │   ├── HI_267.json
+│   │   │   ├── HI_268.json
+│   │   │   ├── HI_269.json
+│   │   │   ├── HI_27.json
+│   │   │   ├── HI_270.json
+│   │   │   ├── HI_271.json
+│   │   │   ├── HI_272.json
+│   │   │   ├── HI_273.json
+│   │   │   ├── HI_274.json
+│   │   │   ├── HI_275.json
+│   │   │   ├── HI_276.json
+│   │   │   ├── HI_277.json
+│   │   │   ├── HI_278.json
+│   │   │   ├── HI_279.json
+│   │   │   ├── HI_280.json
+│   │   │   ├── HI_281.json
+│   │   │   ├── HI_282.json
+│   │   │   ├── HI_283.json
+│   │   │   ├── HI_284.json
+│   │   │   ├── HI_285.json
+│   │   │   ├── HI_286.json
+│   │   │   ├── HI_287.json
+│   │   │   ├── HI_288.json
+│   │   │   ├── HI_289.json
+│   │   │   ├── HI_29.json
+│   │   │   ├── HI_290.json
+│   │   │   ├── HI_291.json
+│   │   │   ├── HI_292.json
+│   │   │   ├── HI_293.json
+│   │   │   ├── HI_294.json
+│   │   │   ├── HI_295.json
+│   │   │   ├── HI_296.json
+│   │   │   ├── HI_297.json
+│   │   │   ├── HI_298.json
+│   │   │   ├── HI_299.json
+│   │   │   ├── HI_3.json
+│   │   │   ├── HI_30.json
+│   │   │   ├── HI_300.json
+│   │   │   ├── HI_301.json
+│   │   │   ├── HI_302.json
+│   │   │   ├── HI_303.json
+│   │   │   ├── HI_304.json
+│   │   │   ├── HI_305.json
+│   │   │   ├── HI_306.json
+│   │   │   ├── HI_307.json
+│   │   │   ├── HI_308.json
+│   │   │   ├── HI_309.json
+│   │   │   ├── HI_310.json
+│   │   │   ├── HI_311.json
+│   │   │   ├── HI_312.json
+│   │   │   ├── HI_313.json
+│   │   │   ├── HI_314.json
+│   │   │   ├── HI_315.json
+│   │   │   ├── HI_316.json
+│   │   │   ├── HI_317.json
+│   │   │   ├── HI_318.json
+│   │   │   ├── HI_319.json
+│   │   │   ├── HI_32.json
+│   │   │   ├── HI_320.json
+│   │   │   ├── HI_321.json
+│   │   │   ├── HI_322.json
+│   │   │   ├── HI_323.json
+│   │   │   ├── HI_324.json
+│   │   │   ├── HI_325.json
+│   │   │   ├── HI_326.json
+│   │   │   ├── HI_327.json
+│   │   │   ├── HI_328.json
+│   │   │   ├── HI_329.json
+│   │   │   ├── HI_33.json
+│   │   │   ├── HI_330.json
+│   │   │   ├── HI_331.json
+│   │   │   ├── HI_332.json
+│   │   │   ├── HI_333.json
+│   │   │   ├── HI_334.json
+│   │   │   ├── HI_335.json
+│   │   │   ├── HI_336.json
+│   │   │   ├── HI_337.json
+│   │   │   ├── HI_338.json
+│   │   │   ├── HI_339.json
+│   │   │   ├── HI_340.json
+│   │   │   ├── HI_341.json
+│   │   │   ├── HI_342.json
+│   │   │   ├── HI_343.json
+│   │   │   ├── HI_344.json
+│   │   │   ├── HI_345.json
+│   │   │   ├── HI_346.json
+│   │   │   ├── HI_347.json
+│   │   │   ├── HI_348.json
+│   │   │   ├── HI_349.json
+│   │   │   ├── HI_350.json
+│   │   │   ├── HI_351.json
+│   │   │   ├── HI_352.json
+│   │   │   ├── HI_353.json
+│   │   │   ├── HI_354.json
+│   │   │   ├── HI_355.json
+│   │   │   ├── HI_356.json
+│   │   │   ├── HI_357.json
+│   │   │   ├── HI_358.json
+│   │   │   ├── HI_359.json
+│   │   │   ├── HI_36.json
+│   │   │   ├── HI_360.json
+│   │   │   ├── HI_361.json
+│   │   │   ├── HI_362.json
+│   │   │   ├── HI_363.json
+│   │   │   ├── HI_364.json
+│   │   │   ├── HI_365.json
+│   │   │   ├── HI_366.json
+│   │   │   ├── HI_367.json
+│   │   │   ├── HI_368.json
+│   │   │   ├── HI_369.json
+│   │   │   ├── HI_37.json
+│   │   │   ├── HI_370.json
+│   │   │   ├── HI_371.json
+│   │   │   ├── HI_372.json
+│   │   │   ├── HI_373.json
+│   │   │   ├── HI_374.json
+│   │   │   ├── HI_375.json
+│   │   │   ├── HI_376.json
+│   │   │   ├── HI_377.json
+│   │   │   ├── HI_378.json
+│   │   │   ├── HI_379.json
+│   │   │   ├── HI_380.json
+│   │   │   ├── HI_381.json
+│   │   │   ├── HI_382.json
+│   │   │   ├── HI_383.json
+│   │   │   ├── HI_384.json
+│   │   │   ├── HI_385.json
+│   │   │   ├── HI_386.json
+│   │   │   ├── HI_387.json
+│   │   │   ├── HI_388.json
+│   │   │   ├── HI_389.json
+│   │   │   ├── HI_39.json
+│   │   │   ├── HI_390.json
+│   │   │   ├── HI_391.json
+│   │   │   ├── HI_392.json
+│   │   │   ├── HI_393.json
+│   │   │   ├── HI_394.json
+│   │   │   ├── HI_395.json
+│   │   │   ├── HI_396.json
+│   │   │   ├── HI_397.json
+│   │   │   ├── HI_398.json
+│   │   │   ├── HI_399.json
+│   │   │   ├── HI_40.json
+│   │   │   ├── HI_400.json
+│   │   │   ├── HI_401.json
+│   │   │   ├── HI_41.json
+│   │   │   ├── HI_42.json
+│   │   │   ├── HI_43.json
+│   │   │   ├── HI_44.json
+│   │   │   ├── HI_45.json
+│   │   │   ├── HI_46.json
+│   │   │   ├── HI_47.json
+│   │   │   ├── HI_48.json
+│   │   │   ├── HI_49.json
+│   │   │   ├── HI_50.json
+│   │   │   ├── HI_52.json
+│   │   │   ├── HI_53.json
+│   │   │   ├── HI_54.json
+│   │   │   ├── HI_55.json
+│   │   │   ├── HI_56.json
+│   │   │   ├── HI_57.json
+│   │   │   ├── HI_58.json
+│   │   │   ├── HI_59.json
+│   │   │   ├── HI_6.json
+│   │   │   ├── HI_60.json
+│   │   │   ├── HI_61.json
+│   │   │   ├── HI_62.json
+│   │   │   ├── HI_63.json
+│   │   │   ├── HI_64.json
+│   │   │   ├── HI_65.json
+│   │   │   ├── HI_66.json
+│   │   │   ├── HI_67.json
+│   │   │   ├── HI_68.json
+│   │   │   ├── HI_69.json
+│   │   │   ├── HI_7.json
+│   │   │   ├── HI_70.json
+│   │   │   ├── HI_72.json
+│   │   │   ├── HI_73.json
+│   │   │   ├── HI_74.json
+│   │   │   ├── HI_77.json
+│   │   │   ├── HI_78.json
+│   │   │   ├── HI_79.json
+│   │   │   ├── HI_8.json
+│   │   │   ├── HI_80.json
+│   │   │   ├── HI_81.json
+│   │   │   ├── HI_82.json
+│   │   │   ├── HI_83.json
+│   │   │   ├── HI_84.json
+│   │   │   ├── HI_85.json
+│   │   │   ├── HI_86.json
+│   │   │   ├── HI_87.json
+│   │   │   ├── HI_88.json
+│   │   │   ├── HI_89.json
+│   │   │   ├── HI_9.json
+│   │   │   ├── HI_90.json
+│   │   │   ├── HI_91.json
+│   │   │   ├── HI_92.json
+│   │   │   ├── HI_93.json
+│   │   │   ├── HI_94.json
+│   │   │   ├── HI_96.json
+│   │   │   ├── HI_98.json
+│   │   │   └── HI_99.json
+│   │   ├── PT
+│   │   │   ├── PT_01.json
+│   │   │   ├── PT_02.json
+│   │   │   ├── PT_03.json
+│   │   │   ├── PT_04.json
+│   │   │   ├── PT_05.json
+│   │   │   ├── PT_06.json
+│   │   │   ├── PT_07.json
+│   │   │   ├── PT_08.json
+│   │   │   ├── PT_09.json
+│   │   │   ├── PT_10.json
+│   │   │   ├── PT_100.json
+│   │   │   ├── PT_101.json
+│   │   │   ├── PT_102.json
+│   │   │   ├── PT_103.json
+│   │   │   ├── PT_104.json
+│   │   │   ├── PT_105.json
+│   │   │   ├── PT_106.json
+│   │   │   ├── PT_107.json
+│   │   │   ├── PT_108.json
+│   │   │   ├── PT_109.json
+│   │   │   ├── PT_11.json
+│   │   │   ├── PT_110.json
+│   │   │   ├── PT_111.json
+│   │   │   ├── PT_112.json
+│   │   │   ├── PT_113.json
+│   │   │   ├── PT_114.json
+│   │   │   ├── PT_115.json
+│   │   │   ├── PT_116.json
+│   │   │   ├── PT_117.json
+│   │   │   ├── PT_118.json
+│   │   │   ├── PT_119.json
+│   │   │   ├── PT_12.json
+│   │   │   ├── PT_120.json
+│   │   │   ├── PT_121.json
+│   │   │   ├── PT_122.json
+│   │   │   ├── PT_123.json
+│   │   │   ├── PT_124.json
+│   │   │   ├── PT_125.json
+│   │   │   ├── PT_126.json
+│   │   │   ├── PT_127.json
+│   │   │   ├── PT_128.json
+│   │   │   ├── PT_129.json
+│   │   │   ├── PT_13.json
+│   │   │   ├── PT_130.json
+│   │   │   ├── PT_131.json
+│   │   │   ├── PT_132.json
+│   │   │   ├── PT_133.json
+│   │   │   ├── PT_134.json
+│   │   │   ├── PT_135.json
+│   │   │   ├── PT_136.json
+│   │   │   ├── PT_137.json
+│   │   │   ├── PT_138.json
+│   │   │   ├── PT_139.json
+│   │   │   ├── PT_14.json
+│   │   │   ├── PT_140.json
+│   │   │   ├── PT_141.json
+│   │   │   ├── PT_142.json
+│   │   │   ├── PT_143.json
+│   │   │   ├── PT_144.json
+│   │   │   ├── PT_145.json
+│   │   │   ├── PT_146.json
+│   │   │   ├── PT_147.json
+│   │   │   ├── PT_148.json
+│   │   │   ├── PT_149.json
+│   │   │   ├── PT_15.json
+│   │   │   ├── PT_150.json
+│   │   │   ├── PT_151.json
+│   │   │   ├── PT_152.json
+│   │   │   ├── PT_153.json
+│   │   │   ├── PT_154.json
+│   │   │   ├── PT_155.json
+│   │   │   ├── PT_156.json
+│   │   │   ├── PT_157.json
+│   │   │   ├── PT_158.json
+│   │   │   ├── PT_159.json
+│   │   │   ├── PT_16.json
+│   │   │   ├── PT_160.json
+│   │   │   ├── PT_161.json
+│   │   │   ├── PT_162.json
+│   │   │   ├── PT_163.json
+│   │   │   ├── PT_164.json
+│   │   │   ├── PT_165.json
+│   │   │   ├── PT_166.json
+│   │   │   ├── PT_167.json
+│   │   │   ├── PT_168.json
+│   │   │   ├── PT_169.json
+│   │   │   ├── PT_17.json
+│   │   │   ├── PT_170.json
+│   │   │   ├── PT_171.json
+│   │   │   ├── PT_172.json
+│   │   │   ├── PT_173.json
+│   │   │   ├── PT_174.json
+│   │   │   ├── PT_175.json
+│   │   │   ├── PT_176.json
+│   │   │   ├── PT_177.json
+│   │   │   ├── PT_178.json
+│   │   │   ├── PT_179.json
+│   │   │   ├── PT_18.json
+│   │   │   ├── PT_180.json
+│   │   │   ├── PT_181.json
+│   │   │   ├── PT_182.json
+│   │   │   ├── PT_183.json
+│   │   │   ├── PT_184.json
+│   │   │   ├── PT_185.json
+│   │   │   ├── PT_186.json
+│   │   │   ├── PT_187.json
+│   │   │   ├── PT_188.json
+│   │   │   ├── PT_189.json
+│   │   │   ├── PT_19.json
+│   │   │   ├── PT_190.json
+│   │   │   ├── PT_191.json
+│   │   │   ├── PT_192.json
+│   │   │   ├── PT_193.json
+│   │   │   ├── PT_194.json
+│   │   │   ├── PT_195.json
+│   │   │   ├── PT_196.json
+│   │   │   ├── PT_197.json
+│   │   │   ├── PT_198.json
+│   │   │   ├── PT_199.json
+│   │   │   ├── PT_20.json
+│   │   │   ├── PT_200.json
+│   │   │   ├── PT_21.json
+│   │   │   ├── PT_212.json
+│   │   │   ├── PT_214.json
+│   │   │   ├── PT_215.json
+│   │   │   ├── PT_218.json
+│   │   │   ├── PT_219.json
+│   │   │   ├── PT_22.json
+│   │   │   ├── PT_222.json
+│   │   │   ├── PT_223.json
+│   │   │   ├── PT_227.json
+│   │   │   ├── PT_23.json
+│   │   │   ├── PT_231.json
+│   │   │   ├── PT_235.json
+│   │   │   ├── PT_236.json
+│   │   │   ├── PT_238.json
+│   │   │   ├── PT_24.json
+│   │   │   ├── PT_240.json
+│   │   │   ├── PT_242.json
+│   │   │   ├── PT_243.json
+│   │   │   ├── PT_246.json
+│   │   │   ├── PT_247.json
+│   │   │   ├── PT_248.json
+│   │   │   ├── PT_25.json
+│   │   │   ├── PT_251.json
+│   │   │   ├── PT_252.json
+│   │   │   ├── PT_255.json
+│   │   │   ├── PT_256.json
+│   │   │   ├── PT_257.json
+│   │   │   ├── PT_258.json
+│   │   │   ├── PT_26.json
+│   │   │   ├── PT_260.json
+│   │   │   ├── PT_261.json
+│   │   │   ├── PT_262.json
+│   │   │   ├── PT_263.json
+│   │   │   ├── PT_264.json
+│   │   │   ├── PT_265.json
+│   │   │   ├── PT_266.json
+│   │   │   ├── PT_267.json
+│   │   │   ├── PT_268.json
+│   │   │   ├── PT_269.json
+│   │   │   ├── PT_27.json
+│   │   │   ├── PT_270.json
+│   │   │   ├── PT_271.json
+│   │   │   ├── PT_272.json
+│   │   │   ├── PT_273.json
+│   │   │   ├── PT_274.json
+│   │   │   ├── PT_275.json
+│   │   │   ├── PT_276.json
+│   │   │   ├── PT_277.json
+│   │   │   ├── PT_278.json
+│   │   │   ├── PT_279.json
+│   │   │   ├── PT_28.json
+│   │   │   ├── PT_280.json
+│   │   │   ├── PT_281.json
+│   │   │   ├── PT_282.json
+│   │   │   ├── PT_283.json
+│   │   │   ├── PT_284.json
+│   │   │   ├── PT_285.json
+│   │   │   ├── PT_286.json
+│   │   │   ├── PT_287.json
+│   │   │   ├── PT_288.json
+│   │   │   ├── PT_289.json
+│   │   │   ├── PT_29.json
+│   │   │   ├── PT_290.json
+│   │   │   ├── PT_291.json
+│   │   │   ├── PT_292.json
+│   │   │   ├── PT_293.json
+│   │   │   ├── PT_294.json
+│   │   │   ├── PT_295.json
+│   │   │   ├── PT_296.json
+│   │   │   ├── PT_297.json
+│   │   │   ├── PT_298.json
+│   │   │   ├── PT_299.json
+│   │   │   ├── PT_30.json
+│   │   │   ├── PT_300.json
+│   │   │   ├── PT_301.json
+│   │   │   ├── PT_302.json
+│   │   │   ├── PT_303.json
+│   │   │   ├── PT_304.json
+│   │   │   ├── PT_305.json
+│   │   │   ├── PT_306.json
+│   │   │   ├── PT_307.json
+│   │   │   ├── PT_308.json
+│   │   │   ├── PT_309.json
+│   │   │   ├── PT_31.json
+│   │   │   ├── PT_310.json
+│   │   │   ├── PT_311.json
+│   │   │   ├── PT_312.json
+│   │   │   ├── PT_313.json
+│   │   │   ├── PT_314.json
+│   │   │   ├── PT_315.json
+│   │   │   ├── PT_316.json
+│   │   │   ├── PT_317.json
+│   │   │   ├── PT_318.json
+│   │   │   ├── PT_319.json
+│   │   │   ├── PT_32.json
+│   │   │   ├── PT_320.json
+│   │   │   ├── PT_321.json
+│   │   │   ├── PT_322.json
+│   │   │   ├── PT_323.json
+│   │   │   ├── PT_324.json
+│   │   │   ├── PT_325.json
+│   │   │   ├── PT_326.json
+│   │   │   ├── PT_327.json
+│   │   │   ├── PT_328.json
+│   │   │   ├── PT_329.json
+│   │   │   ├── PT_33.json
+│   │   │   ├── PT_330.json
+│   │   │   ├── PT_331.json
+│   │   │   ├── PT_332.json
+│   │   │   ├── PT_333.json
+│   │   │   ├── PT_334.json
+│   │   │   ├── PT_335.json
+│   │   │   ├── PT_336.json
+│   │   │   ├── PT_337.json
+│   │   │   ├── PT_338.json
+│   │   │   ├── PT_339.json
+│   │   │   ├── PT_34.json
+│   │   │   ├── PT_340.json
+│   │   │   ├── PT_341.json
+│   │   │   ├── PT_342.json
+│   │   │   ├── PT_343.json
+│   │   │   ├── PT_344.json
+│   │   │   ├── PT_345.json
+│   │   │   ├── PT_346.json
+│   │   │   ├── PT_347.json
+│   │   │   ├── PT_348.json
+│   │   │   ├── PT_349.json
+│   │   │   ├── PT_35.json
+│   │   │   ├── PT_350.json
+│   │   │   ├── PT_351.json
+│   │   │   ├── PT_352.json
+│   │   │   ├── PT_353.json
+│   │   │   ├── PT_354.json
+│   │   │   ├── PT_355.json
+│   │   │   ├── PT_356.json
+│   │   │   ├── PT_357.json
+│   │   │   ├── PT_358.json
+│   │   │   ├── PT_359.json
+│   │   │   ├── PT_36.json
+│   │   │   ├── PT_360.json
+│   │   │   ├── PT_361.json
+│   │   │   ├── PT_362.json
+│   │   │   ├── PT_363.json
+│   │   │   ├── PT_364.json
+│   │   │   ├── PT_365.json
+│   │   │   ├── PT_366.json
+│   │   │   ├── PT_367.json
+│   │   │   ├── PT_368.json
+│   │   │   ├── PT_369.json
+│   │   │   ├── PT_37.json
+│   │   │   ├── PT_370.json
+│   │   │   ├── PT_371.json
+│   │   │   ├── PT_372.json
+│   │   │   ├── PT_373.json
+│   │   │   ├── PT_374.json
+│   │   │   ├── PT_375.json
+│   │   │   ├── PT_376.json
+│   │   │   ├── PT_377.json
+│   │   │   ├── PT_378.json
+│   │   │   ├── PT_379.json
+│   │   │   ├── PT_38.json
+│   │   │   ├── PT_380.json
+│   │   │   ├── PT_381.json
+│   │   │   ├── PT_382.json
+│   │   │   ├── PT_383.json
+│   │   │   ├── PT_384.json
+│   │   │   ├── PT_385.json
+│   │   │   ├── PT_386.json
+│   │   │   ├── PT_387.json
+│   │   │   ├── PT_388.json
+│   │   │   ├── PT_389.json
+│   │   │   ├── PT_39.json
+│   │   │   ├── PT_390.json
+│   │   │   ├── PT_391.json
+│   │   │   ├── PT_392.json
+│   │   │   ├── PT_393.json
+│   │   │   ├── PT_394.json
+│   │   │   ├── PT_395.json
+│   │   │   ├── PT_396.json
+│   │   │   ├── PT_397.json
+│   │   │   ├── PT_398.json
+│   │   │   ├── PT_399.json
+│   │   │   ├── PT_40.json
+│   │   │   ├── PT_400.json
+│   │   │   ├── PT_401.json
+│   │   │   ├── PT_402.json
+│   │   │   ├── PT_403.json
+│   │   │   ├── PT_41.json
+│   │   │   ├── PT_42.json
+│   │   │   ├── PT_43.json
+│   │   │   ├── PT_44.json
+│   │   │   ├── PT_45.json
+│   │   │   ├── PT_46.json
+│   │   │   ├── PT_47.json
+│   │   │   ├── PT_48.json
+│   │   │   ├── PT_49.json
+│   │   │   ├── PT_50.json
+│   │   │   ├── PT_51.json
+│   │   │   ├── PT_52.json
+│   │   │   ├── PT_53.json
+│   │   │   ├── PT_54.json
+│   │   │   ├── PT_55.json
+│   │   │   ├── PT_56.json
+│   │   │   ├── PT_57.json
+│   │   │   ├── PT_58.json
+│   │   │   ├── PT_59.json
+│   │   │   ├── PT_60.json
+│   │   │   ├── PT_61.json
+│   │   │   ├── PT_62.json
+│   │   │   ├── PT_63.json
+│   │   │   ├── PT_64.json
+│   │   │   ├── PT_65.json
+│   │   │   ├── PT_66.json
+│   │   │   ├── PT_67.json
+│   │   │   ├── PT_68.json
+│   │   │   ├── PT_69.json
+│   │   │   ├── PT_70.json
+│   │   │   ├── PT_71.json
+│   │   │   ├── PT_72.json
+│   │   │   ├── PT_73.json
+│   │   │   ├── PT_74.json
+│   │   │   ├── PT_75.json
+│   │   │   ├── PT_76.json
+│   │   │   ├── PT_77.json
+│   │   │   ├── PT_78.json
+│   │   │   ├── PT_79.json
+│   │   │   ├── PT_80.json
+│   │   │   ├── PT_81.json
+│   │   │   ├── PT_82.json
+│   │   │   ├── PT_83.json
+│   │   │   ├── PT_84.json
+│   │   │   ├── PT_85.json
+│   │   │   ├── PT_86.json
+│   │   │   ├── PT_87.json
+│   │   │   ├── PT_88.json
+│   │   │   ├── PT_89.json
+│   │   │   ├── PT_90.json
+│   │   │   ├── PT_91.json
+│   │   │   ├── PT_92.json
+│   │   │   ├── PT_93.json
+│   │   │   ├── PT_94.json
+│   │   │   ├── PT_95.json
+│   │   │   ├── PT_96.json
+│   │   │   ├── PT_97.json
+│   │   │   ├── PT_98.json
+│   │   │   ├── PT_99.json
+│   │   │   ├── PT_CC_404.json
+│   │   │   ├── PT_CC_405.json
+│   │   │   ├── PT_CC_406.json
+│   │   │   ├── PT_CC_408.json
+│   │   │   ├── PT_CC_409.json
+│   │   │   ├── PT_CC_412.json
+│   │   │   ├── PT_CC_415.json
+│   │   │   ├── PT_CC_416.json
+│   │   │   ├── PT_CC_421.json
+│   │   │   ├── PT_CC_422.json
+│   │   │   ├── PT_CC_423.json
+│   │   │   ├── PT_CC_424.json
+│   │   │   ├── PT_CC_425.json
+│   │   │   ├── PT_CC_426.json
+│   │   │   ├── PT_CC_427.json
+│   │   │   ├── PT_CC_428.json
+│   │   │   ├── PT_CC_429.json
+│   │   │   ├── PT_CC_430.json
+│   │   │   ├── PT_CC_431.json
+│   │   │   ├── PT_CC_432.json
+│   │   │   ├── PT_CC_433.json
+│   │   │   ├── PT_CC_434.json
+│   │   │   ├── PT_CC_435.json
+│   │   │   ├── PT_URW_407.json
+│   │   │   ├── PT_URW_410.json
+│   │   │   ├── PT_URW_411.json
+│   │   │   ├── PT_URW_413.json
+│   │   │   ├── PT_URW_414.json
+│   │   │   ├── PT_URW_417.json
+│   │   │   ├── PT_URW_418.json
+│   │   │   ├── PT_URW_419.json
+│   │   │   └── PT_URW_420.json
+│   │   ├── RU
+│   │   │   ├── RU-URW-1001.json
+│   │   │   ├── RU-URW-1005.json
+│   │   │   ├── RU-URW-1006.json
+│   │   │   ├── RU-URW-1008.json
+│   │   │   ├── RU-URW-1010.json
+│   │   │   ├── RU-URW-1011.json
+│   │   │   ├── RU-URW-1012.json
+│   │   │   ├── RU-URW-1013.json
+│   │   │   ├── RU-URW-1015.json
+│   │   │   ├── RU-URW-1016.json
+│   │   │   ├── RU-URW-1017.json
+│   │   │   ├── RU-URW-1018.json
+│   │   │   ├── RU-URW-1019.json
+│   │   │   ├── RU-URW-1020.json
+│   │   │   ├── RU-URW-1021.json
+│   │   │   ├── RU-URW-1022.json
+│   │   │   ├── RU-URW-1024.json
+│   │   │   ├── RU-URW-1025.json
+│   │   │   ├── RU-URW-1026.json
+│   │   │   ├── RU-URW-1027.json
+│   │   │   ├── RU-URW-1028.json
+│   │   │   ├── RU-URW-1029.json
+│   │   │   ├── RU-URW-1030.json
+│   │   │   ├── RU-URW-1031.json
+│   │   │   ├── RU-URW-1033.json
+│   │   │   ├── RU-URW-1034.json
+│   │   │   ├── RU-URW-1035.json
+│   │   │   ├── RU-URW-1036.json
+│   │   │   ├── RU-URW-1037.json
+│   │   │   ├── RU-URW-1038.json
+│   │   │   ├── RU-URW-1039.json
+│   │   │   ├── RU-URW-1040.json
+│   │   │   ├── RU-URW-1041.json
+│   │   │   ├── RU-URW-1042.json
+│   │   │   ├── RU-URW-1044.json
+│   │   │   ├── RU-URW-1045.json
+│   │   │   ├── RU-URW-1046.json
+│   │   │   ├── RU-URW-1047.json
+│   │   │   ├── RU-URW-1048.json
+│   │   │   ├── RU-URW-1049.json
+│   │   │   ├── RU-URW-1050.json
+│   │   │   ├── RU-URW-1051.json
+│   │   │   ├── RU-URW-1055.json
+│   │   │   ├── RU-URW-1056.json
+│   │   │   ├── RU-URW-1057.json
+│   │   │   ├── RU-URW-1058.json
+│   │   │   ├── RU-URW-1060.json
+│   │   │   ├── RU-URW-1062.json
+│   │   │   ├── RU-URW-1063.json
+│   │   │   ├── RU-URW-1064.json
+│   │   │   ├── RU-URW-1065.json
+│   │   │   ├── RU-URW-1066.json
+│   │   │   ├── RU-URW-1067.json
+│   │   │   ├── RU-URW-1068.json
+│   │   │   ├── RU-URW-1070.json
+│   │   │   ├── RU-URW-1071.json
+│   │   │   ├── RU-URW-1072.json
+│   │   │   ├── RU-URW-1074.json
+│   │   │   ├── RU-URW-1075.json
+│   │   │   ├── RU-URW-1076.json
+│   │   │   ├── RU-URW-1078.json
+│   │   │   ├── RU-URW-1079.json
+│   │   │   ├── RU-URW-1080.json
+│   │   │   ├── RU-URW-1081.json
+│   │   │   ├── RU-URW-1082.json
+│   │   │   ├── RU-URW-1083.json
+│   │   │   ├── RU-URW-1086.json
+│   │   │   ├── RU-URW-1087.json
+│   │   │   ├── RU-URW-1088.json
+│   │   │   ├── RU-URW-1092.json
+│   │   │   ├── RU-URW-1094.json
+│   │   │   ├── RU-URW-1095.json
+│   │   │   ├── RU-URW-1096.json
+│   │   │   ├── RU-URW-1097.json
+│   │   │   ├── RU-URW-1098.json
+│   │   │   ├── RU-URW-1099.json
+│   │   │   ├── RU-URW-1100.json
+│   │   │   ├── RU-URW-1103.json
+│   │   │   ├── RU-URW-1104.json
+│   │   │   ├── RU-URW-1105.json
+│   │   │   ├── RU-URW-1106.json
+│   │   │   ├── RU-URW-1107.json
+│   │   │   ├── RU-URW-1108.json
+│   │   │   ├── RU-URW-1109.json
+│   │   │   ├── RU-URW-1111.json
+│   │   │   ├── RU-URW-1112.json
+│   │   │   ├── RU-URW-1113.json
+│   │   │   ├── RU-URW-1114.json
+│   │   │   ├── RU-URW-1115.json
+│   │   │   ├── RU-URW-1116.json
+│   │   │   ├── RU-URW-1117.json
+│   │   │   ├── RU-URW-1119.json
+│   │   │   ├── RU-URW-1121.json
+│   │   │   ├── RU-URW-1122.json
+│   │   │   ├── RU-URW-1123.json
+│   │   │   ├── RU-URW-1124.json
+│   │   │   ├── RU-URW-1125.json
+│   │   │   ├── RU-URW-1126.json
+│   │   │   ├── RU-URW-1128.json
+│   │   │   ├── RU-URW-1129.json
+│   │   │   ├── RU-URW-1130.json
+│   │   │   ├── RU-URW-1131.json
+│   │   │   ├── RU-URW-1132.json
+│   │   │   ├── RU-URW-1134.json
+│   │   │   ├── RU-URW-1136.json
+│   │   │   ├── RU-URW-1137.json
+│   │   │   ├── RU-URW-1138.json
+│   │   │   ├── RU-URW-1140.json
+│   │   │   ├── RU-URW-1141.json
+│   │   │   ├── RU-URW-1142.json
+│   │   │   ├── RU-URW-1143.json
+│   │   │   ├── RU-URW-1145.json
+│   │   │   ├── RU-URW-1148.json
+│   │   │   ├── RU-URW-1149.json
+│   │   │   ├── RU-URW-1150.json
+│   │   │   ├── RU-URW-1151.json
+│   │   │   ├── RU-URW-1153.json
+│   │   │   ├── RU-URW-1155.json
+│   │   │   ├── RU-URW-1156.json
+│   │   │   ├── RU-URW-1157.json
+│   │   │   ├── RU-URW-1158.json
+│   │   │   ├── RU-URW-1159.json
+│   │   │   ├── RU-URW-1161.json
+│   │   │   ├── RU-URW-1162.json
+│   │   │   ├── RU-URW-1163.json
+│   │   │   ├── RU-URW-1164.json
+│   │   │   ├── RU-URW-1165.json
+│   │   │   ├── RU-URW-1169.json
+│   │   │   ├── RU-URW-1172.json
+│   │   │   ├── RU-URW-1173.json
+│   │   │   ├── RU-URW-1175.json
+│   │   │   ├── RU-URW-1176.json
+│   │   │   └── RU-URW-1195.json
+│   │   └── splits
+│   │       └── EN_splits.json
+│   ├── target_4_December_release
+│   │   ├── BG
+│   │   │   ├── raw-documents
+│   │   │   │   ├── A6_CC_BG_10015.txt
+│   │   │   │   ├── A6_CC_BG_10345.txt
+│   │   │   │   ├── A6_CC_BG_10380.txt
+│   │   │   │   ├── A6_CC_BG_10468.txt
+│   │   │   │   ├── A6_CC_BG_10525.txt
+│   │   │   │   ├── A6_CC_BG_10556.txt
+│   │   │   │   ├── A6_CC_BG_10565.txt
+│   │   │   │   ├── A6_CC_BG_10575.txt
+│   │   │   │   ├── A6_CC_BG_10635.txt
+│   │   │   │   ├── A6_CC_BG_10648.txt
+│   │   │   │   ├── A6_CC_BG_10649.txt
+│   │   │   │   ├── A6_CC_BG_10701.txt
+│   │   │   │   ├── A6_CC_BG_10756.txt
+│   │   │   │   ├── A6_CC_BG_10784.txt
+│   │   │   │   ├── A6_CC_BG_10815.txt
+│   │   │   │   ├── A6_CC_BG_10910.txt
+│   │   │   │   ├── A6_CC_BG_10952.txt
+│   │   │   │   ├── A6_CC_BG_10986.txt
+│   │   │   │   ├── A6_CC_BG_11056.txt
+│   │   │   │   ├── A6_CC_BG_11301.txt
+│   │   │   │   ├── A6_CC_BG_11357.txt
+│   │   │   │   ├── A6_CC_BG_11378.txt
+│   │   │   │   ├── A6_CC_BG_11380.txt
+│   │   │   │   ├── A6_CC_BG_11388.txt
+│   │   │   │   ├── A6_CC_BG_11419.txt
+│   │   │   │   ├── A6_CC_BG_11466.txt
+│   │   │   │   ├── A6_CC_BG_11619.txt
+│   │   │   │   ├── A6_CC_BG_11636.txt
+│   │   │   │   ├── A6_CC_BG_11770.txt
+│   │   │   │   ├── A6_CC_BG_11814.txt
+│   │   │   │   ├── A6_CC_BG_11938.txt
+│   │   │   │   ├── A6_CC_BG_12082.txt
+│   │   │   │   ├── A6_CC_BG_12088.txt
+│   │   │   │   ├── A6_CC_BG_12138.txt
+│   │   │   │   ├── A6_CC_BG_12204.txt
+│   │   │   │   ├── A6_CC_BG_12223.txt
+│   │   │   │   ├── A6_CC_BG_12243.txt
+│   │   │   │   ├── A6_CC_BG_12507.txt
+│   │   │   │   ├── A6_CC_BG_12763.txt
+│   │   │   │   ├── A6_CC_BG_12970.txt
+│   │   │   │   ├── A6_CC_BG_13037.txt
+│   │   │   │   ├── A6_CC_BG_13248.txt
+│   │   │   │   ├── A6_CC_BG_13258.txt
+│   │   │   │   ├── A6_CC_BG_13264.txt
+│   │   │   │   ├── A6_CC_BG_13417.txt
+│   │   │   │   ├── A6_CC_BG_13641.txt
+│   │   │   │   ├── A6_CC_BG_13652.txt
+│   │   │   │   ├── A6_CC_BG_8520.txt
+│   │   │   │   ├── A6_CC_BG_8841.txt
+│   │   │   │   ├── A6_CC_BG_8984.txt
+│   │   │   │   ├── A6_CC_BG_9245.txt
+│   │   │   │   ├── A6_CC_BG_9247.txt
+│   │   │   │   ├── A6_CC_BG_9249.txt
+│   │   │   │   ├── A6_CC_BG_9250.txt
+│   │   │   │   ├── A6_CC_BG_9254.txt
+│   │   │   │   ├── A6_CC_BG_9326.txt
+│   │   │   │   ├── A6_CC_BG_9375.txt
+│   │   │   │   ├── A6_CC_BG_9522.txt
+│   │   │   │   ├── A6_CC_BG_9579.txt
+│   │   │   │   ├── A6_CC_BG_9905.txt
+│   │   │   │   ├── A7_URW_BG_2596.txt
+│   │   │   │   ├── A7_URW_BG_2658.txt
+│   │   │   │   ├── A7_URW_BG_2691.txt
+│   │   │   │   ├── A7_URW_BG_2710.txt
+│   │   │   │   ├── A7_URW_BG_2783.txt
+│   │   │   │   ├── A7_URW_BG_2786.txt
+│   │   │   │   ├── A7_URW_BG_2800.txt
+│   │   │   │   ├── A7_URW_BG_2882.txt
+│   │   │   │   ├── A7_URW_BG_2951.txt
+│   │   │   │   ├── A7_URW_BG_2952.txt
+│   │   │   │   ├── A7_URW_BG_2962.txt
+│   │   │   │   ├── A7_URW_BG_2969.txt
+│   │   │   │   ├── A7_URW_BG_3062.txt
+│   │   │   │   ├── A7_URW_BG_3200.txt
+│   │   │   │   ├── A7_URW_BG_3209.txt
+│   │   │   │   ├── A7_URW_BG_3240.txt
+│   │   │   │   ├── A7_URW_BG_3370.txt
+│   │   │   │   ├── A7_URW_BG_3499.txt
+│   │   │   │   ├── A7_URW_BG_3530.txt
+│   │   │   │   ├── A7_URW_BG_3564.txt
+│   │   │   │   ├── A7_URW_BG_3566.txt
+│   │   │   │   ├── A7_URW_BG_3572.txt
+│   │   │   │   ├── A7_URW_BG_3575.txt
+│   │   │   │   ├── A7_URW_BG_3616.txt
+│   │   │   │   ├── A7_URW_BG_3618.txt
+│   │   │   │   ├── A7_URW_BG_3808.txt
+│   │   │   │   ├── A7_URW_BG_3919.txt
+│   │   │   │   ├── A7_URW_BG_4230.txt
+│   │   │   │   ├── A7_URW_BG_4359.txt
+│   │   │   │   ├── A7_URW_BG_4451.txt
+│   │   │   │   ├── A7_URW_BG_4517.txt
+│   │   │   │   ├── A7_URW_BG_4629.txt
+│   │   │   │   ├── A7_URW_BG_4663.txt
+│   │   │   │   ├── A7_URW_BG_4793.txt
+│   │   │   │   ├── A7_URW_BG_4906.txt
+│   │   │   │   ├── A7_URW_BG_5077.txt
+│   │   │   │   ├── A7_URW_BG_5078.txt
+│   │   │   │   ├── A7_URW_BG_5108.txt
+│   │   │   │   ├── A7_URW_BG_5156.txt
+│   │   │   │   ├── A7_URW_BG_5178.txt
+│   │   │   │   ├── A7_URW_BG_5265.txt
+│   │   │   │   ├── A7_URW_BG_5431.txt
+│   │   │   │   ├── A7_URW_BG_5448.txt
+│   │   │   │   ├── A7_URW_BG_5459.txt
+│   │   │   │   ├── A7_URW_BG_5634.txt
+│   │   │   │   ├── A7_URW_BG_5660.txt
+│   │   │   │   ├── A7_URW_BG_5683.txt
+│   │   │   │   ├── A7_URW_BG_5720.txt
+│   │   │   │   ├── A7_URW_BG_5735.txt
+│   │   │   │   ├── A7_URW_BG_5759.txt
+│   │   │   │   ├── A7_URW_BG_5857.txt
+│   │   │   │   ├── A7_URW_BG_5868.txt
+│   │   │   │   ├── A7_URW_BG_5925.txt
+│   │   │   │   ├── A7_URW_BG_5994.txt
+│   │   │   │   ├── A7_URW_BG_6121.txt
+│   │   │   │   ├── A7_URW_BG_6326.txt
+│   │   │   │   ├── A7_URW_BG_6694.txt
+│   │   │   │   ├── A7_URW_BG_6700.txt
+│   │   │   │   ├── A7_URW_BG_6975.txt
+│   │   │   │   ├── A7_URW_BG_7035.txt
+│   │   │   │   ├── A7_URW_BG_7168.txt
+│   │   │   │   ├── A7_URW_BG_7466.txt
+│   │   │   │   ├── A7_URW_BG_7898.txt
+│   │   │   │   ├── A7_URW_BG_8093.txt
+│   │   │   │   ├── A7_URW_BG_8199.txt
+│   │   │   │   ├── A7_URW_BG_8200.txt
+│   │   │   │   ├── A8_CC_BG_10103.txt
+│   │   │   │   ├── A8_CC_BG_10189.txt
+│   │   │   │   ├── A8_CC_BG_10193.txt
+│   │   │   │   ├── A8_CC_BG_8534.txt
+│   │   │   │   ├── A8_CC_BG_8654.txt
+│   │   │   │   ├── A8_CC_BG_8668.txt
+│   │   │   │   ├── A8_CC_BG_8732.txt
+│   │   │   │   ├── A8_CC_BG_8803.txt
+│   │   │   │   ├── A8_CC_BG_8887.txt
+│   │   │   │   ├── A8_CC_BG_8957.txt
+│   │   │   │   ├── A8_CC_BG_9081.txt
+│   │   │   │   ├── A8_CC_BG_9090.txt
+│   │   │   │   ├── A8_CC_BG_9187.txt
+│   │   │   │   ├── A8_CC_BG_9196.txt
+│   │   │   │   ├── A8_CC_BG_9200.txt
+│   │   │   │   ├── A8_CC_BG_9217.txt
+│   │   │   │   ├── A8_CC_BG_9298.txt
+│   │   │   │   ├── A8_CC_BG_9315.txt
+│   │   │   │   ├── A8_CC_BG_9451.txt
+│   │   │   │   ├── A8_CC_BG_9693.txt
+│   │   │   │   ├── A8_CC_BG_9754.txt
+│   │   │   │   ├── A8_CC_BG_9783.txt
+│   │   │   │   ├── A8_CC_BG_9816.txt
+│   │   │   │   ├── A8_CC_BG_9904.txt
+│   │   │   │   ├── A9_BG_2566.txt
+│   │   │   │   ├── A9_BG_2719.txt
+│   │   │   │   ├── A9_BG_2836.txt
+│   │   │   │   ├── A9_BG_2858.txt
+│   │   │   │   ├── A9_BG_2931.txt
+│   │   │   │   ├── A9_BG_2963.txt
+│   │   │   │   ├── A9_BG_2972.txt
+│   │   │   │   ├── A9_BG_2973.txt
+│   │   │   │   ├── A9_BG_3023.txt
+│   │   │   │   ├── A9_BG_3097.txt
+│   │   │   │   ├── A9_BG_3109.txt
+│   │   │   │   ├── A9_BG_3142.txt
+│   │   │   │   ├── A9_BG_3182.txt
+│   │   │   │   ├── A9_BG_3203.txt
+│   │   │   │   ├── A9_BG_3204.txt
+│   │   │   │   ├── A9_BG_3206.txt
+│   │   │   │   ├── A9_BG_3273.txt
+│   │   │   │   ├── A9_BG_3283.txt
+│   │   │   │   ├── A9_BG_3290.txt
+│   │   │   │   ├── A9_BG_3298.txt
+│   │   │   │   ├── A9_BG_3300.txt
+│   │   │   │   ├── A9_BG_3363.txt
+│   │   │   │   ├── A9_BG_3379.txt
+│   │   │   │   ├── A9_BG_3385.txt
+│   │   │   │   ├── A9_BG_3390.txt
+│   │   │   │   ├── A9_BG_3395.txt
+│   │   │   │   ├── A9_BG_3430.txt
+│   │   │   │   ├── A9_BG_3431.txt
+│   │   │   │   ├── A9_BG_3440.txt
+│   │   │   │   ├── A9_BG_3543.txt
+│   │   │   │   ├── A9_BG_3563.txt
+│   │   │   │   ├── A9_BG_3586.txt
+│   │   │   │   ├── A9_BG_3599.txt
+│   │   │   │   ├── A9_BG_3652.txt
+│   │   │   │   ├── A9_BG_3672.txt
+│   │   │   │   ├── A9_BG_3675.txt
+│   │   │   │   ├── A9_BG_3704.txt
+│   │   │   │   ├── A9_BG_3734.txt
+│   │   │   │   ├── A9_BG_3756.txt
+│   │   │   │   ├── A9_BG_3762.txt
+│   │   │   │   ├── A9_BG_3779.txt
+│   │   │   │   ├── A9_BG_3818.txt
+│   │   │   │   ├── A9_BG_4016.txt
+│   │   │   │   ├── A9_BG_4116.txt
+│   │   │   │   ├── A9_BG_4185.txt
+│   │   │   │   ├── A9_BG_4189.txt
+│   │   │   │   ├── A9_BG_4197.txt
+│   │   │   │   ├── A9_BG_4216.txt
+│   │   │   │   ├── A9_BG_4258.txt
+│   │   │   │   ├── A9_BG_4272.txt
+│   │   │   │   ├── A9_BG_4297.txt
+│   │   │   │   ├── A9_BG_4361.txt
+│   │   │   │   ├── A9_BG_4362.txt
+│   │   │   │   ├── A9_BG_437.txt
+│   │   │   │   ├── A9_BG_4374.txt
+│   │   │   │   ├── A9_BG_4379.txt
+│   │   │   │   ├── A9_BG_4389.txt
+│   │   │   │   ├── A9_BG_4483.txt
+│   │   │   │   ├── A9_BG_4571.txt
+│   │   │   │   ├── A9_BG_4576.txt
+│   │   │   │   ├── A9_BG_4577.txt
+│   │   │   │   ├── A9_BG_4605.txt
+│   │   │   │   ├── A9_BG_4606.txt
+│   │   │   │   ├── A9_BG_4622.txt
+│   │   │   │   ├── A9_BG_4658.txt
+│   │   │   │   ├── A9_BG_4718.txt
+│   │   │   │   ├── A9_BG_4737.txt
+│   │   │   │   ├── A9_BG_4768.txt
+│   │   │   │   ├── A9_BG_4830.txt
+│   │   │   │   ├── A9_BG_4832.txt
+│   │   │   │   ├── A9_BG_4839.txt
+│   │   │   │   ├── A9_BG_4840.txt
+│   │   │   │   ├── A9_BG_4844.txt
+│   │   │   │   ├── A9_BG_4851.txt
+│   │   │   │   ├── A9_BG_4885.txt
+│   │   │   │   ├── A9_BG_4898.txt
+│   │   │   │   ├── A9_BG_4905.txt
+│   │   │   │   ├── A9_BG_4971.txt
+│   │   │   │   ├── A9_BG_4978.txt
+│   │   │   │   ├── A9_BG_5009.txt
+│   │   │   │   ├── A9_BG_5053.txt
+│   │   │   │   ├── A9_BG_5082.txt
+│   │   │   │   ├── A9_BG_5143.txt
+│   │   │   │   ├── A9_BG_5155.txt
+│   │   │   │   ├── A9_BG_5190.txt
+│   │   │   │   ├── A9_BG_5225.txt
+│   │   │   │   ├── A9_BG_5226.txt
+│   │   │   │   ├── A9_BG_5402.txt
+│   │   │   │   ├── A9_BG_5548.txt
+│   │   │   │   ├── A9_BG_5596.txt
+│   │   │   │   ├── A9_BG_5817.txt
+│   │   │   │   ├── A9_BG_583.txt
+│   │   │   │   ├── A9_BG_5871.txt
+│   │   │   │   ├── A9_BG_5903.txt
+│   │   │   │   ├── A9_BG_5957.txt
+│   │   │   │   ├── A9_BG_5965.txt
+│   │   │   │   ├── A9_BG_5984.txt
+│   │   │   │   ├── A9_BG_6002.txt
+│   │   │   │   ├── A9_BG_6015.txt
+│   │   │   │   ├── A9_BG_6207.txt
+│   │   │   │   ├── A9_BG_6229.txt
+│   │   │   │   ├── A9_BG_6815.txt
+│   │   │   │   ├── A9_BG_6875.txt
+│   │   │   │   ├── A9_BG_7303.txt
+│   │   │   │   ├── A9_BG_7690.txt
+│   │   │   │   ├── A9_BG_7720.txt
+│   │   │   │   ├── A9_BG_8028.txt
+│   │   │   │   ├── A9_BG_8210.txt
+│   │   │   │   ├── A9_BG_8333.txt
+│   │   │   │   ├── A9_BG_8450.txt
+│   │   │   │   ├── BG_1006.txt
+│   │   │   │   ├── BG_1044.txt
+│   │   │   │   ├── BG_1089.txt
+│   │   │   │   ├── BG_1098.txt
+│   │   │   │   ├── BG_1163.txt
+│   │   │   │   ├── BG_1164.txt
+│   │   │   │   ├── BG_1181.txt
+│   │   │   │   ├── BG_1249.txt
+│   │   │   │   ├── BG_1258.txt
+│   │   │   │   ├── BG_1319.txt
+│   │   │   │   ├── BG_1341.txt
+│   │   │   │   ├── BG_1345.txt
+│   │   │   │   ├── BG_1352.txt
+│   │   │   │   ├── BG_1390.txt
+│   │   │   │   ├── BG_1423.txt
+│   │   │   │   ├── BG_1509.txt
+│   │   │   │   ├── BG_1544.txt
+│   │   │   │   ├── BG_1559.txt
+│   │   │   │   ├── BG_1637.txt
+│   │   │   │   ├── BG_171.txt
+│   │   │   │   ├── BG_1725.txt
+│   │   │   │   ├── BG_1767.txt
+│   │   │   │   ├── BG_1826.txt
+│   │   │   │   ├── BG_1843.txt
+│   │   │   │   ├── BG_1867.txt
+│   │   │   │   ├── BG_2536.txt
+│   │   │   │   ├── BG_3079.txt
+│   │   │   │   ├── BG_3245.txt
+│   │   │   │   ├── BG_3284.txt
+│   │   │   │   ├── BG_3351.txt
+│   │   │   │   ├── BG_3364.txt
+│   │   │   │   ├── BG_3368.txt
+│   │   │   │   ├── BG_3541.txt
+│   │   │   │   ├── BG_3629.txt
+│   │   │   │   ├── BG_364.txt
+│   │   │   │   ├── BG_3669.txt
+│   │   │   │   ├── BG_3671.txt
+│   │   │   │   ├── BG_3753.txt
+│   │   │   │   ├── BG_3759.txt
+│   │   │   │   ├── BG_3867.txt
+│   │   │   │   ├── BG_3909.txt
+│   │   │   │   ├── BG_4188.txt
+│   │   │   │   ├── BG_4228.txt
+│   │   │   │   ├── BG_423.txt
+│   │   │   │   ├── BG_430.txt
+│   │   │   │   ├── BG_435.txt
+│   │   │   │   ├── BG_4366.txt
+│   │   │   │   ├── BG_439.txt
+│   │   │   │   ├── BG_4531.txt
+│   │   │   │   ├── BG_454.txt
+│   │   │   │   ├── BG_456.txt
+│   │   │   │   ├── BG_457.txt
+│   │   │   │   ├── BG_4613.txt
+│   │   │   │   ├── BG_4624.txt
+│   │   │   │   ├── BG_463.txt
+│   │   │   │   ├── BG_4648.txt
+│   │   │   │   ├── BG_4713.txt
+│   │   │   │   ├── BG_473.txt
+│   │   │   │   ├── BG_4732.txt
+│   │   │   │   ├── BG_476.txt
+│   │   │   │   ├── BG_480.txt
+│   │   │   │   ├── BG_481.txt
+│   │   │   │   ├── BG_4819.txt
+│   │   │   │   ├── BG_4845.txt
+│   │   │   │   ├── BG_4872.txt
+│   │   │   │   ├── BG_4884.txt
+│   │   │   │   ├── BG_494.txt
+│   │   │   │   ├── BG_497.txt
+│   │   │   │   ├── BG_504.txt
+│   │   │   │   ├── BG_508.txt
+│   │   │   │   ├── BG_509.txt
+│   │   │   │   ├── BG_5098.txt
+│   │   │   │   ├── BG_513.txt
+│   │   │   │   ├── BG_521.txt
+│   │   │   │   ├── BG_526.txt
+│   │   │   │   ├── BG_529.txt
+│   │   │   │   ├── BG_5360.txt
+│   │   │   │   ├── BG_538.txt
+│   │   │   │   ├── BG_5406.txt
+│   │   │   │   ├── BG_541.txt
+│   │   │   │   ├── BG_546.txt
+│   │   │   │   ├── BG_5470.txt
+│   │   │   │   ├── BG_548.txt
+│   │   │   │   ├── BG_551.txt
+│   │   │   │   ├── BG_553.txt
+│   │   │   │   ├── BG_555.txt
+│   │   │   │   ├── BG_559.txt
+│   │   │   │   ├── BG_560.txt
+│   │   │   │   ├── BG_561.txt
+│   │   │   │   ├── BG_573.txt
+│   │   │   │   ├── BG_576.txt
+│   │   │   │   ├── BG_582.txt
+│   │   │   │   ├── BG_585.txt
+│   │   │   │   ├── BG_5914.txt
+│   │   │   │   ├── BG_5918.txt
+│   │   │   │   ├── BG_5942.txt
+│   │   │   │   ├── BG_6019.txt
+│   │   │   │   ├── BG_6045.txt
+│   │   │   │   ├── BG_607.txt
+│   │   │   │   ├── BG_612.txt
+│   │   │   │   ├── BG_613.txt
+│   │   │   │   ├── BG_616.txt
+│   │   │   │   ├── BG_620.txt
+│   │   │   │   ├── BG_624.txt
+│   │   │   │   ├── BG_628.txt
+│   │   │   │   ├── BG_629.txt
+│   │   │   │   ├── BG_630.txt
+│   │   │   │   ├── BG_637.txt
+│   │   │   │   ├── BG_663.txt
+│   │   │   │   ├── BG_666.txt
+│   │   │   │   ├── BG_670.txt
+│   │   │   │   ├── BG_676.txt
+│   │   │   │   ├── BG_678.txt
+│   │   │   │   ├── BG_679.txt
+│   │   │   │   ├── BG_684.txt
+│   │   │   │   ├── BG_696.txt
+│   │   │   │   ├── BG_699.txt
+│   │   │   │   ├── BG_701.txt
+│   │   │   │   ├── BG_704.txt
+│   │   │   │   ├── BG_7070.txt
+│   │   │   │   ├── BG_723.txt
+│   │   │   │   ├── BG_7367.txt
+│   │   │   │   ├── BG_7379.txt
+│   │   │   │   ├── BG_751.txt
+│   │   │   │   ├── BG_7557.txt
+│   │   │   │   ├── BG_799.txt
+│   │   │   │   ├── BG_8060.txt
+│   │   │   │   ├── BG_828.txt
+│   │   │   │   ├── BG_8385.txt
+│   │   │   │   ├── BG_839.txt
+│   │   │   │   ├── BG_8453.txt
+│   │   │   │   ├── BG_8455.txt
+│   │   │   │   ├── BG_855.txt
+│   │   │   │   ├── BG_866.txt
+│   │   │   │   ├── BG_869.txt
+│   │   │   │   ├── BG_888.txt
+│   │   │   │   ├── BG_892.txt
+│   │   │   │   ├── BG_894.txt
+│   │   │   │   ├── BG_895.txt
+│   │   │   │   ├── BG_939.txt
+│   │   │   │   └── BG_971.txt
+│   │   │   ├── subtask-1-annotations.txt
+│   │   │   ├── subtask-2-annotations.txt
+│   │   │   └── subtask-3-annotations.txt
+│   │   ├── EN
+│   │   │   ├── raw-documents
+│   │   │   │   ├── EN_CC_100000.txt
+│   │   │   │   ├── EN_CC_100002.txt
+│   │   │   │   ├── EN_CC_100003.txt
+│   │   │   │   ├── EN_CC_100004.txt
+│   │   │   │   ├── EN_CC_100005.txt
+│   │   │   │   ├── EN_CC_100007.txt
+│   │   │   │   ├── EN_CC_100008.txt
+│   │   │   │   ├── EN_CC_100009.txt
+│   │   │   │   ├── EN_CC_100010.txt
+│   │   │   │   ├── EN_CC_100011.txt
+│   │   │   │   ├── EN_CC_100012.txt
+│   │   │   │   ├── EN_CC_100013.txt
+│   │   │   │   ├── EN_CC_100014.txt
+│   │   │   │   ├── EN_CC_100015.txt
+│   │   │   │   ├── EN_CC_100016.txt
+│   │   │   │   ├── EN_CC_100021.txt
+│   │   │   │   ├── EN_CC_100023.txt
+│   │   │   │   ├── EN_CC_100024.txt
+│   │   │   │   ├── EN_CC_100028.txt
+│   │   │   │   ├── EN_CC_100030.txt
+│   │   │   │   ├── EN_CC_100034.txt
+│   │   │   │   ├── EN_CC_100035.txt
+│   │   │   │   ├── EN_CC_100036.txt
+│   │   │   │   ├── EN_CC_100037.txt
+│   │   │   │   ├── EN_CC_100038.txt
+│   │   │   │   ├── EN_CC_100040.txt
+│   │   │   │   ├── EN_CC_100042.txt
+│   │   │   │   ├── EN_CC_100044.txt
+│   │   │   │   ├── EN_CC_100046.txt
+│   │   │   │   ├── EN_CC_100047.txt
+│   │   │   │   ├── EN_CC_100050.txt
+│   │   │   │   ├── EN_CC_100054.txt
+│   │   │   │   ├── EN_CC_100065.txt
+│   │   │   │   ├── EN_CC_100066.txt
+│   │   │   │   ├── EN_CC_100067.txt
+│   │   │   │   ├── EN_CC_100069.txt
+│   │   │   │   ├── EN_CC_100070.txt
+│   │   │   │   ├── EN_CC_100076.txt
+│   │   │   │   ├── EN_CC_100083.txt
+│   │   │   │   ├── EN_CC_100091.txt
+│   │   │   │   ├── EN_CC_100093.txt
+│   │   │   │   ├── EN_CC_100095.txt
+│   │   │   │   ├── EN_CC_100098.txt
+│   │   │   │   ├── EN_CC_100106.txt
+│   │   │   │   ├── EN_CC_100122.txt
+│   │   │   │   ├── EN_CC_100123.txt
+│   │   │   │   ├── EN_CC_100124.txt
+│   │   │   │   ├── EN_CC_100136.txt
+│   │   │   │   ├── EN_CC_100137.txt
+│   │   │   │   ├── EN_CC_100139.txt
+│   │   │   │   ├── EN_CC_100145.txt
+│   │   │   │   ├── EN_CC_100146.txt
+│   │   │   │   ├── EN_CC_100147.txt
+│   │   │   │   ├── EN_CC_100150.txt
+│   │   │   │   ├── EN_CC_100156.txt
+│   │   │   │   ├── EN_CC_100159.txt
+│   │   │   │   ├── EN_CC_100169.txt
+│   │   │   │   ├── EN_CC_100172.txt
+│   │   │   │   ├── EN_CC_100197.txt
+│   │   │   │   ├── EN_CC_100198.txt
+│   │   │   │   ├── EN_CC_100203.txt
+│   │   │   │   ├── EN_CC_100211.txt
+│   │   │   │   ├── EN_CC_100213.txt
+│   │   │   │   ├── EN_CC_100223.txt
+│   │   │   │   ├── EN_CC_100232.txt
+│   │   │   │   ├── EN_CC_100235.txt
+│   │   │   │   ├── EN_CC_100243.txt
+│   │   │   │   ├── EN_CC_200001.txt
+│   │   │   │   ├── EN_CC_200007.txt
+│   │   │   │   ├── EN_CC_200009.txt
+│   │   │   │   ├── EN_CC_200012.txt
+│   │   │   │   ├── EN_CC_200013.txt
+│   │   │   │   ├── EN_CC_200015.txt
+│   │   │   │   ├── EN_CC_200016.txt
+│   │   │   │   ├── EN_CC_200018.txt
+│   │   │   │   ├── EN_CC_200021.txt
+│   │   │   │   ├── EN_CC_200022.txt
+│   │   │   │   ├── EN_CC_200024.txt
+│   │   │   │   ├── EN_CC_200025.txt
+│   │   │   │   ├── EN_CC_200029.txt
+│   │   │   │   ├── EN_CC_200041.txt
+│   │   │   │   ├── EN_CC_200044.txt
+│   │   │   │   ├── EN_CC_200048.txt
+│   │   │   │   ├── EN_CC_200052.txt
+│   │   │   │   ├── EN_CC_200055.txt
+│   │   │   │   ├── EN_CC_200056.txt
+│   │   │   │   ├── EN_CC_200058.txt
+│   │   │   │   ├── EN_CC_200073.txt
+│   │   │   │   ├── EN_CC_200083.txt
+│   │   │   │   ├── EN_CC_200086.txt
+│   │   │   │   ├── EN_CC_200092.txt
+│   │   │   │   ├── EN_CC_200093.txt
+│   │   │   │   ├── EN_CC_200097.txt
+│   │   │   │   ├── EN_CC_200098.txt
+│   │   │   │   ├── EN_CC_200101.txt
+│   │   │   │   ├── EN_CC_200104.txt
+│   │   │   │   ├── EN_CC_200105.txt
+│   │   │   │   ├── EN_CC_200107.txt
+│   │   │   │   ├── EN_CC_200110.txt
+│   │   │   │   ├── EN_CC_200113.txt
+│   │   │   │   ├── EN_CC_200116.txt
+│   │   │   │   ├── EN_CC_200132.txt
+│   │   │   │   ├── EN_CC_200134.txt
+│   │   │   │   ├── EN_CC_200137.txt
+│   │   │   │   ├── EN_CC_200139.txt
+│   │   │   │   ├── EN_CC_200141.txt
+│   │   │   │   ├── EN_CC_200144.txt
+│   │   │   │   ├── EN_CC_200145.txt
+│   │   │   │   ├── EN_CC_200150.txt
+│   │   │   │   ├── EN_CC_200152.txt
+│   │   │   │   ├── EN_CC_200154.txt
+│   │   │   │   ├── EN_CC_200159.txt
+│   │   │   │   ├── EN_CC_200165.txt
+│   │   │   │   ├── EN_CC_200166.txt
+│   │   │   │   ├── EN_CC_200168.txt
+│   │   │   │   ├── EN_CC_200181.txt
+│   │   │   │   ├── EN_CC_200188.txt
+│   │   │   │   ├── EN_CC_200191.txt
+│   │   │   │   ├── EN_CC_200211.txt
+│   │   │   │   ├── EN_CC_200218.txt
+│   │   │   │   ├── EN_CC_200221.txt
+│   │   │   │   ├── EN_CC_200227.txt
+│   │   │   │   ├── EN_CC_200234.txt
+│   │   │   │   ├── EN_CC_200242.txt
+│   │   │   │   ├── EN_CC_200245.txt
+│   │   │   │   ├── EN_CC_200246.txt
+│   │   │   │   ├── EN_CC_200254.txt
+│   │   │   │   ├── EN_CC_200262.txt
+│   │   │   │   ├── EN_CC_200270.txt
+│   │   │   │   ├── EN_CC_200278.txt
+│   │   │   │   ├── EN_CC_200279.txt
+│   │   │   │   ├── EN_CC_200285.txt
+│   │   │   │   ├── EN_CC_200289.txt
+│   │   │   │   ├── EN_CC_200292.txt
+│   │   │   │   ├── EN_CC_200294.txt
+│   │   │   │   ├── EN_CC_200318.txt
+│   │   │   │   ├── EN_CC_200321.txt
+│   │   │   │   ├── EN_CC_200324.txt
+│   │   │   │   ├── EN_CC_200326.txt
+│   │   │   │   ├── EN_CC_200327.txt
+│   │   │   │   ├── EN_CC_200337.txt
+│   │   │   │   ├── EN_CC_200342.txt
+│   │   │   │   ├── EN_CC_200343.txt
+│   │   │   │   ├── EN_CC_200344.txt
+│   │   │   │   ├── EN_CC_200349.txt
+│   │   │   │   ├── EN_CC_300001.txt
+│   │   │   │   ├── EN_CC_300003.txt
+│   │   │   │   ├── EN_CC_300004.txt
+│   │   │   │   ├── EN_CC_300005.txt
+│   │   │   │   ├── EN_CC_300006.txt
+│   │   │   │   ├── EN_CC_300008.txt
+│   │   │   │   ├── EN_CC_300010.txt
+│   │   │   │   ├── EN_CC_300017.txt
+│   │   │   │   ├── EN_CC_300018.txt
+│   │   │   │   ├── EN_CC_300022.txt
+│   │   │   │   ├── EN_CC_300023.txt
+│   │   │   │   ├── EN_CC_300028.txt
+│   │   │   │   ├── EN_CC_300030.txt
+│   │   │   │   ├── EN_CC_300031.txt
+│   │   │   │   ├── EN_CC_300037.txt
+│   │   │   │   ├── EN_CC_300038.txt
+│   │   │   │   ├── EN_CC_300040.txt
+│   │   │   │   ├── EN_CC_300052.txt
+│   │   │   │   ├── EN_CC_300054.txt
+│   │   │   │   ├── EN_CC_300057.txt
+│   │   │   │   ├── EN_CC_300064.txt
+│   │   │   │   ├── EN_CC_300074.txt
+│   │   │   │   ├── EN_CC_300088.txt
+│   │   │   │   ├── EN_CC_300112.txt
+│   │   │   │   ├── EN_CC_300114.txt
+│   │   │   │   ├── EN_CC_300124.txt
+│   │   │   │   ├── EN_CC_300125.txt
+│   │   │   │   ├── EN_CC_300134.txt
+│   │   │   │   ├── EN_CC_300151.txt
+│   │   │   │   ├── EN_CC_300158.txt
+│   │   │   │   ├── EN_CC_300179.txt
+│   │   │   │   ├── EN_UA_000104.txt
+│   │   │   │   ├── EN_UA_000543.txt
+│   │   │   │   ├── EN_UA_000568.txt
+│   │   │   │   ├── EN_UA_000923.txt
+│   │   │   │   ├── EN_UA_001032.txt
+│   │   │   │   ├── EN_UA_001052.txt
+│   │   │   │   ├── EN_UA_002416.txt
+│   │   │   │   ├── EN_UA_002531.txt
+│   │   │   │   ├── EN_UA_002668.txt
+│   │   │   │   ├── EN_UA_002991.txt
+│   │   │   │   ├── EN_UA_003579.txt
+│   │   │   │   ├── EN_UA_004209.txt
+│   │   │   │   ├── EN_UA_004343.txt
+│   │   │   │   ├── EN_UA_004616.txt
+│   │   │   │   ├── EN_UA_008072.txt
+│   │   │   │   ├── EN_UA_008586.txt
+│   │   │   │   ├── EN_UA_010091.txt
+│   │   │   │   ├── EN_UA_010095.txt
+│   │   │   │   ├── EN_UA_010735.txt
+│   │   │   │   ├── EN_UA_010901.txt
+│   │   │   │   ├── EN_UA_010909.txt
+│   │   │   │   ├── EN_UA_011260.txt
+│   │   │   │   ├── EN_UA_012234.txt
+│   │   │   │   ├── EN_UA_012611.txt
+│   │   │   │   ├── EN_UA_012803.txt
+│   │   │   │   ├── EN_UA_013257.txt
+│   │   │   │   ├── EN_UA_013344.txt
+│   │   │   │   ├── EN_UA_013617.txt
+│   │   │   │   ├── EN_UA_013710.txt
+│   │   │   │   ├── EN_UA_013727.txt
+│   │   │   │   ├── EN_UA_014014.txt
+│   │   │   │   ├── EN_UA_014413.txt
+│   │   │   │   ├── EN_UA_014637.txt
+│   │   │   │   ├── EN_UA_014829.txt
+│   │   │   │   ├── EN_UA_015443.txt
+│   │   │   │   ├── EN_UA_015880.txt
+│   │   │   │   ├── EN_UA_015962.txt
+│   │   │   │   ├── EN_UA_016012.txt
+│   │   │   │   ├── EN_UA_016466.txt
+│   │   │   │   ├── EN_UA_017310.txt
+│   │   │   │   ├── EN_UA_017831.txt
+│   │   │   │   ├── EN_UA_018789.txt
+│   │   │   │   ├── EN_UA_019640.txt
+│   │   │   │   ├── EN_UA_020543.txt
+│   │   │   │   ├── EN_UA_021123.txt
+│   │   │   │   ├── EN_UA_021263.txt
+│   │   │   │   ├── EN_UA_021270.txt
+│   │   │   │   ├── EN_UA_021310.txt
+│   │   │   │   ├── EN_UA_021377.txt
+│   │   │   │   ├── EN_UA_021872.txt
+│   │   │   │   ├── EN_UA_021918.txt
+│   │   │   │   ├── EN_UA_022016.txt
+│   │   │   │   ├── EN_UA_022051.txt
+│   │   │   │   ├── EN_UA_022319.txt
+│   │   │   │   ├── EN_UA_022339.txt
+│   │   │   │   ├── EN_UA_023008.txt
+│   │   │   │   ├── EN_UA_023211.txt
+│   │   │   │   ├── EN_UA_023816.txt
+│   │   │   │   ├── EN_UA_024050.txt
+│   │   │   │   ├── EN_UA_024321.txt
+│   │   │   │   ├── EN_UA_024628.txt
+│   │   │   │   ├── EN_UA_024847.txt
+│   │   │   │   ├── EN_UA_025165.txt
+│   │   │   │   ├── EN_UA_025652.txt
+│   │   │   │   ├── EN_UA_025764.txt
+│   │   │   │   ├── EN_UA_026036.txt
+│   │   │   │   ├── EN_UA_026142.txt
+│   │   │   │   ├── EN_UA_026697.txt
+│   │   │   │   ├── EN_UA_026740.txt
+│   │   │   │   ├── EN_UA_027676.txt
+│   │   │   │   ├── EN_UA_027787.txt
+│   │   │   │   ├── EN_UA_027816.txt
+│   │   │   │   ├── EN_UA_027879.txt
+│   │   │   │   ├── EN_UA_028103.txt
+│   │   │   │   ├── EN_UA_028520.txt
+│   │   │   │   ├── EN_UA_029053.txt
+│   │   │   │   ├── EN_UA_029155.txt
+│   │   │   │   ├── EN_UA_100106.txt
+│   │   │   │   ├── EN_UA_100210.txt
+│   │   │   │   ├── EN_UA_100411.txt
+│   │   │   │   ├── EN_UA_100587.txt
+│   │   │   │   ├── EN_UA_100601.txt
+│   │   │   │   ├── EN_UA_100688.txt
+│   │   │   │   ├── EN_UA_100840.txt
+│   │   │   │   ├── EN_UA_100864.txt
+│   │   │   │   ├── EN_UA_100868.txt
+│   │   │   │   ├── EN_UA_101067.txt
+│   │   │   │   ├── EN_UA_101079.txt
+│   │   │   │   ├── EN_UA_101189.txt
+│   │   │   │   ├── EN_UA_101251.txt
+│   │   │   │   ├── EN_UA_101805.txt
+│   │   │   │   ├── EN_UA_101954.txt
+│   │   │   │   ├── EN_UA_101996.txt
+│   │   │   │   ├── EN_UA_102034.txt
+│   │   │   │   ├── EN_UA_102054.txt
+│   │   │   │   ├── EN_UA_102084.txt
+│   │   │   │   ├── EN_UA_102415.txt
+│   │   │   │   ├── EN_UA_102655.txt
+│   │   │   │   ├── EN_UA_102703.txt
+│   │   │   │   ├── EN_UA_102754.txt
+│   │   │   │   ├── EN_UA_102892.txt
+│   │   │   │   ├── EN_UA_102953.txt
+│   │   │   │   ├── EN_UA_102958.txt
+│   │   │   │   ├── EN_UA_102963.txt
+│   │   │   │   ├── EN_UA_102990.txt
+│   │   │   │   ├── EN_UA_103011.txt
+│   │   │   │   ├── EN_UA_103025.txt
+│   │   │   │   ├── EN_UA_103168.txt
+│   │   │   │   ├── EN_UA_103251.txt
+│   │   │   │   ├── EN_UA_103372.txt
+│   │   │   │   ├── EN_UA_103403.txt
+│   │   │   │   ├── EN_UA_103445.txt
+│   │   │   │   ├── EN_UA_103517.txt
+│   │   │   │   ├── EN_UA_103667.txt
+│   │   │   │   ├── EN_UA_103732.txt
+│   │   │   │   ├── EN_UA_103861.txt
+│   │   │   │   ├── EN_UA_103941.txt
+│   │   │   │   ├── EN_UA_103995.txt
+│   │   │   │   ├── EN_UA_104152.txt
+│   │   │   │   ├── EN_UA_104224.txt
+│   │   │   │   ├── EN_UA_104434.txt
+│   │   │   │   ├── EN_UA_104523.txt
+│   │   │   │   ├── EN_UA_104569.txt
+│   │   │   │   ├── EN_UA_104604.txt
+│   │   │   │   ├── EN_UA_104775.txt
+│   │   │   │   ├── EN_UA_104791.txt
+│   │   │   │   ├── EN_UA_104859.txt
+│   │   │   │   ├── EN_UA_104876.txt
+│   │   │   │   ├── EN_UA_300000.txt
+│   │   │   │   ├── EN_UA_300001.txt
+│   │   │   │   ├── EN_UA_300005.txt
+│   │   │   │   ├── EN_UA_300006.txt
+│   │   │   │   ├── EN_UA_300007.txt
+│   │   │   │   ├── EN_UA_300009.txt
+│   │   │   │   ├── EN_UA_300010.txt
+│   │   │   │   ├── EN_UA_300011.txt
+│   │   │   │   ├── EN_UA_300012.txt
+│   │   │   │   ├── EN_UA_300013.txt
+│   │   │   │   ├── EN_UA_300015.txt
+│   │   │   │   ├── EN_UA_300016.txt
+│   │   │   │   ├── EN_UA_300017.txt
+│   │   │   │   ├── EN_UA_300018.txt
+│   │   │   │   ├── EN_UA_300019.txt
+│   │   │   │   ├── EN_UA_300020.txt
+│   │   │   │   ├── EN_UA_300022.txt
+│   │   │   │   ├── EN_UA_300023.txt
+│   │   │   │   ├── EN_UA_300025.txt
+│   │   │   │   ├── EN_UA_300028.txt
+│   │   │   │   ├── EN_UA_300029.txt
+│   │   │   │   ├── EN_UA_300030.txt
+│   │   │   │   ├── EN_UA_300031.txt
+│   │   │   │   ├── EN_UA_300032.txt
+│   │   │   │   ├── EN_UA_300034.txt
+│   │   │   │   ├── EN_UA_300035.txt
+│   │   │   │   ├── EN_UA_300036.txt
+│   │   │   │   ├── EN_UA_300037.txt
+│   │   │   │   ├── EN_UA_300038.txt
+│   │   │   │   ├── EN_UA_300039.txt
+│   │   │   │   ├── EN_UA_300040.txt
+│   │   │   │   ├── EN_UA_300041.txt
+│   │   │   │   ├── EN_UA_300043.txt
+│   │   │   │   ├── EN_UA_300044.txt
+│   │   │   │   ├── EN_UA_300045.txt
+│   │   │   │   ├── EN_UA_300046.txt
+│   │   │   │   ├── EN_UA_300048.txt
+│   │   │   │   ├── EN_UA_300049.txt
+│   │   │   │   ├── EN_UA_300050.txt
+│   │   │   │   ├── EN_UA_300051.txt
+│   │   │   │   ├── EN_UA_300052.txt
+│   │   │   │   ├── EN_UA_300053.txt
+│   │   │   │   ├── EN_UA_300058.txt
+│   │   │   │   ├── EN_UA_300059.txt
+│   │   │   │   ├── EN_UA_300060.txt
+│   │   │   │   ├── EN_UA_300063.txt
+│   │   │   │   ├── EN_UA_300065.txt
+│   │   │   │   ├── EN_UA_300066.txt
+│   │   │   │   ├── EN_UA_300067.txt
+│   │   │   │   ├── EN_UA_300069.txt
+│   │   │   │   ├── EN_UA_300070.txt
+│   │   │   │   ├── EN_UA_300071.txt
+│   │   │   │   ├── EN_UA_300073.txt
+│   │   │   │   ├── EN_UA_300074.txt
+│   │   │   │   ├── EN_UA_300075.txt
+│   │   │   │   ├── EN_UA_300076.txt
+│   │   │   │   ├── EN_UA_300077.txt
+│   │   │   │   ├── EN_UA_300079.txt
+│   │   │   │   ├── EN_UA_300080.txt
+│   │   │   │   ├── EN_UA_300082.txt
+│   │   │   │   ├── EN_UA_300084.txt
+│   │   │   │   ├── EN_UA_300085.txt
+│   │   │   │   ├── EN_UA_300086.txt
+│   │   │   │   ├── EN_UA_300089.txt
+│   │   │   │   ├── EN_UA_300090.txt
+│   │   │   │   ├── EN_UA_300092.txt
+│   │   │   │   ├── EN_UA_300099.txt
+│   │   │   │   ├── EN_UA_300100.txt
+│   │   │   │   ├── EN_UA_300102.txt
+│   │   │   │   ├── EN_UA_300103.txt
+│   │   │   │   ├── EN_UA_300104.txt
+│   │   │   │   ├── EN_UA_300108.txt
+│   │   │   │   ├── EN_UA_300115.txt
+│   │   │   │   ├── EN_UA_300117.txt
+│   │   │   │   ├── EN_UA_300120.txt
+│   │   │   │   ├── EN_UA_300127.txt
+│   │   │   │   ├── EN_UA_300129.txt
+│   │   │   │   ├── EN_UA_300132.txt
+│   │   │   │   ├── EN_UA_300133.txt
+│   │   │   │   ├── EN_UA_300134.txt
+│   │   │   │   ├── EN_UA_300135.txt
+│   │   │   │   ├── EN_UA_300139.txt
+│   │   │   │   ├── EN_UA_300141.txt
+│   │   │   │   ├── EN_UA_300142.txt
+│   │   │   │   ├── EN_UA_300144.txt
+│   │   │   │   ├── EN_UA_300145.txt
+│   │   │   │   ├── EN_UA_300150.txt
+│   │   │   │   ├── EN_UA_300153.txt
+│   │   │   │   ├── EN_UA_300154.txt
+│   │   │   │   ├── EN_UA_300156.txt
+│   │   │   │   ├── EN_UA_DEV_100028.txt
+│   │   │   │   ├── EN_UA_DEV_216.txt
+│   │   │   │   ├── EN_UA_DEV_23.txt
+│   │   │   │   ├── EN_UA_DEV_24.txt
+│   │   │   │   └── EN_UA_DEV_26.txt
+│   │   │   ├── subtask-1-annotations.txt
+│   │   │   ├── subtask-2-annotations.txt
+│   │   │   └── subtask-3-annotations.txt
+│   │   ├── HI
+│   │   │   ├── raw-documents
+│   │   │   │   ├── HI_1.txt
+│   │   │   │   ├── HI_100.txt
+│   │   │   │   ├── HI_101.txt
+│   │   │   │   ├── HI_102.txt
+│   │   │   │   ├── HI_103.txt
+│   │   │   │   ├── HI_104.txt
+│   │   │   │   ├── HI_105.txt
+│   │   │   │   ├── HI_106.txt
+│   │   │   │   ├── HI_108.txt
+│   │   │   │   ├── HI_109.txt
+│   │   │   │   ├── HI_111.txt
+│   │   │   │   ├── HI_112.txt
+│   │   │   │   ├── HI_113.txt
+│   │   │   │   ├── HI_115.txt
+│   │   │   │   ├── HI_116.txt
+│   │   │   │   ├── HI_117.txt
+│   │   │   │   ├── HI_118.txt
+│   │   │   │   ├── HI_119.txt
+│   │   │   │   ├── HI_120.txt
+│   │   │   │   ├── HI_121.txt
+│   │   │   │   ├── HI_122.txt
+│   │   │   │   ├── HI_123.txt
+│   │   │   │   ├── HI_124.txt
+│   │   │   │   ├── HI_127.txt
+│   │   │   │   ├── HI_128.txt
+│   │   │   │   ├── HI_129.txt
+│   │   │   │   ├── HI_13.txt
+│   │   │   │   ├── HI_130.txt
+│   │   │   │   ├── HI_131.txt
+│   │   │   │   ├── HI_132.txt
+│   │   │   │   ├── HI_133.txt
+│   │   │   │   ├── HI_135.txt
+│   │   │   │   ├── HI_136.txt
+│   │   │   │   ├── HI_137.txt
+│   │   │   │   ├── HI_138.txt
+│   │   │   │   ├── HI_14.txt
+│   │   │   │   ├── HI_141.txt
+│   │   │   │   ├── HI_142.txt
+│   │   │   │   ├── HI_144.txt
+│   │   │   │   ├── HI_145.txt
+│   │   │   │   ├── HI_146.txt
+│   │   │   │   ├── HI_147.txt
+│   │   │   │   ├── HI_148.txt
+│   │   │   │   ├── HI_149.txt
+│   │   │   │   ├── HI_15.txt
+│   │   │   │   ├── HI_150.txt
+│   │   │   │   ├── HI_153.txt
+│   │   │   │   ├── HI_155.txt
+│   │   │   │   ├── HI_157.txt
+│   │   │   │   ├── HI_16.txt
+│   │   │   │   ├── HI_161.txt
+│   │   │   │   ├── HI_162.txt
+│   │   │   │   ├── HI_163.txt
+│   │   │   │   ├── HI_164.txt
+│   │   │   │   ├── HI_165.txt
+│   │   │   │   ├── HI_166.txt
+│   │   │   │   ├── HI_167.txt
+│   │   │   │   ├── HI_168.txt
+│   │   │   │   ├── HI_169.txt
+│   │   │   │   ├── HI_170.txt
+│   │   │   │   ├── HI_171.txt
+│   │   │   │   ├── HI_172.txt
+│   │   │   │   ├── HI_173.txt
+│   │   │   │   ├── HI_174.txt
+│   │   │   │   ├── HI_175.txt
+│   │   │   │   ├── HI_176.txt
+│   │   │   │   ├── HI_177.txt
+│   │   │   │   ├── HI_178.txt
+│   │   │   │   ├── HI_179.txt
+│   │   │   │   ├── HI_18.txt
+│   │   │   │   ├── HI_180.txt
+│   │   │   │   ├── HI_181.txt
+│   │   │   │   ├── HI_182.txt
+│   │   │   │   ├── HI_183.txt
+│   │   │   │   ├── HI_184.txt
+│   │   │   │   ├── HI_185.txt
+│   │   │   │   ├── HI_186.txt
+│   │   │   │   ├── HI_187.txt
+│   │   │   │   ├── HI_188.txt
+│   │   │   │   ├── HI_189.txt
+│   │   │   │   ├── HI_190.txt
+│   │   │   │   ├── HI_191.txt
+│   │   │   │   ├── HI_192.txt
+│   │   │   │   ├── HI_193.txt
+│   │   │   │   ├── HI_194.txt
+│   │   │   │   ├── HI_195.txt
+│   │   │   │   ├── HI_196.txt
+│   │   │   │   ├── HI_197.txt
+│   │   │   │   ├── HI_198.txt
+│   │   │   │   ├── HI_199.txt
+│   │   │   │   ├── HI_2.txt
+│   │   │   │   ├── HI_20.txt
+│   │   │   │   ├── HI_200.txt
+│   │   │   │   ├── HI_201.txt
+│   │   │   │   ├── HI_202.txt
+│   │   │   │   ├── HI_203.txt
+│   │   │   │   ├── HI_204.txt
+│   │   │   │   ├── HI_205.txt
+│   │   │   │   ├── HI_206.txt
+│   │   │   │   ├── HI_207.txt
+│   │   │   │   ├── HI_208.txt
+│   │   │   │   ├── HI_209.txt
+│   │   │   │   ├── HI_21.txt
+│   │   │   │   ├── HI_210.txt
+│   │   │   │   ├── HI_211.txt
+│   │   │   │   ├── HI_212.txt
+│   │   │   │   ├── HI_213.txt
+│   │   │   │   ├── HI_214.txt
+│   │   │   │   ├── HI_215.txt
+│   │   │   │   ├── HI_216.txt
+│   │   │   │   ├── HI_217.txt
+│   │   │   │   ├── HI_218.txt
+│   │   │   │   ├── HI_219.txt
+│   │   │   │   ├── HI_22.txt
+│   │   │   │   ├── HI_220.txt
+│   │   │   │   ├── HI_221.txt
+│   │   │   │   ├── HI_222.txt
+│   │   │   │   ├── HI_223.txt
+│   │   │   │   ├── HI_224.txt
+│   │   │   │   ├── HI_225.txt
+│   │   │   │   ├── HI_226.txt
+│   │   │   │   ├── HI_227.txt
+│   │   │   │   ├── HI_228.txt
+│   │   │   │   ├── HI_229.txt
+│   │   │   │   ├── HI_23.txt
+│   │   │   │   ├── HI_230.txt
+│   │   │   │   ├── HI_231.txt
+│   │   │   │   ├── HI_232.txt
+│   │   │   │   ├── HI_233.txt
+│   │   │   │   ├── HI_234.txt
+│   │   │   │   ├── HI_235.txt
+│   │   │   │   ├── HI_236.txt
+│   │   │   │   ├── HI_237.txt
+│   │   │   │   ├── HI_238.txt
+│   │   │   │   ├── HI_239.txt
+│   │   │   │   ├── HI_24.txt
+│   │   │   │   ├── HI_240.txt
+│   │   │   │   ├── HI_241.txt
+│   │   │   │   ├── HI_242.txt
+│   │   │   │   ├── HI_243.txt
+│   │   │   │   ├── HI_244.txt
+│   │   │   │   ├── HI_245.txt
+│   │   │   │   ├── HI_246.txt
+│   │   │   │   ├── HI_247.txt
+│   │   │   │   ├── HI_248.txt
+│   │   │   │   ├── HI_249.txt
+│   │   │   │   ├── HI_25.txt
+│   │   │   │   ├── HI_250.txt
+│   │   │   │   ├── HI_251.txt
+│   │   │   │   ├── HI_252.txt
+│   │   │   │   ├── HI_253.txt
+│   │   │   │   ├── HI_254.txt
+│   │   │   │   ├── HI_255.txt
+│   │   │   │   ├── HI_256.txt
+│   │   │   │   ├── HI_257.txt
+│   │   │   │   ├── HI_258.txt
+│   │   │   │   ├── HI_259.txt
+│   │   │   │   ├── HI_260.txt
+│   │   │   │   ├── HI_261.txt
+│   │   │   │   ├── HI_262.txt
+│   │   │   │   ├── HI_263.txt
+│   │   │   │   ├── HI_264.txt
+│   │   │   │   ├── HI_265.txt
+│   │   │   │   ├── HI_266.txt
+│   │   │   │   ├── HI_267.txt
+│   │   │   │   ├── HI_268.txt
+│   │   │   │   ├── HI_269.txt
+│   │   │   │   ├── HI_27.txt
+│   │   │   │   ├── HI_270.txt
+│   │   │   │   ├── HI_271.txt
+│   │   │   │   ├── HI_272.txt
+│   │   │   │   ├── HI_273.txt
+│   │   │   │   ├── HI_274.txt
+│   │   │   │   ├── HI_275.txt
+│   │   │   │   ├── HI_276.txt
+│   │   │   │   ├── HI_277.txt
+│   │   │   │   ├── HI_278.txt
+│   │   │   │   ├── HI_279.txt
+│   │   │   │   ├── HI_280.txt
+│   │   │   │   ├── HI_281.txt
+│   │   │   │   ├── HI_282.txt
+│   │   │   │   ├── HI_283.txt
+│   │   │   │   ├── HI_284.txt
+│   │   │   │   ├── HI_285.txt
+│   │   │   │   ├── HI_286.txt
+│   │   │   │   ├── HI_287.txt
+│   │   │   │   ├── HI_288.txt
+│   │   │   │   ├── HI_289.txt
+│   │   │   │   ├── HI_29.txt
+│   │   │   │   ├── HI_290.txt
+│   │   │   │   ├── HI_291.txt
+│   │   │   │   ├── HI_292.txt
+│   │   │   │   ├── HI_293.txt
+│   │   │   │   ├── HI_294.txt
+│   │   │   │   ├── HI_295.txt
+│   │   │   │   ├── HI_296.txt
+│   │   │   │   ├── HI_297.txt
+│   │   │   │   ├── HI_298.txt
+│   │   │   │   ├── HI_299.txt
+│   │   │   │   ├── HI_3.txt
+│   │   │   │   ├── HI_30.txt
+│   │   │   │   ├── HI_300.txt
+│   │   │   │   ├── HI_301.txt
+│   │   │   │   ├── HI_302.txt
+│   │   │   │   ├── HI_303.txt
+│   │   │   │   ├── HI_304.txt
+│   │   │   │   ├── HI_305.txt
+│   │   │   │   ├── HI_306.txt
+│   │   │   │   ├── HI_307.txt
+│   │   │   │   ├── HI_308.txt
+│   │   │   │   ├── HI_309.txt
+│   │   │   │   ├── HI_310.txt
+│   │   │   │   ├── HI_311.txt
+│   │   │   │   ├── HI_312.txt
+│   │   │   │   ├── HI_313.txt
+│   │   │   │   ├── HI_314.txt
+│   │   │   │   ├── HI_315.txt
+│   │   │   │   ├── HI_316.txt
+│   │   │   │   ├── HI_317.txt
+│   │   │   │   ├── HI_318.txt
+│   │   │   │   ├── HI_319.txt
+│   │   │   │   ├── HI_32.txt
+│   │   │   │   ├── HI_320.txt
+│   │   │   │   ├── HI_321.txt
+│   │   │   │   ├── HI_322.txt
+│   │   │   │   ├── HI_323.txt
+│   │   │   │   ├── HI_324.txt
+│   │   │   │   ├── HI_325.txt
+│   │   │   │   ├── HI_326.txt
+│   │   │   │   ├── HI_327.txt
+│   │   │   │   ├── HI_328.txt
+│   │   │   │   ├── HI_329.txt
+│   │   │   │   ├── HI_33.txt
+│   │   │   │   ├── HI_330.txt
+│   │   │   │   ├── HI_331.txt
+│   │   │   │   ├── HI_332.txt
+│   │   │   │   ├── HI_333.txt
+│   │   │   │   ├── HI_334.txt
+│   │   │   │   ├── HI_335.txt
+│   │   │   │   ├── HI_336.txt
+│   │   │   │   ├── HI_337.txt
+│   │   │   │   ├── HI_338.txt
+│   │   │   │   ├── HI_339.txt
+│   │   │   │   ├── HI_340.txt
+│   │   │   │   ├── HI_341.txt
+│   │   │   │   ├── HI_342.txt
+│   │   │   │   ├── HI_343.txt
+│   │   │   │   ├── HI_344.txt
+│   │   │   │   ├── HI_345.txt
+│   │   │   │   ├── HI_346.txt
+│   │   │   │   ├── HI_347.txt
+│   │   │   │   ├── HI_348.txt
+│   │   │   │   ├── HI_349.txt
+│   │   │   │   ├── HI_350.txt
+│   │   │   │   ├── HI_351.txt
+│   │   │   │   ├── HI_352.txt
+│   │   │   │   ├── HI_353.txt
+│   │   │   │   ├── HI_354.txt
+│   │   │   │   ├── HI_355.txt
+│   │   │   │   ├── HI_356.txt
+│   │   │   │   ├── HI_357.txt
+│   │   │   │   ├── HI_358.txt
+│   │   │   │   ├── HI_359.txt
+│   │   │   │   ├── HI_36.txt
+│   │   │   │   ├── HI_360.txt
+│   │   │   │   ├── HI_361.txt
+│   │   │   │   ├── HI_362.txt
+│   │   │   │   ├── HI_363.txt
+│   │   │   │   ├── HI_364.txt
+│   │   │   │   ├── HI_365.txt
+│   │   │   │   ├── HI_366.txt
+│   │   │   │   ├── HI_367.txt
+│   │   │   │   ├── HI_368.txt
+│   │   │   │   ├── HI_369.txt
+│   │   │   │   ├── HI_37.txt
+│   │   │   │   ├── HI_370.txt
+│   │   │   │   ├── HI_371.txt
+│   │   │   │   ├── HI_372.txt
+│   │   │   │   ├── HI_373.txt
+│   │   │   │   ├── HI_374.txt
+│   │   │   │   ├── HI_375.txt
+│   │   │   │   ├── HI_376.txt
+│   │   │   │   ├── HI_377.txt
+│   │   │   │   ├── HI_378.txt
+│   │   │   │   ├── HI_379.txt
+│   │   │   │   ├── HI_380.txt
+│   │   │   │   ├── HI_381.txt
+│   │   │   │   ├── HI_382.txt
+│   │   │   │   ├── HI_383.txt
+│   │   │   │   ├── HI_384.txt
+│   │   │   │   ├── HI_385.txt
+│   │   │   │   ├── HI_386.txt
+│   │   │   │   ├── HI_387.txt
+│   │   │   │   ├── HI_388.txt
+│   │   │   │   ├── HI_389.txt
+│   │   │   │   ├── HI_39.txt
+│   │   │   │   ├── HI_390.txt
+│   │   │   │   ├── HI_391.txt
+│   │   │   │   ├── HI_392.txt
+│   │   │   │   ├── HI_393.txt
+│   │   │   │   ├── HI_394.txt
+│   │   │   │   ├── HI_395.txt
+│   │   │   │   ├── HI_396.txt
+│   │   │   │   ├── HI_397.txt
+│   │   │   │   ├── HI_398.txt
+│   │   │   │   ├── HI_399.txt
+│   │   │   │   ├── HI_40.txt
+│   │   │   │   ├── HI_400.txt
+│   │   │   │   ├── HI_401.txt
+│   │   │   │   ├── HI_41.txt
+│   │   │   │   ├── HI_42.txt
+│   │   │   │   ├── HI_43.txt
+│   │   │   │   ├── HI_44.txt
+│   │   │   │   ├── HI_45.txt
+│   │   │   │   ├── HI_46.txt
+│   │   │   │   ├── HI_47.txt
+│   │   │   │   ├── HI_48.txt
+│   │   │   │   ├── HI_49.txt
+│   │   │   │   ├── HI_50.txt
+│   │   │   │   ├── HI_52.txt
+│   │   │   │   ├── HI_53.txt
+│   │   │   │   ├── HI_54.txt
+│   │   │   │   ├── HI_55.txt
+│   │   │   │   ├── HI_56.txt
+│   │   │   │   ├── HI_57.txt
+│   │   │   │   ├── HI_58.txt
+│   │   │   │   ├── HI_59.txt
+│   │   │   │   ├── HI_6.txt
+│   │   │   │   ├── HI_60.txt
+│   │   │   │   ├── HI_61.txt
+│   │   │   │   ├── HI_62.txt
+│   │   │   │   ├── HI_63.txt
+│   │   │   │   ├── HI_64.txt
+│   │   │   │   ├── HI_65.txt
+│   │   │   │   ├── HI_66.txt
+│   │   │   │   ├── HI_67.txt
+│   │   │   │   ├── HI_68.txt
+│   │   │   │   ├── HI_69.txt
+│   │   │   │   ├── HI_7.txt
+│   │   │   │   ├── HI_70.txt
+│   │   │   │   ├── HI_72.txt
+│   │   │   │   ├── HI_73.txt
+│   │   │   │   ├── HI_74.txt
+│   │   │   │   ├── HI_77.txt
+│   │   │   │   ├── HI_78.txt
+│   │   │   │   ├── HI_79.txt
+│   │   │   │   ├── HI_8.txt
+│   │   │   │   ├── HI_80.txt
+│   │   │   │   ├── HI_81.txt
+│   │   │   │   ├── HI_82.txt
+│   │   │   │   ├── HI_83.txt
+│   │   │   │   ├── HI_84.txt
+│   │   │   │   ├── HI_85.txt
+│   │   │   │   ├── HI_86.txt
+│   │   │   │   ├── HI_87.txt
+│   │   │   │   ├── HI_88.txt
+│   │   │   │   ├── HI_89.txt
+│   │   │   │   ├── HI_9.txt
+│   │   │   │   ├── HI_90.txt
+│   │   │   │   ├── HI_91.txt
+│   │   │   │   ├── HI_92.txt
+│   │   │   │   ├── HI_93.txt
+│   │   │   │   ├── HI_94.txt
+│   │   │   │   ├── HI_96.txt
+│   │   │   │   ├── HI_98.txt
+│   │   │   │   └── HI_99.txt
+│   │   │   ├── subtask-1-annotations.txt
+│   │   │   ├── subtask-2-annotations.txt
+│   │   │   └── subtask-3-annotations.txt
+│   │   ├── PT
+│   │   │   ├── raw-documents
+│   │   │   │   ├── PT_01.txt
+│   │   │   │   ├── PT_02.txt
+│   │   │   │   ├── PT_03.txt
+│   │   │   │   ├── PT_04.txt
+│   │   │   │   ├── PT_05.txt
+│   │   │   │   ├── PT_06.txt
+│   │   │   │   ├── PT_07.txt
+│   │   │   │   ├── PT_08.txt
+│   │   │   │   ├── PT_09.txt
+│   │   │   │   ├── PT_10.txt
+│   │   │   │   ├── PT_100.txt
+│   │   │   │   ├── PT_101.txt
+│   │   │   │   ├── PT_102.txt
+│   │   │   │   ├── PT_103.txt
+│   │   │   │   ├── PT_104.txt
+│   │   │   │   ├── PT_105.txt
+│   │   │   │   ├── PT_106.txt
+│   │   │   │   ├── PT_107.txt
+│   │   │   │   ├── PT_108.txt
+│   │   │   │   ├── PT_109.txt
+│   │   │   │   ├── PT_11.txt
+│   │   │   │   ├── PT_110.txt
+│   │   │   │   ├── PT_111.txt
+│   │   │   │   ├── PT_112.txt
+│   │   │   │   ├── PT_113.txt
+│   │   │   │   ├── PT_114.txt
+│   │   │   │   ├── PT_115.txt
+│   │   │   │   ├── PT_116.txt
+│   │   │   │   ├── PT_117.txt
+│   │   │   │   ├── PT_118.txt
+│   │   │   │   ├── PT_119.txt
+│   │   │   │   ├── PT_12.txt
+│   │   │   │   ├── PT_120.txt
+│   │   │   │   ├── PT_121.txt
+│   │   │   │   ├── PT_122.txt
+│   │   │   │   ├── PT_123.txt
+│   │   │   │   ├── PT_124.txt
+│   │   │   │   ├── PT_125.txt
+│   │   │   │   ├── PT_126.txt
+│   │   │   │   ├── PT_127.txt
+│   │   │   │   ├── PT_128.txt
+│   │   │   │   ├── PT_129.txt
+│   │   │   │   ├── PT_13.txt
+│   │   │   │   ├── PT_130.txt
+│   │   │   │   ├── PT_131.txt
+│   │   │   │   ├── PT_132.txt
+│   │   │   │   ├── PT_133.txt
+│   │   │   │   ├── PT_134.txt
+│   │   │   │   ├── PT_135.txt
+│   │   │   │   ├── PT_136.txt
+│   │   │   │   ├── PT_137.txt
+│   │   │   │   ├── PT_138.txt
+│   │   │   │   ├── PT_139.txt
+│   │   │   │   ├── PT_14.txt
+│   │   │   │   ├── PT_140.txt
+│   │   │   │   ├── PT_141.txt
+│   │   │   │   ├── PT_142.txt
+│   │   │   │   ├── PT_143.txt
+│   │   │   │   ├── PT_144.txt
+│   │   │   │   ├── PT_145.txt
+│   │   │   │   ├── PT_146.txt
+│   │   │   │   ├── PT_147.txt
+│   │   │   │   ├── PT_148.txt
+│   │   │   │   ├── PT_149.txt
+│   │   │   │   ├── PT_15.txt
+│   │   │   │   ├── PT_150.txt
+│   │   │   │   ├── PT_151.txt
+│   │   │   │   ├── PT_152.txt
+│   │   │   │   ├── PT_153.txt
+│   │   │   │   ├── PT_154.txt
+│   │   │   │   ├── PT_155.txt
+│   │   │   │   ├── PT_156.txt
+│   │   │   │   ├── PT_157.txt
+│   │   │   │   ├── PT_158.txt
+│   │   │   │   ├── PT_159.txt
+│   │   │   │   ├── PT_16.txt
+│   │   │   │   ├── PT_160.txt
+│   │   │   │   ├── PT_161.txt
+│   │   │   │   ├── PT_162.txt
+│   │   │   │   ├── PT_163.txt
+│   │   │   │   ├── PT_164.txt
+│   │   │   │   ├── PT_165.txt
+│   │   │   │   ├── PT_166.txt
+│   │   │   │   ├── PT_167.txt
+│   │   │   │   ├── PT_168.txt
+│   │   │   │   ├── PT_169.txt
+│   │   │   │   ├── PT_17.txt
+│   │   │   │   ├── PT_170.txt
+│   │   │   │   ├── PT_171.txt
+│   │   │   │   ├── PT_172.txt
+│   │   │   │   ├── PT_173.txt
+│   │   │   │   ├── PT_174.txt
+│   │   │   │   ├── PT_175.txt
+│   │   │   │   ├── PT_176.txt
+│   │   │   │   ├── PT_177.txt
+│   │   │   │   ├── PT_178.txt
+│   │   │   │   ├── PT_179.txt
+│   │   │   │   ├── PT_18.txt
+│   │   │   │   ├── PT_180.txt
+│   │   │   │   ├── PT_181.txt
+│   │   │   │   ├── PT_182.txt
+│   │   │   │   ├── PT_183.txt
+│   │   │   │   ├── PT_184.txt
+│   │   │   │   ├── PT_185.txt
+│   │   │   │   ├── PT_186.txt
+│   │   │   │   ├── PT_187.txt
+│   │   │   │   ├── PT_188.txt
+│   │   │   │   ├── PT_189.txt
+│   │   │   │   ├── PT_19.txt
+│   │   │   │   ├── PT_190.txt
+│   │   │   │   ├── PT_191.txt
+│   │   │   │   ├── PT_192.txt
+│   │   │   │   ├── PT_193.txt
+│   │   │   │   ├── PT_194.txt
+│   │   │   │   ├── PT_195.txt
+│   │   │   │   ├── PT_196.txt
+│   │   │   │   ├── PT_197.txt
+│   │   │   │   ├── PT_198.txt
+│   │   │   │   ├── PT_199.txt
+│   │   │   │   ├── PT_20.txt
+│   │   │   │   ├── PT_200.txt
+│   │   │   │   ├── PT_21.txt
+│   │   │   │   ├── PT_212.txt
+│   │   │   │   ├── PT_214.txt
+│   │   │   │   ├── PT_215.txt
+│   │   │   │   ├── PT_218.txt
+│   │   │   │   ├── PT_219.txt
+│   │   │   │   ├── PT_22.txt
+│   │   │   │   ├── PT_222.txt
+│   │   │   │   ├── PT_223.txt
+│   │   │   │   ├── PT_227.txt
+│   │   │   │   ├── PT_23.txt
+│   │   │   │   ├── PT_231.txt
+│   │   │   │   ├── PT_235.txt
+│   │   │   │   ├── PT_236.txt
+│   │   │   │   ├── PT_238.txt
+│   │   │   │   ├── PT_24.txt
+│   │   │   │   ├── PT_240.txt
+│   │   │   │   ├── PT_242.txt
+│   │   │   │   ├── PT_243.txt
+│   │   │   │   ├── PT_246.txt
+│   │   │   │   ├── PT_247.txt
+│   │   │   │   ├── PT_248.txt
+│   │   │   │   ├── PT_25.txt
+│   │   │   │   ├── PT_251.txt
+│   │   │   │   ├── PT_252.txt
+│   │   │   │   ├── PT_255.txt
+│   │   │   │   ├── PT_256.txt
+│   │   │   │   ├── PT_257.txt
+│   │   │   │   ├── PT_258.txt
+│   │   │   │   ├── PT_26.txt
+│   │   │   │   ├── PT_260.txt
+│   │   │   │   ├── PT_261.txt
+│   │   │   │   ├── PT_262.txt
+│   │   │   │   ├── PT_263.txt
+│   │   │   │   ├── PT_264.txt
+│   │   │   │   ├── PT_265.txt
+│   │   │   │   ├── PT_266.txt
+│   │   │   │   ├── PT_267.txt
+│   │   │   │   ├── PT_268.txt
+│   │   │   │   ├── PT_269.txt
+│   │   │   │   ├── PT_27.txt
+│   │   │   │   ├── PT_270.txt
+│   │   │   │   ├── PT_271.txt
+│   │   │   │   ├── PT_272.txt
+│   │   │   │   ├── PT_273.txt
+│   │   │   │   ├── PT_274.txt
+│   │   │   │   ├── PT_275.txt
+│   │   │   │   ├── PT_276.txt
+│   │   │   │   ├── PT_277.txt
+│   │   │   │   ├── PT_278.txt
+│   │   │   │   ├── PT_279.txt
+│   │   │   │   ├── PT_28.txt
+│   │   │   │   ├── PT_280.txt
+│   │   │   │   ├── PT_281.txt
+│   │   │   │   ├── PT_282.txt
+│   │   │   │   ├── PT_283.txt
+│   │   │   │   ├── PT_284.txt
+│   │   │   │   ├── PT_285.txt
+│   │   │   │   ├── PT_286.txt
+│   │   │   │   ├── PT_287.txt
+│   │   │   │   ├── PT_288.txt
+│   │   │   │   ├── PT_289.txt
+│   │   │   │   ├── PT_29.txt
+│   │   │   │   ├── PT_290.txt
+│   │   │   │   ├── PT_291.txt
+│   │   │   │   ├── PT_292.txt
+│   │   │   │   ├── PT_293.txt
+│   │   │   │   ├── PT_294.txt
+│   │   │   │   ├── PT_295.txt
+│   │   │   │   ├── PT_296.txt
+│   │   │   │   ├── PT_297.txt
+│   │   │   │   ├── PT_298.txt
+│   │   │   │   ├── PT_299.txt
+│   │   │   │   ├── PT_30.txt
+│   │   │   │   ├── PT_300.txt
+│   │   │   │   ├── PT_301.txt
+│   │   │   │   ├── PT_302.txt
+│   │   │   │   ├── PT_303.txt
+│   │   │   │   ├── PT_304.txt
+│   │   │   │   ├── PT_305.txt
+│   │   │   │   ├── PT_306.txt
+│   │   │   │   ├── PT_307.txt
+│   │   │   │   ├── PT_308.txt
+│   │   │   │   ├── PT_309.txt
+│   │   │   │   ├── PT_31.txt
+│   │   │   │   ├── PT_310.txt
+│   │   │   │   ├── PT_311.txt
+│   │   │   │   ├── PT_312.txt
+│   │   │   │   ├── PT_313.txt
+│   │   │   │   ├── PT_314.txt
+│   │   │   │   ├── PT_315.txt
+│   │   │   │   ├── PT_316.txt
+│   │   │   │   ├── PT_317.txt
+│   │   │   │   ├── PT_318.txt
+│   │   │   │   ├── PT_319.txt
+│   │   │   │   ├── PT_32.txt
+│   │   │   │   ├── PT_320.txt
+│   │   │   │   ├── PT_321.txt
+│   │   │   │   ├── PT_322.txt
+│   │   │   │   ├── PT_323.txt
+│   │   │   │   ├── PT_324.txt
+│   │   │   │   ├── PT_325.txt
+│   │   │   │   ├── PT_326.txt
+│   │   │   │   ├── PT_327.txt
+│   │   │   │   ├── PT_328.txt
+│   │   │   │   ├── PT_329.txt
+│   │   │   │   ├── PT_33.txt
+│   │   │   │   ├── PT_330.txt
+│   │   │   │   ├── PT_331.txt
+│   │   │   │   ├── PT_332.txt
+│   │   │   │   ├── PT_333.txt
+│   │   │   │   ├── PT_334.txt
+│   │   │   │   ├── PT_335.txt
+│   │   │   │   ├── PT_336.txt
+│   │   │   │   ├── PT_337.txt
+│   │   │   │   ├── PT_338.txt
+│   │   │   │   ├── PT_339.txt
+│   │   │   │   ├── PT_34.txt
+│   │   │   │   ├── PT_340.txt
+│   │   │   │   ├── PT_341.txt
+│   │   │   │   ├── PT_342.txt
+│   │   │   │   ├── PT_343.txt
+│   │   │   │   ├── PT_344.txt
+│   │   │   │   ├── PT_345.txt
+│   │   │   │   ├── PT_346.txt
+│   │   │   │   ├── PT_347.txt
+│   │   │   │   ├── PT_348.txt
+│   │   │   │   ├── PT_349.txt
+│   │   │   │   ├── PT_35.txt
+│   │   │   │   ├── PT_350.txt
+│   │   │   │   ├── PT_351.txt
+│   │   │   │   ├── PT_352..txt
+│   │   │   │   ├── PT_353.txt
+│   │   │   │   ├── PT_354.txt
+│   │   │   │   ├── PT_355.txt
+│   │   │   │   ├── PT_356.txt
+│   │   │   │   ├── PT_357.txt
+│   │   │   │   ├── PT_358.txt
+│   │   │   │   ├── PT_359.txt
+│   │   │   │   ├── PT_36.txt
+│   │   │   │   ├── PT_360.txt
+│   │   │   │   ├── PT_361.txt
+│   │   │   │   ├── PT_362.txt
+│   │   │   │   ├── PT_363.txt
+│   │   │   │   ├── PT_364.txt
+│   │   │   │   ├── PT_365.txt
+│   │   │   │   ├── PT_366.txt
+│   │   │   │   ├── PT_367.txt
+│   │   │   │   ├── PT_368.txt
+│   │   │   │   ├── PT_369.txt
+│   │   │   │   ├── PT_37.txt
+│   │   │   │   ├── PT_370.txt
+│   │   │   │   ├── PT_371.txt
+│   │   │   │   ├── PT_372.txt
+│   │   │   │   ├── PT_373.txt
+│   │   │   │   ├── PT_374.txt
+│   │   │   │   ├── PT_375.txt
+│   │   │   │   ├── PT_376.txt
+│   │   │   │   ├── PT_377.txt
+│   │   │   │   ├── PT_378.txt
+│   │   │   │   ├── PT_379.txt
+│   │   │   │   ├── PT_38.txt
+│   │   │   │   ├── PT_380.txt
+│   │   │   │   ├── PT_381.txt
+│   │   │   │   ├── PT_382.txt
+│   │   │   │   ├── PT_383.txt
+│   │   │   │   ├── PT_384.txt
+│   │   │   │   ├── PT_385.txt
+│   │   │   │   ├── PT_386.txt
+│   │   │   │   ├── PT_387.txt
+│   │   │   │   ├── PT_388.txt
+│   │   │   │   ├── PT_389.txt
+│   │   │   │   ├── PT_39.txt
+│   │   │   │   ├── PT_390.txt
+│   │   │   │   ├── PT_391.txt
+│   │   │   │   ├── PT_392.txt
+│   │   │   │   ├── PT_393.txt
+│   │   │   │   ├── PT_394.txt
+│   │   │   │   ├── PT_395.txt
+│   │   │   │   ├── PT_396.txt
+│   │   │   │   ├── PT_397.txt
+│   │   │   │   ├── PT_398.txt
+│   │   │   │   ├── PT_399.txt
+│   │   │   │   ├── PT_40.txt
+│   │   │   │   ├── PT_400.txt
+│   │   │   │   ├── PT_401.txt
+│   │   │   │   ├── PT_402.txt
+│   │   │   │   ├── PT_403.txt
+│   │   │   │   ├── PT_41.txt
+│   │   │   │   ├── PT_42.txt
+│   │   │   │   ├── PT_43.txt
+│   │   │   │   ├── PT_44.txt
+│   │   │   │   ├── PT_45.txt
+│   │   │   │   ├── PT_46.txt
+│   │   │   │   ├── PT_47.txt
+│   │   │   │   ├── PT_48.txt
+│   │   │   │   ├── PT_49.txt
+│   │   │   │   ├── PT_50.txt
+│   │   │   │   ├── PT_51.txt
+│   │   │   │   ├── PT_52.txt
+│   │   │   │   ├── PT_53.txt
+│   │   │   │   ├── PT_54.txt
+│   │   │   │   ├── PT_55.txt
+│   │   │   │   ├── PT_56.txt
+│   │   │   │   ├── PT_57.txt
+│   │   │   │   ├── PT_58.txt
+│   │   │   │   ├── PT_59.txt
+│   │   │   │   ├── PT_60.txt
+│   │   │   │   ├── PT_61.txt
+│   │   │   │   ├── PT_62.txt
+│   │   │   │   ├── PT_63.txt
+│   │   │   │   ├── PT_64.txt
+│   │   │   │   ├── PT_65.txt
+│   │   │   │   ├── PT_66.txt
+│   │   │   │   ├── PT_67.txt
+│   │   │   │   ├── PT_68.txt
+│   │   │   │   ├── PT_69.txt
+│   │   │   │   ├── PT_70.txt
+│   │   │   │   ├── PT_71.txt
+│   │   │   │   ├── PT_72.txt
+│   │   │   │   ├── PT_73.txt
+│   │   │   │   ├── PT_74.txt
+│   │   │   │   ├── PT_75.txt
+│   │   │   │   ├── PT_76.txt
+│   │   │   │   ├── PT_77.txt
+│   │   │   │   ├── PT_78.txt
+│   │   │   │   ├── PT_79.txt
+│   │   │   │   ├── PT_80.txt
+│   │   │   │   ├── PT_81.txt
+│   │   │   │   ├── PT_82.txt
+│   │   │   │   ├── PT_83.txt
+│   │   │   │   ├── PT_84.txt
+│   │   │   │   ├── PT_85.txt
+│   │   │   │   ├── PT_86.txt
+│   │   │   │   ├── PT_87.txt
+│   │   │   │   ├── PT_88.txt
+│   │   │   │   ├── PT_89.txt
+│   │   │   │   ├── PT_90.txt
+│   │   │   │   ├── PT_91.txt
+│   │   │   │   ├── PT_92.txt
+│   │   │   │   ├── PT_93.txt
+│   │   │   │   ├── PT_94.txt
+│   │   │   │   ├── PT_95.txt
+│   │   │   │   ├── PT_96.txt
+│   │   │   │   ├── PT_97.txt
+│   │   │   │   ├── PT_98.txt
+│   │   │   │   ├── PT_99.txt
+│   │   │   │   ├── PT_CC_404.txt
+│   │   │   │   ├── PT_CC_405.txt
+│   │   │   │   ├── PT_CC_406.txt
+│   │   │   │   ├── PT_CC_408.txt
+│   │   │   │   ├── PT_CC_409.txt
+│   │   │   │   ├── PT_CC_412.txt
+│   │   │   │   ├── PT_CC_415.txt
+│   │   │   │   ├── PT_CC_416.txt
+│   │   │   │   ├── PT_CC_421.txt
+│   │   │   │   ├── PT_CC_422.txt
+│   │   │   │   ├── PT_CC_423.txt
+│   │   │   │   ├── PT_CC_424.txt
+│   │   │   │   ├── PT_CC_425.txt
+│   │   │   │   ├── PT_CC_426.txt
+│   │   │   │   ├── PT_CC_427.txt
+│   │   │   │   ├── PT_CC_428.txt
+│   │   │   │   ├── PT_CC_429.txt
+│   │   │   │   ├── PT_CC_430.txt
+│   │   │   │   ├── PT_CC_431.txt
+│   │   │   │   ├── PT_CC_432.txt
+│   │   │   │   ├── PT_CC_433.txt
+│   │   │   │   ├── PT_CC_434.txt
+│   │   │   │   ├── PT_CC_435.txt
+│   │   │   │   ├── PT_URW_407.txt
+│   │   │   │   ├── PT_URW_410.txt
+│   │   │   │   ├── PT_URW_411.txt
+│   │   │   │   ├── PT_URW_413.txt
+│   │   │   │   ├── PT_URW_414.txt
+│   │   │   │   ├── PT_URW_417.txt
+│   │   │   │   ├── PT_URW_418.txt
+│   │   │   │   ├── PT_URW_419.txt
+│   │   │   │   └── PT_URW_420.txt
+│   │   │   ├── subtask-1-annotations.txt
+│   │   │   ├── subtask-2-annotations.txt
+│   │   │   └── subtask-3-annotations.txt
+│   │   └── RU
+│   │       ├── raw-documents
+│   │       │   ├── RU-URW-1001.txt
+│   │       │   ├── RU-URW-1005.txt
+│   │       │   ├── RU-URW-1006.txt
+│   │       │   ├── RU-URW-1008.txt
+│   │       │   ├── RU-URW-1010.txt
+│   │       │   ├── RU-URW-1011.txt
+│   │       │   ├── RU-URW-1012.txt
+│   │       │   ├── RU-URW-1013.txt
+│   │       │   ├── RU-URW-1015.txt
+│   │       │   ├── RU-URW-1016.txt
+│   │       │   ├── RU-URW-1017.txt
+│   │       │   ├── RU-URW-1018.txt
+│   │       │   ├── RU-URW-1019.txt
+│   │       │   ├── RU-URW-1020.txt
+│   │       │   ├── RU-URW-1021.txt
+│   │       │   ├── RU-URW-1022.txt
+│   │       │   ├── RU-URW-1024.txt
+│   │       │   ├── RU-URW-1025.txt
+│   │       │   ├── RU-URW-1026.txt
+│   │       │   ├── RU-URW-1027.txt
+│   │       │   ├── RU-URW-1028.txt
+│   │       │   ├── RU-URW-1029.txt
+│   │       │   ├── RU-URW-1030.txt
+│   │       │   ├── RU-URW-1031.txt
+│   │       │   ├── RU-URW-1033.txt
+│   │       │   ├── RU-URW-1034.txt
+│   │       │   ├── RU-URW-1035.txt
+│   │       │   ├── RU-URW-1036.txt
+│   │       │   ├── RU-URW-1037.txt
+│   │       │   ├── RU-URW-1038.txt
+│   │       │   ├── RU-URW-1039.txt
+│   │       │   ├── RU-URW-1040.txt
+│   │       │   ├── RU-URW-1041.txt
+│   │       │   ├── RU-URW-1042.txt
+│   │       │   ├── RU-URW-1044.txt
+│   │       │   ├── RU-URW-1045.txt
+│   │       │   ├── RU-URW-1046.txt
+│   │       │   ├── RU-URW-1047.txt
+│   │       │   ├── RU-URW-1048.txt
+│   │       │   ├── RU-URW-1049.txt
+│   │       │   ├── RU-URW-1050.txt
+│   │       │   ├── RU-URW-1051.txt
+│   │       │   ├── RU-URW-1055.txt
+│   │       │   ├── RU-URW-1056.txt
+│   │       │   ├── RU-URW-1057.txt
+│   │       │   ├── RU-URW-1058.txt
+│   │       │   ├── RU-URW-1060.txt
+│   │       │   ├── RU-URW-1062.txt
+│   │       │   ├── RU-URW-1063.txt
+│   │       │   ├── RU-URW-1064.txt
+│   │       │   ├── RU-URW-1065.txt
+│   │       │   ├── RU-URW-1066.txt
+│   │       │   ├── RU-URW-1067.txt
+│   │       │   ├── RU-URW-1068.txt
+│   │       │   ├── RU-URW-1070.txt
+│   │       │   ├── RU-URW-1071.txt
+│   │       │   ├── RU-URW-1072.txt
+│   │       │   ├── RU-URW-1074.txt
+│   │       │   ├── RU-URW-1075.txt
+│   │       │   ├── RU-URW-1076.txt
+│   │       │   ├── RU-URW-1078.txt
+│   │       │   ├── RU-URW-1079.txt
+│   │       │   ├── RU-URW-1080.txt
+│   │       │   ├── RU-URW-1081.txt
+│   │       │   ├── RU-URW-1082.txt
+│   │       │   ├── RU-URW-1083.txt
+│   │       │   ├── RU-URW-1086.txt
+│   │       │   ├── RU-URW-1087.txt
+│   │       │   ├── RU-URW-1088.txt
+│   │       │   ├── RU-URW-1092.txt
+│   │       │   ├── RU-URW-1094.txt
+│   │       │   ├── RU-URW-1095.txt
+│   │       │   ├── RU-URW-1096.txt
+│   │       │   ├── RU-URW-1097.txt
+│   │       │   ├── RU-URW-1098.txt
+│   │       │   ├── RU-URW-1099.txt
+│   │       │   ├── RU-URW-1100.txt
+│   │       │   ├── RU-URW-1103.txt
+│   │       │   ├── RU-URW-1104.txt
+│   │       │   ├── RU-URW-1105.txt
+│   │       │   ├── RU-URW-1106.txt
+│   │       │   ├── RU-URW-1107.txt
+│   │       │   ├── RU-URW-1108.txt
+│   │       │   ├── RU-URW-1109.txt
+│   │       │   ├── RU-URW-1111.txt
+│   │       │   ├── RU-URW-1112.txt
+│   │       │   ├── RU-URW-1113.txt
+│   │       │   ├── RU-URW-1114.txt
+│   │       │   ├── RU-URW-1115.txt
+│   │       │   ├── RU-URW-1116.txt
+│   │       │   ├── RU-URW-1117.txt
+│   │       │   ├── RU-URW-1119.txt
+│   │       │   ├── RU-URW-1121.txt
+│   │       │   ├── RU-URW-1122.txt
+│   │       │   ├── RU-URW-1123.txt
+│   │       │   ├── RU-URW-1124.txt
+│   │       │   ├── RU-URW-1125.txt
+│   │       │   ├── RU-URW-1126.txt
+│   │       │   ├── RU-URW-1128.txt
+│   │       │   ├── RU-URW-1129.txt
+│   │       │   ├── RU-URW-1130.txt
+│   │       │   ├── RU-URW-1131.txt
+│   │       │   ├── RU-URW-1132.txt
+│   │       │   ├── RU-URW-1134.txt
+│   │       │   ├── RU-URW-1136.txt
+│   │       │   ├── RU-URW-1137.txt
+│   │       │   ├── RU-URW-1138.txt
+│   │       │   ├── RU-URW-1140.txt
+│   │       │   ├── RU-URW-1141.txt
+│   │       │   ├── RU-URW-1142.txt
+│   │       │   ├── RU-URW-1143.txt
+│   │       │   ├── RU-URW-1145.txt
+│   │       │   ├── RU-URW-1148.txt
+│   │       │   ├── RU-URW-1149.txt
+│   │       │   ├── RU-URW-1150.txt
+│   │       │   ├── RU-URW-1151.txt
+│   │       │   ├── RU-URW-1153.txt
+│   │       │   ├── RU-URW-1155.txt
+│   │       │   ├── RU-URW-1156.txt
+│   │       │   ├── RU-URW-1157.txt
+│   │       │   ├── RU-URW-1158.txt
+│   │       │   ├── RU-URW-1159.txt
+│   │       │   ├── RU-URW-1161.txt
+│   │       │   ├── RU-URW-1162.txt
+│   │       │   ├── RU-URW-1163.txt
+│   │       │   ├── RU-URW-1164.txt
+│   │       │   ├── RU-URW-1165.txt
+│   │       │   ├── RU-URW-1169.txt
+│   │       │   ├── RU-URW-1172.txt
+│   │       │   ├── RU-URW-1173.txt
+│   │       │   ├── RU-URW-1175.txt
+│   │       │   ├── RU-URW-1176.txt
+│   │       │   └── RU-URW-1195.txt
+│   │       ├── subtask-1-annotations.txt
+│   │       ├── subtask-2-annotations.txt
+│   │       └── subtask-3-annotations.txt
+│   └── training_data_16_October_release
+│       ├── BG
+│       │   ├── raw-documents
+│       │   │   ├── A9_BG_2566.txt
+│       │   │   ├── A9_BG_2719.txt
+│       │   │   ├── A9_BG_2836.txt
+│       │   │   ├── A9_BG_2858.txt
+│       │   │   ├── A9_BG_2931.txt
+│       │   │   ├── A9_BG_2963.txt
+│       │   │   ├── A9_BG_2972.txt
+│       │   │   ├── A9_BG_2973.txt
+│       │   │   ├── A9_BG_3023.txt
+│       │   │   ├── A9_BG_3097.txt
+│       │   │   ├── A9_BG_3109.txt
+│       │   │   ├── A9_BG_3142.txt
+│       │   │   ├── A9_BG_3182.txt
+│       │   │   ├── A9_BG_3203.txt
+│       │   │   ├── A9_BG_3204.txt
+│       │   │   ├── A9_BG_3206.txt
+│       │   │   ├── A9_BG_3273.txt
+│       │   │   ├── A9_BG_3283.txt
+│       │   │   ├── A9_BG_3290.txt
+│       │   │   ├── A9_BG_3298.txt
+│       │   │   ├── A9_BG_3300.txt
+│       │   │   ├── A9_BG_3363.txt
+│       │   │   ├── A9_BG_3379.txt
+│       │   │   ├── A9_BG_3385.txt
+│       │   │   ├── A9_BG_3390.txt
+│       │   │   ├── A9_BG_3395.txt
+│       │   │   ├── A9_BG_3430.txt
+│       │   │   ├── A9_BG_3431.txt
+│       │   │   ├── A9_BG_3440.txt
+│       │   │   ├── A9_BG_3543.txt
+│       │   │   ├── A9_BG_3563.txt
+│       │   │   ├── A9_BG_3586.txt
+│       │   │   ├── A9_BG_3599.txt
+│       │   │   ├── A9_BG_3652.txt
+│       │   │   ├── A9_BG_3672.txt
+│       │   │   ├── A9_BG_3675.txt
+│       │   │   ├── A9_BG_3704.txt
+│       │   │   ├── A9_BG_3734.txt
+│       │   │   ├── A9_BG_3756.txt
+│       │   │   ├── A9_BG_3762.txt
+│       │   │   ├── A9_BG_3779.txt
+│       │   │   ├── A9_BG_3818.txt
+│       │   │   ├── A9_BG_5143.txt
+│       │   │   ├── A9_BG_5155.txt
+│       │   │   ├── A9_BG_5190.txt
+│       │   │   ├── A9_BG_5225.txt
+│       │   │   ├── A9_BG_5226.txt
+│       │   │   ├── A9_BG_5402.txt
+│       │   │   ├── A9_BG_5548.txt
+│       │   │   ├── A9_BG_5596.txt
+│       │   │   ├── A9_BG_5817.txt
+│       │   │   ├── A9_BG_583.txt
+│       │   │   ├── A9_BG_5871.txt
+│       │   │   ├── A9_BG_5903.txt
+│       │   │   ├── A9_BG_5957.txt
+│       │   │   ├── A9_BG_5965.txt
+│       │   │   ├── A9_BG_5984.txt
+│       │   │   ├── A9_BG_6002.txt
+│       │   │   ├── A9_BG_6015.txt
+│       │   │   ├── A9_BG_6207.txt
+│       │   │   ├── A9_BG_6229.txt
+│       │   │   ├── A9_BG_6815.txt
+│       │   │   ├── A9_BG_6875.txt
+│       │   │   ├── A9_BG_7303.txt
+│       │   │   ├── A9_BG_7690.txt
+│       │   │   ├── A9_BG_7720.txt
+│       │   │   ├── A9_BG_8028.txt
+│       │   │   ├── A9_BG_8210.txt
+│       │   │   ├── A9_BG_8333.txt
+│       │   │   ├── A9_BG_8450.txt
+│       │   │   ├── BG_1006.txt
+│       │   │   ├── BG_1044.txt
+│       │   │   ├── BG_1089.txt
+│       │   │   ├── BG_1098.txt
+│       │   │   ├── BG_1163.txt
+│       │   │   ├── BG_1164.txt
+│       │   │   ├── BG_1181.txt
+│       │   │   ├── BG_1249.txt
+│       │   │   ├── BG_1258.txt
+│       │   │   ├── BG_1319.txt
+│       │   │   ├── BG_1341.txt
+│       │   │   ├── BG_1345.txt
+│       │   │   ├── BG_1352.txt
+│       │   │   ├── BG_1390.txt
+│       │   │   ├── BG_1423.txt
+│       │   │   ├── BG_1509.txt
+│       │   │   ├── BG_1544.txt
+│       │   │   ├── BG_1559.txt
+│       │   │   ├── BG_1637.txt
+│       │   │   ├── BG_171.txt
+│       │   │   ├── BG_1725.txt
+│       │   │   ├── BG_1767.txt
+│       │   │   ├── BG_1826.txt
+│       │   │   ├── BG_1843.txt
+│       │   │   ├── BG_1867.txt
+│       │   │   ├── BG_2536.txt
+│       │   │   ├── BG_3079.txt
+│       │   │   ├── BG_3245.txt
+│       │   │   ├── BG_3284.txt
+│       │   │   ├── BG_3351.txt
+│       │   │   ├── BG_3364.txt
+│       │   │   ├── BG_3368.txt
+│       │   │   ├── BG_3541.txt
+│       │   │   ├── BG_3629.txt
+│       │   │   ├── BG_364.txt
+│       │   │   ├── BG_3669.txt
+│       │   │   ├── BG_3671.txt
+│       │   │   ├── BG_3753.txt
+│       │   │   ├── BG_3759.txt
+│       │   │   ├── BG_3867.txt
+│       │   │   ├── BG_3909.txt
+│       │   │   ├── BG_4188.txt
+│       │   │   ├── BG_4228.txt
+│       │   │   ├── BG_423.txt
+│       │   │   ├── BG_430.txt
+│       │   │   ├── BG_435.txt
+│       │   │   ├── BG_4366.txt
+│       │   │   ├── BG_439.txt
+│       │   │   ├── BG_4531.txt
+│       │   │   ├── BG_454.txt
+│       │   │   ├── BG_456.txt
+│       │   │   ├── BG_457.txt
+│       │   │   ├── BG_4613.txt
+│       │   │   ├── BG_4624.txt
+│       │   │   ├── BG_463.txt
+│       │   │   ├── BG_4648.txt
+│       │   │   ├── BG_4713.txt
+│       │   │   ├── BG_473.txt
+│       │   │   ├── BG_4732.txt
+│       │   │   ├── BG_476.txt
+│       │   │   ├── BG_480.txt
+│       │   │   ├── BG_481.txt
+│       │   │   ├── BG_4819.txt
+│       │   │   ├── BG_4845.txt
+│       │   │   ├── BG_4872.txt
+│       │   │   ├── BG_4884.txt
+│       │   │   ├── BG_494.txt
+│       │   │   ├── BG_497.txt
+│       │   │   ├── BG_504.txt
+│       │   │   ├── BG_508.txt
+│       │   │   ├── BG_509.txt
+│       │   │   ├── BG_5098.txt
+│       │   │   ├── BG_513.txt
+│       │   │   ├── BG_521.txt
+│       │   │   ├── BG_526.txt
+│       │   │   ├── BG_529.txt
+│       │   │   ├── BG_5360.txt
+│       │   │   ├── BG_538.txt
+│       │   │   ├── BG_5406.txt
+│       │   │   ├── BG_541.txt
+│       │   │   ├── BG_546.txt
+│       │   │   ├── BG_5470.txt
+│       │   │   ├── BG_548.txt
+│       │   │   ├── BG_551.txt
+│       │   │   ├── BG_553.txt
+│       │   │   ├── BG_555.txt
+│       │   │   ├── BG_559.txt
+│       │   │   ├── BG_560.txt
+│       │   │   ├── BG_561.txt
+│       │   │   ├── BG_573.txt
+│       │   │   ├── BG_576.txt
+│       │   │   ├── BG_582.txt
+│       │   │   ├── BG_585.txt
+│       │   │   ├── BG_5914.txt
+│       │   │   ├── BG_5918.txt
+│       │   │   ├── BG_5942.txt
+│       │   │   ├── BG_6019.txt
+│       │   │   ├── BG_6045.txt
+│       │   │   ├── BG_607.txt
+│       │   │   ├── BG_612.txt
+│       │   │   ├── BG_613.txt
+│       │   │   ├── BG_616.txt
+│       │   │   ├── BG_620.txt
+│       │   │   ├── BG_624.txt
+│       │   │   ├── BG_628.txt
+│       │   │   ├── BG_629.txt
+│       │   │   ├── BG_630.txt
+│       │   │   ├── BG_637.txt
+│       │   │   ├── BG_663.txt
+│       │   │   ├── BG_666.txt
+│       │   │   ├── BG_670.txt
+│       │   │   ├── BG_676.txt
+│       │   │   ├── BG_678.txt
+│       │   │   ├── BG_679.txt
+│       │   │   ├── BG_684.txt
+│       │   │   ├── BG_696.txt
+│       │   │   ├── BG_699.txt
+│       │   │   ├── BG_701.txt
+│       │   │   ├── BG_704.txt
+│       │   │   ├── BG_7070.txt
+│       │   │   ├── BG_723.txt
+│       │   │   ├── BG_7367.txt
+│       │   │   ├── BG_7379.txt
+│       │   │   ├── BG_751.txt
+│       │   │   ├── BG_7557.txt
+│       │   │   ├── BG_799.txt
+│       │   │   ├── BG_8060.txt
+│       │   │   ├── BG_828.txt
+│       │   │   ├── BG_8385.txt
+│       │   │   ├── BG_839.txt
+│       │   │   ├── BG_8453.txt
+│       │   │   ├── BG_8455.txt
+│       │   │   ├── BG_855.txt
+│       │   │   ├── BG_866.txt
+│       │   │   ├── BG_869.txt
+│       │   │   ├── BG_888.txt
+│       │   │   ├── BG_892.txt
+│       │   │   ├── BG_894.txt
+│       │   │   ├── BG_895.txt
+│       │   │   ├── BG_939.txt
+│       │   │   └── BG_971.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── EN
+│       │   ├── raw-documents
+│       │   │   ├── EN_CC_100000.txt
+│       │   │   ├── EN_CC_100002.txt
+│       │   │   ├── EN_CC_100003.txt
+│       │   │   ├── EN_CC_100004.txt
+│       │   │   ├── EN_CC_100005.txt
+│       │   │   ├── EN_CC_100007.txt
+│       │   │   ├── EN_CC_100008.txt
+│       │   │   ├── EN_CC_100009.txt
+│       │   │   ├── EN_CC_100010.txt
+│       │   │   ├── EN_CC_100011.txt
+│       │   │   ├── EN_CC_100012.txt
+│       │   │   ├── EN_CC_100015.txt
+│       │   │   ├── EN_CC_100021.txt
+│       │   │   ├── EN_CC_100024.txt
+│       │   │   ├── EN_CC_100028.txt
+│       │   │   ├── EN_CC_100030.txt
+│       │   │   ├── EN_CC_100036.txt
+│       │   │   ├── EN_CC_100037.txt
+│       │   │   ├── EN_CC_100038.txt
+│       │   │   ├── EN_CC_100040.txt
+│       │   │   ├── EN_CC_100042.txt
+│       │   │   ├── EN_CC_100044.txt
+│       │   │   ├── EN_CC_100046.txt
+│       │   │   ├── EN_CC_100047.txt
+│       │   │   ├── EN_CC_100050.txt
+│       │   │   ├── EN_CC_100054.txt
+│       │   │   ├── EN_CC_100065.txt
+│       │   │   ├── EN_CC_100066.txt
+│       │   │   ├── EN_CC_100067.txt
+│       │   │   ├── EN_CC_100069.txt
+│       │   │   ├── EN_CC_100070.txt
+│       │   │   ├── EN_CC_100076.txt
+│       │   │   ├── EN_CC_100083.txt
+│       │   │   ├── EN_CC_100091.txt
+│       │   │   ├── EN_CC_100093.txt
+│       │   │   ├── EN_CC_100095.txt
+│       │   │   ├── EN_CC_100098.txt
+│       │   │   ├── EN_CC_100106.txt
+│       │   │   ├── EN_CC_100122.txt
+│       │   │   ├── EN_CC_100123.txt
+│       │   │   ├── EN_CC_100124.txt
+│       │   │   ├── EN_CC_100136.txt
+│       │   │   ├── EN_CC_100137.txt
+│       │   │   ├── EN_CC_100139.txt
+│       │   │   ├── EN_CC_100145.txt
+│       │   │   ├── EN_CC_100146.txt
+│       │   │   ├── EN_CC_100147.txt
+│       │   │   ├── EN_CC_100150.txt
+│       │   │   ├── EN_CC_100156.txt
+│       │   │   ├── EN_CC_100159.txt
+│       │   │   ├── EN_CC_100169.txt
+│       │   │   ├── EN_CC_100172.txt
+│       │   │   ├── EN_CC_100197.txt
+│       │   │   ├── EN_CC_100198.txt
+│       │   │   ├── EN_CC_100203.txt
+│       │   │   ├── EN_CC_100211.txt
+│       │   │   ├── EN_CC_100213.txt
+│       │   │   ├── EN_CC_100223.txt
+│       │   │   ├── EN_CC_100232.txt
+│       │   │   ├── EN_CC_100235.txt
+│       │   │   ├── EN_CC_100243.txt
+│       │   │   ├── EN_CC_200001.txt
+│       │   │   ├── EN_CC_200007.txt
+│       │   │   ├── EN_CC_200009.txt
+│       │   │   ├── EN_CC_200012.txt
+│       │   │   ├── EN_CC_200013.txt
+│       │   │   ├── EN_CC_200015.txt
+│       │   │   ├── EN_CC_200016.txt
+│       │   │   ├── EN_CC_200018.txt
+│       │   │   ├── EN_CC_200021.txt
+│       │   │   ├── EN_CC_200022.txt
+│       │   │   ├── EN_CC_200029.txt
+│       │   │   ├── EN_UA_000104.txt
+│       │   │   ├── EN_UA_000543.txt
+│       │   │   ├── EN_UA_000568.txt
+│       │   │   ├── EN_UA_000923.txt
+│       │   │   ├── EN_UA_001032.txt
+│       │   │   ├── EN_UA_001052.txt
+│       │   │   ├── EN_UA_002416.txt
+│       │   │   ├── EN_UA_002531.txt
+│       │   │   ├── EN_UA_002668.txt
+│       │   │   ├── EN_UA_002991.txt
+│       │   │   ├── EN_UA_003579.txt
+│       │   │   ├── EN_UA_004209.txt
+│       │   │   ├── EN_UA_004343.txt
+│       │   │   ├── EN_UA_004616.txt
+│       │   │   ├── EN_UA_008072.txt
+│       │   │   ├── EN_UA_008586.txt
+│       │   │   ├── EN_UA_010091.txt
+│       │   │   ├── EN_UA_010095.txt
+│       │   │   ├── EN_UA_010735.txt
+│       │   │   ├── EN_UA_010901.txt
+│       │   │   ├── EN_UA_010909.txt
+│       │   │   ├── EN_UA_011260.txt
+│       │   │   ├── EN_UA_012234.txt
+│       │   │   ├── EN_UA_012611.txt
+│       │   │   ├── EN_UA_012803.txt
+│       │   │   ├── EN_UA_013257.txt
+│       │   │   ├── EN_UA_013344.txt
+│       │   │   ├── EN_UA_013617.txt
+│       │   │   ├── EN_UA_013710.txt
+│       │   │   ├── EN_UA_013727.txt
+│       │   │   ├── EN_UA_014014.txt
+│       │   │   ├── EN_UA_014413.txt
+│       │   │   ├── EN_UA_014637.txt
+│       │   │   ├── EN_UA_014829.txt
+│       │   │   ├── EN_UA_015443.txt
+│       │   │   ├── EN_UA_015880.txt
+│       │   │   ├── EN_UA_015962.txt
+│       │   │   ├── EN_UA_016012.txt
+│       │   │   ├── EN_UA_016466.txt
+│       │   │   ├── EN_UA_017310.txt
+│       │   │   ├── EN_UA_017831.txt
+│       │   │   ├── EN_UA_018789.txt
+│       │   │   ├── EN_UA_019640.txt
+│       │   │   ├── EN_UA_020543.txt
+│       │   │   ├── EN_UA_021123.txt
+│       │   │   ├── EN_UA_021263.txt
+│       │   │   ├── EN_UA_021270.txt
+│       │   │   ├── EN_UA_021310.txt
+│       │   │   ├── EN_UA_021377.txt
+│       │   │   ├── EN_UA_021872.txt
+│       │   │   ├── EN_UA_021918.txt
+│       │   │   ├── EN_UA_022016.txt
+│       │   │   ├── EN_UA_022051.txt
+│       │   │   ├── EN_UA_022319.txt
+│       │   │   ├── EN_UA_022339.txt
+│       │   │   ├── EN_UA_023008.txt
+│       │   │   ├── EN_UA_023211.txt
+│       │   │   ├── EN_UA_023816.txt
+│       │   │   ├── EN_UA_024050.txt
+│       │   │   ├── EN_UA_024321.txt
+│       │   │   ├── EN_UA_024628.txt
+│       │   │   ├── EN_UA_024847.txt
+│       │   │   ├── EN_UA_025165.txt
+│       │   │   ├── EN_UA_025652.txt
+│       │   │   ├── EN_UA_025764.txt
+│       │   │   ├── EN_UA_026036.txt
+│       │   │   ├── EN_UA_026142.txt
+│       │   │   ├── EN_UA_026697.txt
+│       │   │   ├── EN_UA_026740.txt
+│       │   │   ├── EN_UA_027676.txt
+│       │   │   ├── EN_UA_027787.txt
+│       │   │   ├── EN_UA_027816.txt
+│       │   │   ├── EN_UA_027879.txt
+│       │   │   ├── EN_UA_028103.txt
+│       │   │   ├── EN_UA_028520.txt
+│       │   │   ├── EN_UA_029053.txt
+│       │   │   ├── EN_UA_029155.txt
+│       │   │   ├── EN_UA_100106.txt
+│       │   │   ├── EN_UA_100210.txt
+│       │   │   ├── EN_UA_100411.txt
+│       │   │   ├── EN_UA_100587.txt
+│       │   │   ├── EN_UA_100601.txt
+│       │   │   ├── EN_UA_100688.txt
+│       │   │   ├── EN_UA_100840.txt
+│       │   │   ├── EN_UA_100864.txt
+│       │   │   ├── EN_UA_100868.txt
+│       │   │   ├── EN_UA_101067.txt
+│       │   │   ├── EN_UA_101079.txt
+│       │   │   ├── EN_UA_101189.txt
+│       │   │   ├── EN_UA_101251.txt
+│       │   │   ├── EN_UA_101805.txt
+│       │   │   ├── EN_UA_101954.txt
+│       │   │   ├── EN_UA_101996.txt
+│       │   │   ├── EN_UA_102034.txt
+│       │   │   ├── EN_UA_102054.txt
+│       │   │   ├── EN_UA_102084.txt
+│       │   │   ├── EN_UA_102415.txt
+│       │   │   ├── EN_UA_102655.txt
+│       │   │   ├── EN_UA_102703.txt
+│       │   │   ├── EN_UA_102754.txt
+│       │   │   ├── EN_UA_102892.txt
+│       │   │   ├── EN_UA_102953.txt
+│       │   │   ├── EN_UA_102958.txt
+│       │   │   ├── EN_UA_102963.txt
+│       │   │   ├── EN_UA_102990.txt
+│       │   │   ├── EN_UA_103011.txt
+│       │   │   ├── EN_UA_103025.txt
+│       │   │   ├── EN_UA_103168.txt
+│       │   │   ├── EN_UA_103251.txt
+│       │   │   ├── EN_UA_103372.txt
+│       │   │   ├── EN_UA_103403.txt
+│       │   │   ├── EN_UA_103445.txt
+│       │   │   ├── EN_UA_103517.txt
+│       │   │   ├── EN_UA_103667.txt
+│       │   │   ├── EN_UA_103732.txt
+│       │   │   ├── EN_UA_103861.txt
+│       │   │   ├── EN_UA_103941.txt
+│       │   │   ├── EN_UA_103995.txt
+│       │   │   ├── EN_UA_104152.txt
+│       │   │   ├── EN_UA_104224.txt
+│       │   │   ├── EN_UA_104434.txt
+│       │   │   ├── EN_UA_104523.txt
+│       │   │   ├── EN_UA_104569.txt
+│       │   │   ├── EN_UA_104604.txt
+│       │   │   ├── EN_UA_104775.txt
+│       │   │   ├── EN_UA_104791.txt
+│       │   │   ├── EN_UA_104859.txt
+│       │   │   └── EN_UA_104876.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   ├── subtask-2-annotations_problem_formulation.txt
+│       │   └── subtask-3-annotations.txt
+│       ├── HI
+│       │   ├── raw-documents
+│       │   │   ├── HI_1.txt
+│       │   │   ├── HI_100.txt
+│       │   │   ├── HI_101.txt
+│       │   │   ├── HI_102.txt
+│       │   │   ├── HI_103.txt
+│       │   │   ├── HI_104.txt
+│       │   │   ├── HI_105.txt
+│       │   │   ├── HI_106.txt
+│       │   │   ├── HI_108.txt
+│       │   │   ├── HI_109.txt
+│       │   │   ├── HI_111.txt
+│       │   │   ├── HI_112.txt
+│       │   │   ├── HI_113.txt
+│       │   │   ├── HI_115.txt
+│       │   │   ├── HI_116.txt
+│       │   │   ├── HI_117.txt
+│       │   │   ├── HI_118.txt
+│       │   │   ├── HI_119.txt
+│       │   │   ├── HI_120.txt
+│       │   │   ├── HI_121.txt
+│       │   │   ├── HI_122.txt
+│       │   │   ├── HI_123.txt
+│       │   │   ├── HI_124.txt
+│       │   │   ├── HI_127.txt
+│       │   │   ├── HI_128.txt
+│       │   │   ├── HI_129.txt
+│       │   │   ├── HI_13.txt
+│       │   │   ├── HI_130.txt
+│       │   │   ├── HI_131.txt
+│       │   │   ├── HI_132.txt
+│       │   │   ├── HI_133.txt
+│       │   │   ├── HI_136.txt
+│       │   │   ├── HI_137.txt
+│       │   │   ├── HI_138.txt
+│       │   │   ├── HI_14.txt
+│       │   │   ├── HI_141.txt
+│       │   │   ├── HI_142.txt
+│       │   │   ├── HI_144.txt
+│       │   │   ├── HI_145.txt
+│       │   │   ├── HI_146.txt
+│       │   │   ├── HI_147.txt
+│       │   │   ├── HI_148.txt
+│       │   │   ├── HI_149.txt
+│       │   │   ├── HI_15.txt
+│       │   │   ├── HI_150.txt
+│       │   │   ├── HI_16.txt
+│       │   │   ├── HI_18.txt
+│       │   │   ├── HI_2.txt
+│       │   │   ├── HI_20.txt
+│       │   │   ├── HI_21.txt
+│       │   │   ├── HI_22.txt
+│       │   │   ├── HI_23.txt
+│       │   │   ├── HI_24.txt
+│       │   │   ├── HI_25.txt
+│       │   │   ├── HI_27.txt
+│       │   │   ├── HI_29.txt
+│       │   │   ├── HI_3.txt
+│       │   │   ├── HI_30.txt
+│       │   │   ├── HI_32.txt
+│       │   │   ├── HI_33.txt
+│       │   │   ├── HI_36.txt
+│       │   │   ├── HI_37.txt
+│       │   │   ├── HI_39.txt
+│       │   │   ├── HI_40.txt
+│       │   │   ├── HI_41.txt
+│       │   │   ├── HI_42.txt
+│       │   │   ├── HI_43.txt
+│       │   │   ├── HI_44.txt
+│       │   │   ├── HI_45.txt
+│       │   │   ├── HI_46.txt
+│       │   │   ├── HI_47.txt
+│       │   │   ├── HI_48.txt
+│       │   │   ├── HI_49.txt
+│       │   │   ├── HI_53.txt
+│       │   │   ├── HI_54.txt
+│       │   │   ├── HI_55.txt
+│       │   │   ├── HI_56.txt
+│       │   │   ├── HI_57.txt
+│       │   │   ├── HI_58.txt
+│       │   │   ├── HI_59.txt
+│       │   │   ├── HI_6.txt
+│       │   │   ├── HI_60.txt
+│       │   │   ├── HI_61.txt
+│       │   │   ├── HI_62.txt
+│       │   │   ├── HI_63.txt
+│       │   │   ├── HI_64.txt
+│       │   │   ├── HI_65.txt
+│       │   │   ├── HI_66.txt
+│       │   │   ├── HI_67.txt
+│       │   │   ├── HI_69.txt
+│       │   │   ├── HI_7.txt
+│       │   │   ├── HI_70.txt
+│       │   │   ├── HI_72.txt
+│       │   │   ├── HI_73.txt
+│       │   │   ├── HI_74.txt
+│       │   │   ├── HI_78.txt
+│       │   │   ├── HI_79.txt
+│       │   │   ├── HI_8.txt
+│       │   │   ├── HI_80.txt
+│       │   │   ├── HI_81.txt
+│       │   │   ├── HI_82.txt
+│       │   │   ├── HI_84.txt
+│       │   │   ├── HI_85.txt
+│       │   │   ├── HI_86.txt
+│       │   │   ├── HI_87.txt
+│       │   │   ├── HI_88.txt
+│       │   │   ├── HI_89.txt
+│       │   │   ├── HI_9.txt
+│       │   │   ├── HI_90.txt
+│       │   │   ├── HI_91.txt
+│       │   │   ├── HI_92.txt
+│       │   │   ├── HI_93.txt
+│       │   │   ├── HI_94.txt
+│       │   │   ├── HI_98.txt
+│       │   │   └── HI_99.txt
+│       │   ├── subtask-1-annotations.txt
+│       │   ├── subtask-2-annotations.txt
+│       │   └── subtask-3-annotations.txt
+│       └── PT
+│           ├── raw-documents
+│           │   ├── PT_01.txt
+│           │   ├── PT_02.txt
+│           │   ├── PT_03.txt
+│           │   ├── PT_04.txt
+│           │   ├── PT_05.txt
+│           │   ├── PT_06.txt
+│           │   ├── PT_07.txt
+│           │   ├── PT_08.txt
+│           │   ├── PT_09.txt
+│           │   ├── PT_10.txt
+│           │   ├── PT_100.txt
+│           │   ├── PT_101.txt
+│           │   ├── PT_102.txt
+│           │   ├── PT_103.txt
+│           │   ├── PT_104.txt
+│           │   ├── PT_105.txt
+│           │   ├── PT_106.txt
+│           │   ├── PT_107.txt
+│           │   ├── PT_108.txt
+│           │   ├── PT_109.txt
+│           │   ├── PT_11.txt
+│           │   ├── PT_110.txt
+│           │   ├── PT_111.txt
+│           │   ├── PT_112.txt
+│           │   ├── PT_113.txt
+│           │   ├── PT_114.txt
+│           │   ├── PT_115.txt
+│           │   ├── PT_116.txt
+│           │   ├── PT_117.txt
+│           │   ├── PT_118.txt
+│           │   ├── PT_119.txt
+│           │   ├── PT_12.txt
+│           │   ├── PT_120.txt
+│           │   ├── PT_121.txt
+│           │   ├── PT_122.txt
+│           │   ├── PT_123.txt
+│           │   ├── PT_124.txt
+│           │   ├── PT_125.txt
+│           │   ├── PT_126.txt
+│           │   ├── PT_127.txt
+│           │   ├── PT_128.txt
+│           │   ├── PT_129.txt
+│           │   ├── PT_13.txt
+│           │   ├── PT_130.txt
+│           │   ├── PT_131.txt
+│           │   ├── PT_132.txt
+│           │   ├── PT_133.txt
+│           │   ├── PT_134.txt
+│           │   ├── PT_135.txt
+│           │   ├── PT_136.txt
+│           │   ├── PT_137.txt
+│           │   ├── PT_138.txt
+│           │   ├── PT_139.txt
+│           │   ├── PT_14.txt
+│           │   ├── PT_140.txt
+│           │   ├── PT_141.txt
+│           │   ├── PT_142.txt
+│           │   ├── PT_143.txt
+│           │   ├── PT_144.txt
+│           │   ├── PT_145.txt
+│           │   ├── PT_146.txt
+│           │   ├── PT_147.txt
+│           │   ├── PT_148.txt
+│           │   ├── PT_149.txt
+│           │   ├── PT_15.txt
+│           │   ├── PT_150.txt
+│           │   ├── PT_151.txt
+│           │   ├── PT_152.txt
+│           │   ├── PT_153.txt
+│           │   ├── PT_154.txt
+│           │   ├── PT_155.txt
+│           │   ├── PT_156.txt
+│           │   ├── PT_157.txt
+│           │   ├── PT_158.txt
+│           │   ├── PT_159.txt
+│           │   ├── PT_16.txt
+│           │   ├── PT_160.txt
+│           │   ├── PT_161.txt
+│           │   ├── PT_162.txt
+│           │   ├── PT_163.txt
+│           │   ├── PT_164.txt
+│           │   ├── PT_165.txt
+│           │   ├── PT_166.txt
+│           │   ├── PT_167.txt
+│           │   ├── PT_168.txt
+│           │   ├── PT_169.txt
+│           │   ├── PT_17.txt
+│           │   ├── PT_170.txt
+│           │   ├── PT_171.txt
+│           │   ├── PT_172.txt
+│           │   ├── PT_173.txt
+│           │   ├── PT_174.txt
+│           │   ├── PT_175.txt
+│           │   ├── PT_176.txt
+│           │   ├── PT_177.txt
+│           │   ├── PT_178.txt
+│           │   ├── PT_179.txt
+│           │   ├── PT_18.txt
+│           │   ├── PT_180.txt
+│           │   ├── PT_181.txt
+│           │   ├── PT_182.txt
+│           │   ├── PT_183.txt
+│           │   ├── PT_184.txt
+│           │   ├── PT_185.txt
+│           │   ├── PT_186.txt
+│           │   ├── PT_187.txt
+│           │   ├── PT_188.txt
+│           │   ├── PT_189.txt
+│           │   ├── PT_19.txt
+│           │   ├── PT_190.txt
+│           │   ├── PT_191.txt
+│           │   ├── PT_192.txt
+│           │   ├── PT_193.txt
+│           │   ├── PT_194.txt
+│           │   ├── PT_195.txt
+│           │   ├── PT_196.txt
+│           │   ├── PT_197.txt
+│           │   ├── PT_198.txt
+│           │   ├── PT_199.txt
+│           │   ├── PT_20.txt
+│           │   ├── PT_200.txt
+│           │   ├── PT_21.txt
+│           │   ├── PT_22.txt
+│           │   ├── PT_23.txt
+│           │   ├── PT_24.txt
+│           │   ├── PT_25.txt
+│           │   ├── PT_26.txt
+│           │   ├── PT_27.txt
+│           │   ├── PT_28.txt
+│           │   ├── PT_29.txt
+│           │   ├── PT_30.txt
+│           │   ├── PT_31.txt
+│           │   ├── PT_32.txt
+│           │   ├── PT_33.txt
+│           │   ├── PT_34.txt
+│           │   ├── PT_35.txt
+│           │   ├── PT_36.txt
+│           │   ├── PT_37.txt
+│           │   ├── PT_38.txt
+│           │   ├── PT_39.txt
+│           │   ├── PT_40.txt
+│           │   ├── PT_41.txt
+│           │   ├── PT_42.txt
+│           │   ├── PT_43.txt
+│           │   ├── PT_44.txt
+│           │   ├── PT_45.txt
+│           │   ├── PT_46.txt
+│           │   ├── PT_47.txt
+│           │   ├── PT_48.txt
+│           │   ├── PT_49.txt
+│           │   ├── PT_50.txt
+│           │   ├── PT_51.txt
+│           │   ├── PT_52.txt
+│           │   ├── PT_53.txt
+│           │   ├── PT_54.txt
+│           │   ├── PT_55.txt
+│           │   ├── PT_56.txt
+│           │   ├── PT_57.txt
+│           │   ├── PT_58.txt
+│           │   ├── PT_59.txt
+│           │   ├── PT_60.txt
+│           │   ├── PT_61.txt
+│           │   ├── PT_62.txt
+│           │   ├── PT_63.txt
+│           │   ├── PT_64.txt
+│           │   ├── PT_65.txt
+│           │   ├── PT_66.txt
+│           │   ├── PT_67.txt
+│           │   ├── PT_68.txt
+│           │   ├── PT_69.txt
+│           │   ├── PT_70.txt
+│           │   ├── PT_71.txt
+│           │   ├── PT_72.txt
+│           │   ├── PT_73.txt
+│           │   ├── PT_74.txt
+│           │   ├── PT_75.txt
+│           │   ├── PT_76.txt
+│           │   ├── PT_77.txt
+│           │   ├── PT_78.txt
+│           │   ├── PT_79.txt
+│           │   ├── PT_80.txt
+│           │   ├── PT_81.txt
+│           │   ├── PT_82.txt
+│           │   ├── PT_83.txt
+│           │   ├── PT_84.txt
+│           │   ├── PT_85.txt
+│           │   ├── PT_86.txt
+│           │   ├── PT_87.txt
+│           │   ├── PT_88.txt
+│           │   ├── PT_89.txt
+│           │   ├── PT_90.txt
+│           │   ├── PT_91.txt
+│           │   ├── PT_92.txt
+│           │   ├── PT_93.txt
+│           │   ├── PT_94.txt
+│           │   ├── PT_95.txt
+│           │   ├── PT_96.txt
+│           │   ├── PT_97.txt
+│           │   ├── PT_98.txt
+│           │   └── PT_99.txt
+│           ├── subtask-1-annotations.txt
+│           ├── subtask-2-annotations.txt
+│           └── subtask-3-annotations.txt
+├── directory_structure.txt
+├── evaluation_results
+│   └── evaluation_results.json
+├── final_model
+├── notebooks
+├── path
+│   └── to
+├── project-structure.txt
+├── project_task.html
+├── results
+│   ├── models
+│   └── predictions
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-313.pyc
+│   │   └── __init__.cpython-39.pyc
+│   ├── data_processing
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-39.pyc
+│   │       └── narrative_processor.cpython-39.pyc
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── classifier.cpython-39.pyc
+│   │   │   ├── config.cpython-39.pyc
+│   │   │   ├── data_models.cpython-39.pyc
+│   │   │   ├── factory.cpython-39.pyc
+│   │   │   ├── hf_classifier.cpython-39.pyc
+│   │   │   ├── improved_classifier.cpython-39.pyc
+│   │   │   └── loss.cpython-39.pyc
+│   │   ├── classifier.py
+│   │   ├── config.py
+│   │   ├── data_models.py
+│   │   ├── factory.py
+│   │   └── loss.py
+│   ├── preprocessing
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── dataset.cpython-39.pyc
+│   │   │   └── dataset_validator.cpython-39.pyc
+│   │   ├── dataset.py
+│   │   └── dataset_validator.py
+│   ├── training
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── hf_trainer.cpython-39.pyc
+│   │   │   ├── train.cpython-313.pyc
+│   │   │   ├── train.cpython-39.pyc
+│   │   │   └── trainer.cpython-39.pyc
+│   │   ├── train.py
+│   │   └── trainer.py
+│   └── utils
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-39.pyc
+│       │   ├── data_splitting.cpython-39.pyc
+│       │   ├── evaluate.cpython-39.pyc
+│       │   └── evaluator.cpython-39.pyc
+│       ├── config.py
+│       ├── constants.py
+│       ├── data_splitting.py
+│       ├── data_utils.py
+│       ├── evaluate.py
+│       ├── evaluator.py
+│       ├── file_utils.py
+│       └── metrics.py
+├── test1.py
+├── test2.py
+├── test3.py
+├── test4.py
+├── test5.py
+├── test6.py
+├── test_checkpoints
+│   └── best_model.pt
+└── tests
+    ├── __init__.py
+    ├── test_config.yaml
+    ├── test_loss.py
+    ├── test_model.py
+    └── test_trainer.py
+
+74 directories, 4688 files

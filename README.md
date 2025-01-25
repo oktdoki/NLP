@@ -1,101 +1,96 @@
-# SemEval 2025 Task 10: Narrative Classification
+# SemEval 2025 Task 10: Multilingual Narrative Classification
 
-This repository contains the implementation for Subtask 2 of SemEval 2025 Task 10 - Multilingual Classification of Narratives from Online News.
+This repository implements a multilingual narrative classification system for subtask 2 of SemEval 2025 Task 10, focusing on characterizing narratives from online news across multiple languages.
 
 ## Project Structure
-
 ```
-├── Data set/                          # Dataset provided by SemEval
-│   └── training_data_16_October_release/
-│       ├── BG/                        # Bulgarian articles
-│       ├── EN/                        # English articles
-│       ├── HI/                        # Hindi articles
-│       └── PT/                        # Portuguese articles
+├── checkpoints/                     # Model checkpoints
+├── config/                          # Configuration files
+│   └── model_config.yaml
+├── data_set/                        # Dataset directories
+│   ├── target_4_December_JSON/      # Latest dataset version
+│   ├── dev-documents_4_December/    # Development set
+│   └── training_data_16_October/    # Training data
+├── evaluation_results/              # Evaluation outputs
 ├── src/
-│   ├── models/                        # Model implementations
-│   │   ├── classifier.py              # XLM-R classifier
-│   │   └── config.py                  # Model configuration
-│   ├── preprocessing/                 # Data preprocessing scripts
-│   ├── training/                     # Training scripts
-│   └── utils/                        # Utility functions
-├── config/                           # Configuration files
-├── notebooks/                        # Analysis notebooks
-├── results/                         
-│   ├── models/                       # Saved models
-│   └── predictions/                  # Model predictions
-└── requirements.txt                  # Python dependencies
+│   ├── models/                      # Model implementations
+│   │   ├── classifier.py           # Narrative classifier
+│   │   ├── factory.py             # Model creation utilities
+│   │   ├── config.py              # Model configuration
+│   │   └── loss.py                # Custom loss functions
+│   ├── preprocessing/              # Data preprocessing 
+│   │   ├── dataset.py             # Dataset handling
+│   │   └── dataset_validator.py    # Data validation
+│   ├── training/                   # Training logic
+│   │   ├── trainer.py             # Training loop
+│   │   └── train.py               # Training entry point
+│   └── utils/                      # Utility functions
+│       ├── evaluator.py           # Evaluation metrics
+│       ├── data_splitting.py      # Dataset splitting
+│       └── data_utils.py          # Data processing utilities
+└── tests/                          # Unit tests
 ```
 
-## Data Format Requirements
-
-### Input Data Format
-The preprocessing module should provide data in the following format for training:
-
-```json
-{
-    "text": "Article content including title...",
-    "article_id": "EN_CC_100000.txt",
-    "narratives": ["URW", "CC"],
-    "subnarratives": ["URW: Blaming Others", "CC: Climate Change Denial"]
-}
-```
-
-### Raw Data Structure
-- Each article is a .txt file with:
-    - Title on first line
-    - Empty second line
-    - Content from third line onwards
-- Labels are in subtask-2-annotations.txt files with format:
-    - `article_id    narrative_1;...;narrative_N    subnarrative_1;...;subnarrative_N`
+## Features
+- XLM-RoBERTa-based multilingual classifier
+- Hierarchical multi-label classification (narratives and subnarratives)
+- Support for Bulgarian, English, Hindi, and Portuguese
+- Custom loss function with hierarchy consistency enforcement
+- Robust evaluation metrics including F1 score and hierarchy accuracy
 
 ## Setup
 
-1. Install requirements:
 ```bash
-pip install -r requirements.txt
+pip install -r Requirements.txt
 ```
 
-2. Expected preprocessed data format:
-- Clean text content
-- Properly formatted labels
-- Consistent handling across all languages (BG, EN, HI, PT)
-- "Other" labels properly handled when no specific narrative/subnarrative applies
+## Data Format
+### Input JSON Structure
+```json
+{
+    "text": "Article content",
+    "article_id": "LANG_CATEGORY_ID.txt",
+    "category": "CC|URW",  
+    "narratives": ["narrative1", "narrative2"],
+    "subnarratives": ["narrative1: subnarrative1", "narrative2: subnarrative2"]
+}
+```
 
-## Model Overview
+### Training Data Organization
+- Articles stored in language-specific directories (BG, EN, HI, PT)
+- Raw text files with title on first line
+- Annotation files containing narrative/subnarrative labels
+- Development and test sets provided separately
 
-The implementation uses XLM-RoBERTa for multilingual narrative classification:
-- Multi-label classification
-- Supports all four languages (BG, EN, HI, PT)
-- Handles hierarchical narrative structure (main narratives and subnarratives)
+## Training
+```bash
+python src/training/train.py
+```
 
 ## Evaluation
+```bash
+python evaluate.py
+```
 
-The official evaluation measure is averaged (over test documents) samples F1 computed for entire narrative_x:subnarrative_x labels. The model will be evaluated on:
-- Narrative classification (URW, CC)
-- Subnarrative classification (e.g., "URW: Blaming Others")
+Key metrics:
+- Narrative classification F1
+- Subnarrative classification F1
+- Hierarchy consistency
+- Per-class precision/recall
+
+## Model Architecture
+- Base: XLM-RoBERTa
+- Dual classification heads for narratives and subnarratives
+- Custom hierarchical loss function
+- Dynamic thresholding for predictions
+- Support for multi-label classification
 
 ## Dependencies
+Core requirements:
+- torch>=2.0.0
+- transformers>=4.20.0
+- scikit-learn>=1.0.0
+- pandas>=1.3.0
+- numpy>=1.21.0
 
-Core dependencies include:
-- torch
-- transformers
-- pandas
-- numpy
-- scikit-learn
-- wandb (for experiment tracking)
-
-See requirements.txt for complete list and versions.
-
-## Notes for Preprocessing
-
-The preprocessing module should handle:
-1. Text cleaning
-    - Remove unnecessary whitespace
-    - Handle special characters
-    - Preserve title and content structure
-
-2. Label processing
-    - Parse annotation files correctly
-    - Handle multi-label cases
-    - Process "Other" labels appropriately
-
+See Requirements.txt for complete list.

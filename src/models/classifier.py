@@ -17,7 +17,7 @@ class NarrativeClassifier(nn.Module):
         num_narratives: int,
         num_subnarratives: int,
         narrative_to_idx: Optional[Dict[str, int]] = None,  # Add this
-        subnarrative_to_idx: Optional[Dict[str, int]] = None  # Add this
+        subnarrative_to_idx: Optional[Dict[str, int]] = None
     ):
         """
         Initialize the classifier.
@@ -36,6 +36,16 @@ class NarrativeClassifier(nn.Module):
         self.subnarrative_to_idx = subnarrative_to_idx or {}
         # Load base model
         self.base_model = AutoModel.from_pretrained(config.model_name)
+
+        self.narrative_to_subnarratives = {}
+        for subnarr, subidx in subnarrative_to_idx.items():
+            if ':' in subnarr:
+                narr = subnarr.split(':')[0].strip()
+                if narr in narrative_to_idx:
+                    narr_idx = narrative_to_idx[narr]
+                    if narr_idx not in self.narrative_to_subnarratives:
+                        self.narrative_to_subnarratives[narr_idx] = []
+                    self.narrative_to_subnarratives[narr_idx].append(subidx)
 
         # Freeze base model if specified
         if hasattr(config, 'freeze_base') and config.freeze_base:
@@ -62,7 +72,8 @@ class NarrativeClassifier(nn.Module):
         # Loss function
         self.loss_fn = NarrativeClassificationLoss(
             narrative_weight=config.narrative_loss_weight,
-            subnarrative_weight=config.subnarrative_loss_weight
+            subnarrative_weight=config.subnarrative_loss_weight,
+            narrative_to_subnarratives=self.narrative_to_subnarratives
         )
 
         # Save configuration
@@ -155,15 +166,18 @@ class NarrativeClassifier(nn.Module):
                 no_predictions = (narrative_preds.sum(dim=1) == 0)
                 narrative_preds[no_predictions, other_idx] = 1
 
-            # More lenient threshold for subnarratives
-            subnarrative_threshold = self.config.subnarrative_threshold * 0.8
-            subnarrative_preds = (subnarrative_probs > subnarrative_threshold).float()
+            subnarrative_preds = torch.zeros_like(subnarrative_probs)
 
-            # Ensure at least one subnarrative is predicted if we have any narrative
-            zero_subnarratives = (subnarrative_preds.sum(dim=1) == 0)
-            if zero_subnarratives.any():
-                # For samples with no predictions, take the highest probability subnarrative
-                top_subnarratives = subnarrative_probs[zero_subnarratives].argmax(dim=1)
-                subnarrative_preds[zero_subnarratives, top_subnarratives] = 1
+            for i in range(narrative_preds.size(0)):
+                for narr_idx in torch.nonzero(narrative_preds[i]).squeeze(1):
+                    if narr_idx in self.narrative_to_subnarratives:
+                        valid_subnarrs = self.narrative_to_subnarratives[narr_idx]
+                        valid_probs = subnarrative_probs[i, valid_subnarrs]
+                        valid_preds = valid_probs > self.config.subnarrative_threshold
+                        subnarrative_preds[i, valid_subnarrs] = valid_preds
+
+                        if valid_preds.sum() == 0:
+                            best_subnarr = valid_subnarrs[valid_probs.argmax()]
+                            subnarrative_preds[i, best_subnarr] = 1
 
         return narrative_preds, subnarrative_preds

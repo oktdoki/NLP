@@ -107,10 +107,9 @@ class NarrativeDataset(Dataset):
         return text.strip()
 
     def _create_label_mappings_from_articles(self, articles: List[Article]):
-        """Create label mappings using all articles to ensure consistency."""
-        # Get unique labels from all articles
+        # Extract unique labels
         narratives = {
-            narrative
+            narrative.split(':')[0].strip()  # Take base narrative before ':'
             for article in articles
             for narrative in article.narratives
         }
@@ -120,7 +119,7 @@ class NarrativeDataset(Dataset):
             for subnarrative in article.subnarratives
         }
 
-        # Create mappings
+        # Create base mappings
         self.narrative_to_idx = {
             label: idx for idx, label in enumerate(sorted(narratives))
         }
@@ -128,13 +127,22 @@ class NarrativeDataset(Dataset):
             label: idx for idx, label in enumerate(sorted(subnarratives))
         }
 
-        # Create reverse mappings
-        self.idx_to_narrative = {
-            idx: label for label, idx in self.narrative_to_idx.items()
-        }
-        self.idx_to_subnarrative = {
-            idx: label for label, idx in self.subnarrative_to_idx.items()
-        }
+        # Create narrative to subnarrative mapping
+        self.narrative_subnarrative_map = {}
+        for narrative in narratives:
+            self.narrative_subnarrative_map[narrative] = []
+            for subnarrative in subnarratives:
+                if subnarrative.startswith(narrative + ':'):
+                    self.narrative_subnarrative_map[narrative].append(subnarrative)
+
+        # Create index-based mapping
+        self.narrative_to_subnarrative_indices = {}
+        for narr, narr_idx in self.narrative_to_idx.items():
+            if narr in self.narrative_subnarrative_map:
+                self.narrative_to_subnarrative_indices[narr_idx] = [
+                    self.subnarrative_to_idx[sub]
+                    for sub in self.narrative_subnarrative_map[narr]
+                ]
 
     def _create_label_mappings(self):
         """Create mappings between label strings and indices."""
@@ -166,23 +174,22 @@ class NarrativeDataset(Dataset):
             idx: label for label, idx in self.subnarrative_to_idx.items()
         }
 
-    def encode_labels(
-        self,
-        narratives: List[str],
-        subnarratives: List[str]
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """Convert labels to multi-hot encoded tensors."""
+    def encode_labels(self, narratives: List[str], subnarratives: List[str]) -> Tuple[torch.Tensor, torch.Tensor]:
         narrative_tensor = torch.zeros(len(self.narrative_to_idx))
         subnarrative_tensor = torch.zeros(len(self.subnarrative_to_idx))
 
+        # Encode base narratives
         for narrative in narratives:
-            narrative_tensor[self.narrative_to_idx[narrative]] = 1
+            base_narrative = narrative.split(':')[0].strip()
+            if base_narrative in self.narrative_to_idx:
+                narrative_tensor[self.narrative_to_idx[base_narrative]] = 1
 
+        # Encode subnarratives
         for subnarrative in subnarratives:
-            subnarrative_tensor[self.subnarrative_to_idx[subnarrative]] = 1
+            if subnarrative in self.subnarrative_to_idx:
+                subnarrative_tensor[self.subnarrative_to_idx[subnarrative]] = 1
 
         return narrative_tensor, subnarrative_tensor
-
     def __len__(self) -> int:
         """Return the number of articles."""
         return len(self.articles)

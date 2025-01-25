@@ -1,6 +1,6 @@
 # src/models/factory.py
 
-from typing import Optional, Dict
+from typing import Optional, Dict, List
 import torch
 from .config import ModelConfig
 from .classifier import NarrativeClassifier
@@ -14,18 +14,22 @@ class ModelFactory:
         num_subnarratives: int,
         narrative_to_idx: Optional[Dict[str, int]] = None,
         subnarrative_to_idx: Optional[Dict[str, int]] = None,
-        config: Optional[ModelConfig] = None
+        config: Optional[ModelConfig] = None,
+        narrative_to_subnarratives: Optional[Dict[int, List[int]]] = None,
     ) -> NarrativeClassifier:
         """Create a new narrative classifier."""
         if config is None:
             config = ModelConfig()
+
+        narrative_to_idx = narrative_to_idx or {}
+        subnarrative_to_idx = subnarrative_to_idx or {}
 
         model = NarrativeClassifier(
             config=config,
             num_narratives=num_narratives,
             num_subnarratives=num_subnarratives,
             narrative_to_idx=narrative_to_idx,
-            subnarrative_to_idx=subnarrative_to_idx
+            subnarrative_to_idx=subnarrative_to_idx,
         )
 
         return model
