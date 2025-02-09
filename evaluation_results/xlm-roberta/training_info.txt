@@ -1,0 +1,14 @@
+Model used: xlm-roberta-base
+Batch size: 16
+
+xlm-roberta-base_en_balanced        Best validation loss: 0.0592 at epoch 51
+xlm-roberta-base_pt_balanced        Best validation loss: 0.2043 at epoch 52
+xlm-roberta-base_en_pt_balanced     Best validation loss: 0.2217 at epoch 31
+
+xlm-roberta-base_en_cleaned         Best validation loss: 0.9294 at epoch 43
+xlm-roberta-base_pt_cleaned         Best validation loss: 0.9442 at epoch 61
+xlm-roberta-base_en_pt_cleaned      Best validation loss: 1.0222 at epoch 26
+
+xlm-roberta-base_en_raw             Best validation loss: 0.9842 at epoch 35
+xlm-roberta-base_pt_raw             Best validation loss: 1.0815 at epoch 31
+xlm-roberta-base_en_pt_raw          Best validation loss: 0.8607 at epoch 32

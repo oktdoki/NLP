@@ -1,0 +1,14 @@
+Model used: google-bert/bert-base-multilingual-cased
+Batch size: 16
+
+mbert_en_balanced      Best validation loss 0.0785 at epoch 42
+mbert_pt_balanced      Best validation loss: 0.2677 at epoch 46
+mbert_en_pt_balanced   Best validation loss: 0.2280 at epoch 28
+
+mbert_en_cleaned       Best validation loss 1.0140 at epoch 28
+mbert_pt_cleaned       Best validation loss: 0.9657 at epoch 50
+mbert_en_pt_cleaned    Best validation loss: 1.0458 at epoch 24
+
+mbert_en_raw           Best validation loss: 1.0891 at epoch 35
+mbert_pt_raw           Best validation loss: 1.1740 at epoch 25
+mbert_en_pt_raw        Best validation loss: 0.9200 at epoch 21
