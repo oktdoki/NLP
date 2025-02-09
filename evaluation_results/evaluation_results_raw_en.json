@@ -1,0 +1,908 @@
+{
+  "overall_metrics": {
+    "narrative_precision": 0.10946969696969697,
+    "narrative_recall": 0.25757575757575757,
+    "narrative_f1": 0.1536416799574694,
+    "subnarrative_precision": 0.2065441176470588,
+    "subnarrative_recall": 0.31176470588235294,
+    "subnarrative_f1": 0.2484741264927023
+  },
+  "narrative_class_metrics": {
+    "Amplifying Climate Fears": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Amplifying war-related fears": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7.0
+      },
+      "support": 7.0
+    },
+    "Blaming the war on others rather than the invader": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7.0
+      },
+      "support": 7.0
+    },
+    "Climate change is beneficial": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Controversy about green technologies": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "Criticism of climate movement": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12.0
+      },
+      "support": 12.0
+    },
+    "Criticism of climate policies": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5.0
+      },
+      "support": 5.0
+    },
+    "Criticism of institutions and authorities": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14.0
+      },
+      "support": 14.0
+    },
+    "Discrediting Ukraine": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5.0
+      },
+      "support": 5.0
+    },
+    "Discrediting the West, Diplomacy": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10.0
+      },
+      "support": 10.0
+    },
+    "Distrust towards Media": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Downplaying climate change": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Green policies are geopolitical instruments": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Hidden plots by secret schemes of powerful groups": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7.0
+      },
+      "support": 7.0
+    },
+    "Negative Consequences for the West": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Other": {
+      "metrics": {
+        "precision": 0.425,
+        "recall": 1.0,
+        "f1": 0.5964912280701754,
+        "support": 34.0
+      },
+      "support": 34.0
+    },
+    "Overpraising the West": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Praise of Russia": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Questioning the measurements and science": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Russia is the Victim": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5.0
+      },
+      "support": 5.0
+    },
+    "Speculating war outcomes": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    }
+  },
+  "subnarrative_class_metrics": {
+    "Ad hominem attacks on key activists": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8.0
+      },
+      "support": 8.0
+    },
+    "Amplifying existing fears of global warming": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Blaming global elites": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "By continuing the war we risk WWIII": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "CO2 concentrations are too small to have an impact": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "CO2 is beneficial": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Climate agenda has hidden motives": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "Climate cycles are natural": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Climate movement is alarmist": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5.0
+      },
+      "support": 5.0
+    },
+    "Climate movement is corrupt": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Climate policies are ineffective": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Climate policies are only for profit": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Climate policies have negative impact on the economy": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Climate-related international relations are abusive/exploitative": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Criticism of international entities": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Criticism of national governments": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7.0
+      },
+      "support": 7.0
+    },
+    "Criticism of political organizations and figures": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9.0
+      },
+      "support": 9.0
+    },
+    "Criticism of the EU": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Data shows no temperature increase": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Diplomacy does/will not work": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "Discrediting Ukrainian government and officials and policies": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "Discrediting Ukrainian military": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Doomsday scenarios for humans": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Green activities are a form of neo-colonialism": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Greenhouse effect/carbon dioxide do not drive climate change": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Human activities do not impact climate change": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Humans and nature will adapt to the changes": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Ice is not melting": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Methodologies/metrics used are unreliable/faulty": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "NATO should/will directly intervene": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Other": {
+      "metrics": {
+        "precision": 0.6625,
+        "recall": 1.0,
+        "f1": 0.7969924812030075,
+        "support": 53.0
+      },
+      "support": 53.0
+    },
+    "Praise of Russian President Vladimir Putin": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Praise of Russian military might": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Renewable energy is costly": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Renewable energy is dangerous": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Renewable energy is unreliable": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Rewriting Ukraine\u2019s history": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Russia actions in Ukraine are only self-defence": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Russia has international support from a number of countries and people": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Russia is a guarantor of peace and prosperity": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Russia will also attack other countries": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Russian army is collapsing": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Russian invasion has strong national support": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Sanctions imposed by Western countries will backfire": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "Scientific community is unreliable": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3.0
+      },
+      "support": 3.0
+    },
+    "Sea levels are not rising": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Situation in Ukraine is hopeless": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Temperature increase does not have significant impact": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Temperature increase is beneficial": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "The EU is divided": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "The West are the aggressors": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7.0
+      },
+      "support": 7.0
+    },
+    "The West belongs in the right side of history": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "The West does not care about Ukraine, only about its interests": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "The West has the strongest international support": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "The West is overreacting": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "The West is russophobic": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "The West is weak": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "The conflict will increase the Ukrainian refugee flows to Europe": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "There is a real possibility that nuclear weapons will be employed": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    },
+    "UA is anti-RU extremists": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Ukraine is a hub for criminal activities": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Ukraine is a puppet of the West": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2.0
+      },
+      "support": 2.0
+    },
+    "Ukraine is associated with nazism": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1.0
+      },
+      "support": 1.0
+    },
+    "Ukraine is the aggressor": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Ukrainian army is collapsing": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Ukrainian media cannot be trusted": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Weather suggests the trend is global cooling": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "West is tired of Ukraine": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0.0
+      },
+      "support": 0.0
+    },
+    "Western media is an instrument of propaganda": {
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4.0
+      },
+      "support": 4.0
+    }
+  },
+  "error_examples": [
+    {
+      "true_narratives": [
+        "Discrediting the West, Diplomacy"
+      ],
+      "predicted_narratives": [
+        "Other"
+      ],
+      "true_subnarratives": [
+        "Diplomacy does/will not work",
+        "Other",
+        "The West does not care about Ukraine, only about its interests"
+      ],
+      "predicted_subnarratives": [
+        "Other"
+      ],
+      "is_narrative_error": true,
+      "is_subnarrative_error": true
+    },
+    {
+      "true_narratives": [
+        "Criticism of climate movement"
+      ],
+      "predicted_narratives": [
+        "Other"
+      ],
+      "true_subnarratives": [
+        "Ad hominem attacks on key activists"
+      ],
+      "predicted_subnarratives": [
+        "Other"
+      ],
+      "is_narrative_error": true,
+      "is_subnarrative_error": true
+    },
+    {
+      "true_narratives": [
+        "Negative Consequences for the West"
+      ],
+      "predicted_narratives": [
+        "Other"
+      ],
+      "true_subnarratives": [
+        "Sanctions imposed by Western countries will backfire"
+      ],
+      "predicted_subnarratives": [
+        "Other"
+      ],
+      "is_narrative_error": true,
+      "is_subnarrative_error": true
+    },
+    {
+      "true_narratives": [
+        "Amplifying Climate Fears"
+      ],
+      "predicted_narratives": [
+        "Other"
+      ],
+      "true_subnarratives": [
+        "Amplifying existing fears of global warming"
+      ],
+      "predicted_subnarratives": [
+        "Other"
+      ],
+      "is_narrative_error": true,
+      "is_subnarrative_error": true
+    },
+    {
+      "true_narratives": [
+        "Overpraising the West"
+      ],
+      "predicted_narratives": [
+        "Other"
+      ],
+      "true_subnarratives": [
+        "The West belongs in the right side of history"
+      ],
+      "predicted_subnarratives": [
+        "Other"
+      ],
+      "is_narrative_error": true,
+      "is_subnarrative_error": true
+    }
+  ]
+}
