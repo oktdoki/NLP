@@ -33,10 +33,15 @@ The preprocessing module should provide data in the following format for trainin
 
 ```json
 {
-    "text": "Article content including title...",
-    "article_id": "EN_CC_100000.txt",
-    "narratives": ["URW", "CC"],
-    "subnarratives": ["URW: Blaming Others", "CC: Climate Change Denial"]
+  "text": "Ativistas climáticos ou idiotas úteis?\n\n“Pela libertação da...",
+  "article_id": "PT_01.txt",
+  "category": "CC",
+  "narratives": [
+    "Hidden plots by secret schemes of powerful groups"
+  ],
+  "subnarratives": [
+    "Climate agenda has hidden motives"
+  ]
 }
 ```
 
